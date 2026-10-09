@@ -41,3 +41,13 @@ example
 # generated native folders
 /ios
 /android
+
+.env
+google-play-service-account.json
+*.aab
+*.apk
+
+# testes
+test-results/
+playwright-report/
+.claude/

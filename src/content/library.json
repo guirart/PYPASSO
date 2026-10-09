@@ -1,0 +1,3575 @@
+{
+ "categorias": [
+  {
+   "id": "basico",
+   "nome": "Básico",
+   "desc": "print, input, len, type e conversões"
+  },
+  {
+   "id": "numeros",
+   "nome": "Números",
+   "desc": "contas, arredondar, mínimo e máximo"
+  },
+  {
+   "id": "texto",
+   "nome": "Textos (str)",
+   "desc": "métodos de string"
+  },
+  {
+   "id": "listas",
+   "nome": "Listas",
+   "desc": "adicionar, remover, ordenar"
+  },
+  {
+   "id": "dicionarios",
+   "nome": "Dicionários",
+   "desc": "chave e valor"
+  },
+  {
+   "id": "conjuntos",
+   "nome": "Conjuntos e tuplas",
+   "desc": "set, tuple e operações"
+  },
+  {
+   "id": "lacos",
+   "nome": "Laços e iteração",
+   "desc": "range, enumerate, zip, map, filter"
+  },
+  {
+   "id": "arquivos",
+   "nome": "Arquivos",
+   "desc": "open, read, write"
+  },
+  {
+   "id": "erros",
+   "nome": "Erros",
+   "desc": "try, except, raise e os erros comuns"
+  },
+  {
+   "id": "modulos",
+   "nome": "Módulos",
+   "desc": "math, random, datetime"
+  },
+  {
+   "id": "palavras",
+   "nome": "Palavras-chave",
+   "desc": "if, for, while, def, class…"
+  },
+  {
+   "id": "embutidas",
+   "nome": "Mais funções embutidas",
+   "desc": "as outras built-ins: chr, ord, hex, getattr, super…"
+  }
+ ],
+ "funcoes": [
+  {
+   "id": "print",
+   "nome": "print()",
+   "cat": "basico",
+   "sig": "print(*valores, sep=' ', end='\\n')",
+   "resumo": "Mostra valores na tela.",
+   "explica": "Escreve na saída tudo que você passar, separado por espaço. No fim, pula uma linha. Dá para trocar o separador com sep e o final com end.",
+   "params": [
+    {
+     "nome": "valores",
+     "desc": "Um ou mais valores para mostrar, separados por vírgula."
+    },
+    {
+     "nome": "sep",
+     "desc": "O que vai entre os valores (padrão: espaço)."
+    },
+    {
+     "nome": "end",
+     "desc": "O que vai no fim (padrão: quebra de linha)."
+    }
+   ],
+   "retorna": "None (só mostra; não devolve nada útil).",
+   "exemplo": "print(\"Olá\", \"mundo\")\nprint(\"a\", \"b\", \"c\", sep=\"-\")\nprint(\"sem pular\", end=\" | \")\nprint(\"linha\")",
+   "cuidado": "print mostra, mas não devolve o valor. Para usar o resultado depois, guarde numa variável em vez de imprimir.",
+   "rel": [
+    "input",
+    "fstring",
+    "repr"
+   ],
+   "tags": "mostrar exibir saida escrever tela",
+   "entrada": "",
+   "saida": "Olá mundo\na-b-c\nsem pular | linha",
+   "licao": "fn_print_l0",
+   "builtin": true
+  },
+  {
+   "id": "input",
+   "nome": "input()",
+   "cat": "basico",
+   "sig": "input(pergunta='')",
+   "resumo": "Lê o que a pessoa digita.",
+   "explica": "Mostra a pergunta e espera a pessoa digitar e apertar Enter. Devolve sempre o texto digitado, mesmo que seja um número.",
+   "params": [
+    {
+     "nome": "pergunta",
+     "desc": "Texto mostrado antes da pessoa digitar (opcional)."
+    }
+   ],
+   "retorna": "str: o texto digitado.",
+   "exemplo": "nome = input(\"Seu nome: \")\nidade = int(input(\"Sua idade: \"))\nprint(f\"{nome} faz {idade + 1} ano que vem\")",
+   "cuidado": "input() sempre devolve texto. Para fazer contas, converta com int() ou float(). Na aba Código, as respostas vão na caixa Entrada.",
+   "rel": [
+    "int",
+    "float",
+    "print"
+   ],
+   "tags": "ler teclado digitar entrada perguntar",
+   "entrada": "Ana\n20",
+   "saida": "Seu nome: Ana\nSua idade: 20\nAna faz 21 ano que vem",
+   "licao": "fn_input_l0",
+   "builtin": true
+  },
+  {
+   "id": "len",
+   "nome": "len()",
+   "cat": "basico",
+   "sig": "len(coleção)",
+   "resumo": "Conta quantos itens algo tem.",
+   "explica": "Devolve o tamanho de uma string (quantidade de caracteres), lista, tupla, dicionário (quantidade de chaves) ou conjunto.",
+   "params": [
+    {
+     "nome": "coleção",
+     "desc": "String, lista, tupla, dicionário, conjunto…"
+    }
+   ],
+   "retorna": "int: a quantidade de itens.",
+   "exemplo": "print(len(\"Python\"))\nprint(len([10, 20, 30]))\nprint(len({\"a\": 1, \"b\": 2}))\nprint(len(\"\"))",
+   "cuidado": "Números não têm tamanho: len(42) dá TypeError. Espaços contam como caracteres.",
+   "rel": [
+    "range",
+    "str.count"
+   ],
+   "tags": "tamanho quantidade contar comprimento",
+   "entrada": "",
+   "saida": "6\n3\n2\n0",
+   "licao": "fn_len_l0",
+   "builtin": true
+  },
+  {
+   "id": "type",
+   "nome": "type()",
+   "cat": "basico",
+   "sig": "type(valor)",
+   "resumo": "Diz o tipo de um valor.",
+   "explica": "Útil para descobrir se algo é texto, número inteiro, decimal, lista… Ajuda muito a entender erros de tipo.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "Qualquer valor ou variável."
+    }
+   ],
+   "retorna": "O tipo do valor (por exemplo <class 'int'>).",
+   "exemplo": "print(type(42))\nprint(type(3.5))\nprint(type(\"oi\"))\nprint(type([1, 2]))",
+   "cuidado": "Para testar o tipo dentro de um if, prefira isinstance(valor, int).",
+   "rel": [
+    "isinstance",
+    "int",
+    "str"
+   ],
+   "tags": "tipo classe descobrir",
+   "entrada": "",
+   "saida": "<class 'int'>\n<class 'float'>\n<class 'str'>\n<class 'list'>",
+   "licao": "fn_type_l0",
+   "builtin": true
+  },
+  {
+   "id": "isinstance",
+   "nome": "isinstance()",
+   "cat": "basico",
+   "sig": "isinstance(valor, tipo)",
+   "resumo": "Testa se um valor é de um tipo.",
+   "explica": "Responde True ou False. Aceita uma tupla de tipos para testar vários de uma vez.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "O que você quer testar."
+    },
+    {
+     "nome": "tipo",
+     "desc": "Um tipo (int, str, list…) ou uma tupla de tipos."
+    }
+   ],
+   "retorna": "bool.",
+   "exemplo": "print(isinstance(5, int))\nprint(isinstance(\"5\", int))\nprint(isinstance(2.5, (int, float)))",
+   "cuidado": null,
+   "rel": [
+    "type"
+   ],
+   "tags": "tipo verificar checar",
+   "entrada": "",
+   "saida": "True\nFalse\nTrue",
+   "licao": "fn_isinstance_l0",
+   "builtin": true
+  },
+  {
+   "id": "int",
+   "nome": "int()",
+   "cat": "basico",
+   "sig": "int(valor)",
+   "resumo": "Converte para número inteiro.",
+   "explica": "Transforma textos como \"42\" em 42 e corta a parte decimal de números como 3.9 (vira 3, sem arredondar).",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "Texto com algarismos ou número decimal."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "print(int(\"42\") + 1)\nprint(int(3.9))\nprint(int(\"-7\"))",
+   "cuidado": "int(\"3.5\") e int(\"abc\") dão ValueError. Para textos com ponto, use float() primeiro.",
+   "rel": [
+    "float",
+    "str",
+    "round",
+    "input"
+   ],
+   "tags": "converter inteiro numero",
+   "entrada": "",
+   "saida": "43\n3\n-7",
+   "licao": "fn_int_l0",
+   "builtin": true
+  },
+  {
+   "id": "float",
+   "nome": "float()",
+   "cat": "basico",
+   "sig": "float(valor)",
+   "resumo": "Converte para número decimal.",
+   "explica": "Transforma textos como \"3.5\" em 3.5. Use ponto, não vírgula.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "Texto ou número."
+    }
+   ],
+   "retorna": "float.",
+   "exemplo": "print(float(\"3.5\") * 2)\nprint(float(7))",
+   "cuidado": "float(\"3,5\") dá ValueError: o separador decimal do Python é o ponto. Troque com texto.replace(\",\", \".\").",
+   "rel": [
+    "int",
+    "round"
+   ],
+   "tags": "decimal converter ponto flutuante",
+   "entrada": "",
+   "saida": "7.0\n7.0",
+   "licao": "fn_float_l0",
+   "builtin": true
+  },
+  {
+   "id": "str",
+   "nome": "str()",
+   "cat": "basico",
+   "sig": "str(valor)",
+   "resumo": "Converte qualquer valor em texto.",
+   "explica": "Útil para juntar números com textos usando +.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "Qualquer valor."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "idade = 30\nprint(\"Idade: \" + str(idade))\nprint(str(3.5) + \"!\")",
+   "cuidado": "Muitas vezes uma f-string é mais simples: f\"Idade: {idade}\".",
+   "rel": [
+    "fstring",
+    "int"
+   ],
+   "tags": "texto converter string",
+   "entrada": "",
+   "saida": "Idade: 30\n3.5!",
+   "licao": "fn_str_l0",
+   "builtin": true
+  },
+  {
+   "id": "bool",
+   "nome": "bool()",
+   "cat": "basico",
+   "sig": "bool(valor)",
+   "resumo": "Diz se um valor conta como verdadeiro.",
+   "explica": "0, texto vazio, lista vazia e None contam como False. Todo o resto é True. É isso que o if usa por baixo dos panos.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "Qualquer valor."
+    }
+   ],
+   "retorna": "True ou False.",
+   "exemplo": "print(bool(0))\nprint(bool(\"\"))\nprint(bool([]))\nprint(bool(\"0\"))\nprint(bool(42))",
+   "cuidado": "bool(\"False\") é True: é um texto com conteúdo.",
+   "rel": [
+    "if"
+   ],
+   "tags": "verdadeiro falso booleano",
+   "entrada": "",
+   "saida": "False\nFalse\nFalse\nTrue\nTrue",
+   "licao": "fn_bool_l0",
+   "builtin": true
+  },
+  {
+   "id": "repr",
+   "nome": "repr()",
+   "cat": "basico",
+   "sig": "repr(valor)",
+   "resumo": "Mostra o valor como ele é escrito no código.",
+   "explica": "Strings aparecem entre aspas e com \\n visível. Ótimo para enxergar espaços escondidos.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "Qualquer valor."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "texto = \"  oi\\n\"\nprint(texto)\nprint(repr(texto))",
+   "cuidado": null,
+   "rel": [
+    "print",
+    "str.strip"
+   ],
+   "tags": "depurar espacos aspas",
+   "entrada": "",
+   "saida": "  oi\n\n'  oi\\n'",
+   "licao": "fn_repr_l0",
+   "builtin": true
+  },
+  {
+   "id": "help",
+   "nome": "help()",
+   "cat": "basico",
+   "sig": "help(algo)",
+   "resumo": "Mostra a documentação oficial de algo.",
+   "explica": "Funciona com funções, métodos e módulos. Teste no >>> do terminal da aba Código.",
+   "params": [
+    {
+     "nome": "algo",
+     "desc": "Uma função, método, tipo ou módulo."
+    }
+   ],
+   "retorna": "None (mostra o texto de ajuda).",
+   "exemplo": "def dobro(n):\n    \"\"\"Devolve o dobro de n.\"\"\"\n    return n * 2\n\nprint(dobro.__doc__)",
+   "cuidado": "No terminal, digite help(len) ou help(str.split).",
+   "rel": [
+    "dir"
+   ],
+   "tags": "ajuda documentacao",
+   "entrada": "",
+   "saida": "Devolve o dobro de n.",
+   "licao": "fn_help_l0",
+   "builtin": true
+  },
+  {
+   "id": "dir",
+   "nome": "dir()",
+   "cat": "basico",
+   "sig": "dir(valor)",
+   "resumo": "Lista o que um valor sabe fazer.",
+   "explica": "Mostra os métodos e atributos disponíveis. Os nomes com __ dos dois lados são internos.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "Qualquer valor ou tipo."
+    }
+   ],
+   "retorna": "list de nomes.",
+   "exemplo": "metodos = [m for m in dir(\"texto\") if not m.startswith(\"_\")]\nprint(metodos[:6])",
+   "cuidado": null,
+   "rel": [
+    "help",
+    "type"
+   ],
+   "tags": "metodos listar atributos",
+   "entrada": "",
+   "saida": "['capitalize', 'casefold', 'center', 'count', 'encode', 'endswith']",
+   "licao": "fn_dir_l0",
+   "builtin": true
+  },
+  {
+   "id": "operadores",
+   "nome": "+ - * / // % **",
+   "cat": "numeros",
+   "sig": "a + b, a - b, a * b, a / b, a // b, a % b, a ** b",
+   "resumo": "As contas básicas.",
+   "explica": "/ é a divisão comum e sempre dá decimal. // é a divisão inteira (sem a parte decimal). % é o resto da divisão. ** é potência.",
+   "params": [],
+   "retorna": "O resultado da conta.",
+   "exemplo": "print(7 / 2)\nprint(7 // 2)\nprint(7 % 2)\nprint(2 ** 10)",
+   "cuidado": "Dividir por zero dá ZeroDivisionError. Para saber se n é par: n % 2 == 0.",
+   "rel": [
+    "divmod",
+    "round",
+    "abs"
+   ],
+   "tags": "conta soma divisao resto potencia matematica",
+   "entrada": "",
+   "saida": "3.5\n3\n1\n1024",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "round",
+   "nome": "round()",
+   "cat": "numeros",
+   "sig": "round(número, casas=0)",
+   "resumo": "Arredonda um número.",
+   "explica": "Sem o segundo argumento, devolve um inteiro. Com ele, mantém aquela quantidade de casas decimais.",
+   "params": [
+    {
+     "nome": "número",
+     "desc": "O valor a arredondar."
+    },
+    {
+     "nome": "casas",
+     "desc": "Quantas casas decimais manter (opcional)."
+    }
+   ],
+   "retorna": "int ou float.",
+   "exemplo": "print(round(3.14159, 2))\nprint(round(2.7))\nprint(round(1234.5678, -2))",
+   "cuidado": "Nos empates o Python arredonda para o par mais próximo: round(2.5) é 2 e round(3.5) é 4.",
+   "rel": [
+    "int",
+    "math.floor"
+   ],
+   "tags": "arredondar casas decimais",
+   "entrada": "",
+   "saida": "3.14\n3\n1200.0",
+   "licao": "fn_round_l0",
+   "builtin": true
+  },
+  {
+   "id": "abs",
+   "nome": "abs()",
+   "cat": "numeros",
+   "sig": "abs(número)",
+   "resumo": "Valor absoluto (tira o sinal).",
+   "explica": "Transforma negativos em positivos. Útil para medir distâncias e diferenças.",
+   "params": [
+    {
+     "nome": "número",
+     "desc": "Qualquer número."
+    }
+   ],
+   "retorna": "O número sem sinal.",
+   "exemplo": "print(abs(-7))\nprint(abs(3.5))\nprint(abs(10 - 25))",
+   "cuidado": null,
+   "rel": [
+    "operadores"
+   ],
+   "tags": "modulo positivo distancia",
+   "entrada": "",
+   "saida": "7\n3.5\n15",
+   "licao": "fn_abs_l0",
+   "builtin": true
+  },
+  {
+   "id": "min",
+   "nome": "min()",
+   "cat": "numeros",
+   "sig": "min(itens) ou min(a, b, …)",
+   "resumo": "O menor valor.",
+   "explica": "Aceita vários argumentos ou uma lista. Com textos, compara em ordem alfabética.",
+   "params": [
+    {
+     "nome": "itens",
+     "desc": "Uma coleção ou vários valores."
+    },
+    {
+     "nome": "key",
+     "desc": "Função que diz o que comparar (opcional)."
+    }
+   ],
+   "retorna": "O menor item.",
+   "exemplo": "print(min(4, 9, 2))\nprint(min([3.5, 1.2, 8]))\nprint(min([\"pera\", \"uva\", \"abacaxi\"], key=len))",
+   "cuidado": "min([]) dá ValueError: lista vazia não tem menor valor.",
+   "rel": [
+    "max",
+    "sorted"
+   ],
+   "tags": "menor minimo",
+   "entrada": "",
+   "saida": "2\n1.2\nuva",
+   "licao": "fn_min_l0",
+   "builtin": true
+  },
+  {
+   "id": "max",
+   "nome": "max()",
+   "cat": "numeros",
+   "sig": "max(itens) ou max(a, b, …)",
+   "resumo": "O maior valor.",
+   "explica": "Igual ao min, mas devolve o maior. Com key, você escolhe o critério.",
+   "params": [
+    {
+     "nome": "itens",
+     "desc": "Uma coleção ou vários valores."
+    },
+    {
+     "nome": "key",
+     "desc": "Função que diz o que comparar (opcional)."
+    }
+   ],
+   "retorna": "O maior item.",
+   "exemplo": "print(max(4, 9, 2))\nnotas = {\"Ana\": 9, \"Caio\": 7}\nprint(max(notas, key=notas.get))",
+   "cuidado": null,
+   "rel": [
+    "min",
+    "sorted"
+   ],
+   "tags": "maior maximo",
+   "entrada": "",
+   "saida": "9\nAna",
+   "licao": "fn_max_l0",
+   "builtin": true
+  },
+  {
+   "id": "sum",
+   "nome": "sum()",
+   "cat": "numeros",
+   "sig": "sum(números, início=0)",
+   "resumo": "Soma todos os números de uma coleção.",
+   "explica": "Funciona com listas, tuplas, conjuntos e geradores de números.",
+   "params": [
+    {
+     "nome": "números",
+     "desc": "Coleção de números."
+    },
+    {
+     "nome": "início",
+     "desc": "Valor inicial da soma (opcional)."
+    }
+   ],
+   "retorna": "A soma.",
+   "exemplo": "print(sum([10, 20, 30]))\nprint(sum(range(1, 101)))\nnotas = [7, 8, 9]\nprint(sum(notas) / len(notas))",
+   "cuidado": "sum não junta textos; para isso use \"\".join(lista).",
+   "rel": [
+    "len",
+    "str.join"
+   ],
+   "tags": "somar total media",
+   "entrada": "",
+   "saida": "60\n5050\n8.0",
+   "licao": "fn_sum_l0",
+   "builtin": true
+  },
+  {
+   "id": "divmod",
+   "nome": "divmod()",
+   "cat": "numeros",
+   "sig": "divmod(a, b)",
+   "resumo": "Divisão inteira e resto de uma vez.",
+   "explica": "Devolve a tupla (a // b, a % b). Muito usado para converter segundos em minutos e segundos.",
+   "params": [
+    {
+     "nome": "a",
+     "desc": "Dividendo."
+    },
+    {
+     "nome": "b",
+     "desc": "Divisor."
+    }
+   ],
+   "retorna": "tuple (quociente, resto).",
+   "exemplo": "minutos, segundos = divmod(135, 60)\nprint(minutos, \"min\", segundos, \"s\")",
+   "cuidado": null,
+   "rel": [
+    "operadores"
+   ],
+   "tags": "quociente resto tempo",
+   "entrada": "",
+   "saida": "2 min 15 s",
+   "licao": "fn_divmod_l0",
+   "builtin": true
+  },
+  {
+   "id": "pow",
+   "nome": "pow()",
+   "cat": "numeros",
+   "sig": "pow(base, expoente)",
+   "resumo": "Potência (o mesmo que **).",
+   "explica": "pow(2, 3) é o mesmo que 2 ** 3.",
+   "params": [
+    {
+     "nome": "base",
+     "desc": "O número."
+    },
+    {
+     "nome": "expoente",
+     "desc": "A potência."
+    }
+   ],
+   "retorna": "O resultado.",
+   "exemplo": "print(pow(2, 3))\nprint(pow(9, 0.5))",
+   "cuidado": null,
+   "rel": [
+    "operadores",
+    "math.sqrt"
+   ],
+   "tags": "potencia elevado",
+   "entrada": "",
+   "saida": "8\n3.0",
+   "licao": "fn_pow_l0",
+   "builtin": true
+  },
+  {
+   "id": "fstring",
+   "nome": "f\"…{valor}…\"",
+   "cat": "texto",
+   "sig": "f\"texto {expressão}\"",
+   "resumo": "Monta textos com valores dentro.",
+   "explica": "Coloque f antes das aspas e escreva variáveis ou contas entre chaves. Depois de dois-pontos dá para formatar: casas decimais, alinhamento…",
+   "params": [],
+   "retorna": "str.",
+   "exemplo": "nome, preco = \"Bia\", 4.5\nprint(f\"Oi, {nome}! Total: R$ {preco * 2:.2f}\")\nprint(f\"{nome:>6}|\")",
+   "cuidado": "Sem o f antes das aspas, as chaves aparecem literalmente: \"Oi, {nome}\".",
+   "rel": [
+    "str",
+    "print"
+   ],
+   "tags": "formatar fstring interpolar",
+   "entrada": "",
+   "saida": "Oi, Bia! Total: R$ 9.00\n   Bia|",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.upper",
+   "nome": ".upper()",
+   "cat": "texto",
+   "sig": "texto.upper()",
+   "resumo": "Tudo em MAIÚSCULAS.",
+   "explica": "Devolve uma nova string com todas as letras maiúsculas.",
+   "params": [],
+   "retorna": "str.",
+   "exemplo": "print(\"python\".upper())",
+   "cuidado": "Strings não mudam: s.upper() sozinho não altera s. Guarde o resultado: s = s.upper().",
+   "rel": [
+    "str.lower",
+    "str.title"
+   ],
+   "tags": "maiuscula caixa alta",
+   "entrada": "",
+   "saida": "PYTHON",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.lower",
+   "nome": ".lower()",
+   "cat": "texto",
+   "sig": "texto.lower()",
+   "resumo": "Tudo em minúsculas.",
+   "explica": "Ótimo para comparar respostas sem ligar para maiúsculas.",
+   "params": [],
+   "retorna": "str.",
+   "exemplo": "resposta = \"SiM\"\nprint(resposta.lower() == \"sim\")",
+   "cuidado": null,
+   "rel": [
+    "str.upper",
+    "str.casefold"
+   ],
+   "tags": "minuscula comparar",
+   "entrada": "",
+   "saida": "True",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.title",
+   "nome": ".title()",
+   "cat": "texto",
+   "sig": "texto.title()",
+   "resumo": "Maiúscula no começo de cada palavra.",
+   "explica": "Útil para nomes e títulos.",
+   "params": [],
+   "retorna": "str.",
+   "exemplo": "print(\"ana maria silva\".title())",
+   "cuidado": "Apóstrofos confundem o title: \"d'água\".title() vira \"D'Água\".",
+   "rel": [
+    "str.capitalize",
+    "str.upper"
+   ],
+   "tags": "nome titulo",
+   "entrada": "",
+   "saida": "Ana Maria Silva",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.capitalize",
+   "nome": ".capitalize()",
+   "cat": "texto",
+   "sig": "texto.capitalize()",
+   "resumo": "Só a primeira letra maiúscula.",
+   "explica": "A primeira letra vira maiúscula e todo o resto vira minúsculo.",
+   "params": [],
+   "retorna": "str.",
+   "exemplo": "print(\"pYTHON é LEGAL\".capitalize())",
+   "cuidado": null,
+   "rel": [
+    "str.title"
+   ],
+   "tags": "primeira letra frase",
+   "entrada": "",
+   "saida": "Python é legal",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.swapcase",
+   "nome": ".swapcase()",
+   "cat": "texto",
+   "sig": "texto.swapcase()",
+   "resumo": "Inverte maiúsculas e minúsculas.",
+   "explica": "O que era maiúsculo vira minúsculo e vice-versa.",
+   "params": [],
+   "retorna": "str.",
+   "exemplo": "print(\"Olá Mundo\".swapcase())",
+   "cuidado": null,
+   "rel": [
+    "str.upper",
+    "str.lower"
+   ],
+   "tags": "inverter caixa",
+   "entrada": "",
+   "saida": "oLÁ mUNDO",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.strip",
+   "nome": ".strip()",
+   "cat": "texto",
+   "sig": "texto.strip(caracteres=None)",
+   "resumo": "Tira espaços das pontas.",
+   "explica": "Remove espaços, \\n e \\t do começo e do fim. Passando caracteres, remove esses das pontas.",
+   "params": [
+    {
+     "nome": "caracteres",
+     "desc": "Quais caracteres remover (opcional). É um conjunto, não uma palavra."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(repr(\"  oi  \".strip()))\nprint(\"***oba***\".strip(\"*\"))",
+   "cuidado": "\"banana\".strip(\"an\") vira \"b\": remove as letras a e n das pontas, não a palavra \"an\".",
+   "rel": [
+    "str.lstrip",
+    "str.rstrip"
+   ],
+   "tags": "espacos limpar remover pontas",
+   "entrada": "",
+   "saida": "'oi'\noba",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.lstrip",
+   "nome": ".lstrip()",
+   "cat": "texto",
+   "sig": "texto.lstrip(caracteres=None)",
+   "resumo": "Tira espaços só da esquerda.",
+   "explica": "Igual ao strip, mas mexe só no começo (left).",
+   "params": [
+    {
+     "nome": "caracteres",
+     "desc": "Quais caracteres remover (opcional)."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(repr(\"  oi  \".lstrip()))\nprint(\"00042\".lstrip(\"0\"))",
+   "cuidado": null,
+   "rel": [
+    "str.strip",
+    "str.rstrip"
+   ],
+   "tags": "esquerda inicio",
+   "entrada": "",
+   "saida": "'oi  '\n42",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.rstrip",
+   "nome": ".rstrip()",
+   "cat": "texto",
+   "sig": "texto.rstrip(caracteres=None)",
+   "resumo": "Tira espaços só da direita.",
+   "explica": "Igual ao strip, mas mexe só no fim (right). Muito usado para tirar o \\n de linhas lidas de arquivos.",
+   "params": [
+    {
+     "nome": "caracteres",
+     "desc": "Quais caracteres remover (opcional)."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(repr(\"  oi  \".rstrip()))\nprint(repr(\"linha\\n\".rstrip(\"\\n\")))",
+   "cuidado": null,
+   "rel": [
+    "str.strip",
+    "str.lstrip"
+   ],
+   "tags": "direita fim",
+   "entrada": "",
+   "saida": "'  oi'\n'linha'",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.center",
+   "nome": ".center()",
+   "cat": "texto",
+   "sig": "texto.center(largura, preenchimento=' ')",
+   "resumo": "Centraliza num tamanho fixo.",
+   "explica": "Completa os dois lados até a largura pedida.",
+   "params": [
+    {
+     "nome": "largura",
+     "desc": "Tamanho final."
+    },
+    {
+     "nome": "preenchimento",
+     "desc": "Caractere usado para completar (opcional)."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(\"menu\".center(12, \"*\"))",
+   "cuidado": "Se a largura for menor que o texto, ele volta sem mudanças.",
+   "rel": [
+    "str.ljust",
+    "str.rjust",
+    "fstring"
+   ],
+   "tags": "centralizar alinhar",
+   "entrada": "",
+   "saida": "****menu****",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.ljust",
+   "nome": ".ljust()",
+   "cat": "texto",
+   "sig": "texto.ljust(largura, preenchimento=' ')",
+   "resumo": "Alinha à esquerda num tamanho fixo.",
+   "explica": "Completa à direita. Bom para montar tabelas.",
+   "params": [
+    {
+     "nome": "largura",
+     "desc": "Tamanho final."
+    },
+    {
+     "nome": "preenchimento",
+     "desc": "Caractere de preenchimento (opcional)."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "for item, preco in [(\"pão\", 2), (\"café\", 7)]:\n    print(item.ljust(8, \".\") + str(preco))",
+   "cuidado": null,
+   "rel": [
+    "str.rjust",
+    "str.center"
+   ],
+   "tags": "alinhar esquerda tabela",
+   "entrada": "",
+   "saida": "pão.....2\ncafé....7",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.rjust",
+   "nome": ".rjust()",
+   "cat": "texto",
+   "sig": "texto.rjust(largura, preenchimento=' ')",
+   "resumo": "Alinha à direita num tamanho fixo.",
+   "explica": "Completa à esquerda.",
+   "params": [
+    {
+     "nome": "largura",
+     "desc": "Tamanho final."
+    },
+    {
+     "nome": "preenchimento",
+     "desc": "Caractere de preenchimento (opcional)."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(\"7\".rjust(3, \"0\"))\nprint(\"fim\".rjust(8) + \"|\")",
+   "cuidado": null,
+   "rel": [
+    "str.ljust",
+    "str.zfill"
+   ],
+   "tags": "alinhar direita",
+   "entrada": "",
+   "saida": "007\n     fim|",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.zfill",
+   "nome": ".zfill()",
+   "cat": "texto",
+   "sig": "texto.zfill(largura)",
+   "resumo": "Completa com zeros à esquerda.",
+   "explica": "Ideal para códigos e números de pedido. Respeita o sinal de menos.",
+   "params": [
+    {
+     "nome": "largura",
+     "desc": "Tamanho final."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(\"42\".zfill(5))\nprint(str(7).zfill(3))",
+   "cuidado": "Só funciona em texto: converta números com str() antes.",
+   "rel": [
+    "str.rjust"
+   ],
+   "tags": "zeros codigo",
+   "entrada": "",
+   "saida": "00042\n007",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.split",
+   "nome": ".split()",
+   "cat": "texto",
+   "sig": "texto.split(sep=None, maxsplit=-1)",
+   "resumo": "Quebra o texto numa lista.",
+   "explica": "Sem argumentos, quebra nos espaços (e ignora espaços repetidos). Com sep, quebra naquele separador.",
+   "params": [
+    {
+     "nome": "sep",
+     "desc": "Onde quebrar (opcional)."
+    },
+    {
+     "nome": "maxsplit",
+     "desc": "Quantas quebras no máximo (opcional)."
+    }
+   ],
+   "retorna": "list de str.",
+   "exemplo": "print(\"um  dois três\".split())\nprint(\"a,b,c\".split(\",\"))\nprint(\"a-b-c\".split(\"-\", 1))",
+   "cuidado": null,
+   "rel": [
+    "str.join",
+    "str.rsplit",
+    "str.splitlines",
+    "str.partition"
+   ],
+   "tags": "quebrar dividir separar palavras",
+   "entrada": "",
+   "saida": "['um', 'dois', 'três']\n['a', 'b', 'c']\n['a', 'b-c']",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.rsplit",
+   "nome": ".rsplit()",
+   "cat": "texto",
+   "sig": "texto.rsplit(sep=None, maxsplit=-1)",
+   "resumo": "Quebra começando pela direita.",
+   "explica": "Só faz diferença quando há maxsplit.",
+   "params": [
+    {
+     "nome": "sep",
+     "desc": "Onde quebrar."
+    },
+    {
+     "nome": "maxsplit",
+     "desc": "Quantas quebras no máximo."
+    }
+   ],
+   "retorna": "list de str.",
+   "exemplo": "print(\"foto.final.png\".rsplit(\".\", 1))",
+   "cuidado": null,
+   "rel": [
+    "str.split"
+   ],
+   "tags": "direita extensao",
+   "entrada": "",
+   "saida": "['foto.final', 'png']",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.splitlines",
+   "nome": ".splitlines()",
+   "cat": "texto",
+   "sig": "texto.splitlines()",
+   "resumo": "Quebra o texto em linhas.",
+   "explica": "Separa em cada quebra de linha.",
+   "params": [],
+   "retorna": "list de str.",
+   "exemplo": "poema = \"linha 1\\nlinha 2\\nlinha 3\"\nprint(poema.splitlines())",
+   "cuidado": null,
+   "rel": [
+    "str.split"
+   ],
+   "tags": "linhas quebrar",
+   "entrada": "",
+   "saida": "['linha 1', 'linha 2', 'linha 3']",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.join",
+   "nome": ".join()",
+   "cat": "texto",
+   "sig": "separador.join(lista)",
+   "resumo": "Junta uma lista num texto só.",
+   "explica": "O separador vai entre os itens. É o contrário do split.",
+   "params": [
+    {
+     "nome": "lista",
+     "desc": "Coleção de strings."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(\" \".join([\"Python\", \"é\", \"legal\"]))\nprint(\"-\".join(\"abc\"))\nprint(\", \".join([str(n) for n in [1, 2, 3]]))",
+   "cuidado": "Todos os itens precisam ser texto: \"-\".join([1, 2]) dá TypeError.",
+   "rel": [
+    "str.split"
+   ],
+   "tags": "juntar unir concatenar lista",
+   "entrada": "",
+   "saida": "Python é legal\na-b-c\n1, 2, 3",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.replace",
+   "nome": ".replace()",
+   "cat": "texto",
+   "sig": "texto.replace(velho, novo, quantas=-1)",
+   "resumo": "Troca um trecho por outro.",
+   "explica": "Troca todas as ocorrências, ou só as primeiras se você passar quantas.",
+   "params": [
+    {
+     "nome": "velho",
+     "desc": "O que procurar."
+    },
+    {
+     "nome": "novo",
+     "desc": "O que colocar no lugar."
+    },
+    {
+     "nome": "quantas",
+     "desc": "Limite de trocas (opcional)."
+    }
+   ],
+   "retorna": "str.",
+   "exemplo": "print(\"banana\".replace(\"a\", \"o\"))\nprint(\"banana\".replace(\"a\", \"o\", 1))\nprint(\"3,5\".replace(\",\", \".\"))",
+   "cuidado": null,
+   "rel": [
+    "str.find",
+    "str.strip"
+   ],
+   "tags": "trocar substituir",
+   "entrada": "",
+   "saida": "bonono\nbonana\n3.5",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.find",
+   "nome": ".find()",
+   "cat": "texto",
+   "sig": "texto.find(trecho)",
+   "resumo": "Posição de um trecho (ou -1).",
+   "explica": "Devolve o índice onde o trecho começa. Se não achar, devolve -1 em vez de dar erro.",
+   "params": [
+    {
+     "nome": "trecho",
+     "desc": "O que procurar."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "print(\"banana\".find(\"na\"))\nprint(\"banana\".find(\"x\"))",
+   "cuidado": null,
+   "rel": [
+    "str.index",
+    "str.count",
+    "in"
+   ],
+   "tags": "procurar posicao buscar",
+   "entrada": "",
+   "saida": "2\n-1",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.index",
+   "nome": ".index()",
+   "cat": "texto",
+   "sig": "texto.index(trecho)",
+   "resumo": "Posição de um trecho (ou erro).",
+   "explica": "Igual ao find, mas dá ValueError se não achar. Também existe em listas.",
+   "params": [
+    {
+     "nome": "trecho",
+     "desc": "O que procurar."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "print(\"banana\".index(\"n\"))",
+   "cuidado": "\"banana\".index(\"x\") dá ValueError. Use find ou teste com in antes.",
+   "rel": [
+    "str.find"
+   ],
+   "tags": "posicao procurar",
+   "entrada": "",
+   "saida": "2",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.count",
+   "nome": ".count()",
+   "cat": "texto",
+   "sig": "texto.count(trecho)",
+   "resumo": "Conta quantas vezes um trecho aparece.",
+   "explica": "Conta ocorrências que não se sobrepõem.",
+   "params": [
+    {
+     "nome": "trecho",
+     "desc": "O que contar."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "print(\"banana\".count(\"a\"))\nprint(\"o rato roeu\".count(\"o\"))",
+   "cuidado": null,
+   "rel": [
+    "str.find",
+    "len"
+   ],
+   "tags": "contar ocorrencias",
+   "entrada": "",
+   "saida": "3\n3",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.startswith",
+   "nome": ".startswith()",
+   "cat": "texto",
+   "sig": "texto.startswith(prefixo)",
+   "resumo": "Começa com…?",
+   "explica": "Responde True ou False. Aceita uma tupla com várias opções.",
+   "params": [
+    {
+     "nome": "prefixo",
+     "desc": "Texto (ou tupla de textos) para testar no começo."
+    }
+   ],
+   "retorna": "bool.",
+   "exemplo": "print(\"Python\".startswith(\"Py\"))\nprint(\"doc.txt\".startswith((\"img\", \"doc\")))",
+   "cuidado": null,
+   "rel": [
+    "str.endswith"
+   ],
+   "tags": "comeca prefixo inicio",
+   "entrada": "",
+   "saida": "True\nTrue",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.endswith",
+   "nome": ".endswith()",
+   "cat": "texto",
+   "sig": "texto.endswith(sufixo)",
+   "resumo": "Termina com…?",
+   "explica": "Ótimo para testar extensões de arquivo e domínios de e-mail.",
+   "params": [
+    {
+     "nome": "sufixo",
+     "desc": "Texto (ou tupla de textos) para testar no fim."
+    }
+   ],
+   "retorna": "bool.",
+   "exemplo": "arquivo = \"foto.PNG\"\nprint(arquivo.lower().endswith((\".png\", \".jpg\")))",
+   "cuidado": null,
+   "rel": [
+    "str.startswith"
+   ],
+   "tags": "termina extensao sufixo",
+   "entrada": "",
+   "saida": "True",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.isdigit",
+   "nome": ".isdigit()",
+   "cat": "texto",
+   "sig": "texto.isdigit()",
+   "resumo": "Só tem algarismos?",
+   "explica": "True se todos os caracteres forem de 0 a 9 (e o texto não for vazio).",
+   "params": [],
+   "retorna": "bool.",
+   "exemplo": "print(\"2024\".isdigit())\nprint(\"-5\".isdigit())\nprint(\"3.5\".isdigit())",
+   "cuidado": "Sinal de menos e ponto não são algarismos.",
+   "rel": [
+    "str.isalpha",
+    "str.isalnum",
+    "int"
+   ],
+   "tags": "numero digito validar",
+   "entrada": "",
+   "saida": "True\nFalse\nFalse",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.isalpha",
+   "nome": ".isalpha()",
+   "cat": "texto",
+   "sig": "texto.isalpha()",
+   "resumo": "Só tem letras?",
+   "explica": "Letras com acento contam. Espaço não conta.",
+   "params": [],
+   "retorna": "bool.",
+   "exemplo": "print(\"Ação\".isalpha())\nprint(\"Ana Lu\".isalpha())",
+   "cuidado": null,
+   "rel": [
+    "str.isdigit",
+    "str.isalnum"
+   ],
+   "tags": "letras validar",
+   "entrada": "",
+   "saida": "True\nFalse",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.isalnum",
+   "nome": ".isalnum()",
+   "cat": "texto",
+   "sig": "texto.isalnum()",
+   "resumo": "Só letras e algarismos?",
+   "explica": "True se não houver espaços nem símbolos.",
+   "params": [],
+   "retorna": "bool.",
+   "exemplo": "print(\"abc123\".isalnum())\nprint(\"abc 123\".isalnum())",
+   "cuidado": null,
+   "rel": [
+    "str.isalpha",
+    "str.isdigit"
+   ],
+   "tags": "alfanumerico validar",
+   "entrada": "",
+   "saida": "True\nFalse",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.isspace",
+   "nome": ".isspace()",
+   "cat": "texto",
+   "sig": "texto.isspace()",
+   "resumo": "Só tem espaços?",
+   "explica": "Útil para detectar respostas em branco.",
+   "params": [],
+   "retorna": "bool.",
+   "exemplo": "print(\"   \".isspace())\nprint(\"\".isspace())",
+   "cuidado": "Texto vazio dá False. Para pegar vazio e só espaços juntos: not texto.strip().",
+   "rel": [
+    "str.strip"
+   ],
+   "tags": "branco vazio espacos",
+   "entrada": "",
+   "saida": "True\nFalse",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.partition",
+   "nome": ".partition()",
+   "cat": "texto",
+   "sig": "texto.partition(sep)",
+   "resumo": "Divide em 3 partes na primeira ocorrência.",
+   "explica": "Devolve (antes, separador, depois). Se não achar, devolve (texto, '', '').",
+   "params": [
+    {
+     "nome": "sep",
+     "desc": "O separador."
+    }
+   ],
+   "retorna": "tuple de 3 str.",
+   "exemplo": "chave, _, valor = \"cor=azul\".partition(\"=\")\nprint(chave, valor)",
+   "cuidado": null,
+   "rel": [
+    "str.split"
+   ],
+   "tags": "dividir chave valor",
+   "entrada": "",
+   "saida": "cor azul",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "str.casefold",
+   "nome": ".casefold()",
+   "cat": "texto",
+   "sig": "texto.casefold()",
+   "resumo": "Minúsculas para comparar.",
+   "explica": "Parecido com lower(), mas mais forte para comparações em vários idiomas.",
+   "params": [],
+   "retorna": "str.",
+   "exemplo": "print(\"Straße\".casefold() == \"strasse\")",
+   "cuidado": null,
+   "rel": [
+    "str.lower"
+   ],
+   "tags": "comparar minuscula",
+   "entrada": "",
+   "saida": "True",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "in",
+   "nome": "in",
+   "cat": "texto",
+   "sig": "item in coleção",
+   "resumo": "Testa se algo está dentro de outra coisa.",
+   "explica": "Funciona com strings (trecho dentro do texto), listas, tuplas, conjuntos e dicionários (procura nas chaves). not in faz o contrário.",
+   "params": [],
+   "retorna": "bool.",
+   "exemplo": "print(\"py\" in \"python\")\nprint(3 in [1, 2, 3])\nprint(\"nome\" in {\"nome\": \"Ana\"})\nprint(\"x\" not in \"abc\")",
+   "cuidado": "Em dicionários, in procura nas chaves, não nos valores.",
+   "rel": [
+    "str.find",
+    "list.index"
+   ],
+   "tags": "contem pertence existe",
+   "entrada": "",
+   "saida": "True\nTrue\nTrue\nTrue",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "fatias",
+   "nome": "texto[início:fim:passo]",
+   "cat": "texto",
+   "sig": "seq[início:fim:passo]",
+   "resumo": "Pega um pedaço de string, lista ou tupla.",
+   "explica": "O início entra e o fim não. Índices negativos contam do fim. Passo -1 inverte.",
+   "params": [
+    {
+     "nome": "início",
+     "desc": "Onde começa (padrão: 0)."
+    },
+    {
+     "nome": "fim",
+     "desc": "Onde para, sem incluir (padrão: até o fim)."
+    },
+    {
+     "nome": "passo",
+     "desc": "De quanto em quanto (padrão: 1)."
+    }
+   ],
+   "retorna": "Um pedaço do mesmo tipo.",
+   "exemplo": "s = \"python\"\nprint(s[0])\nprint(s[-1])\nprint(s[1:4])\nprint(s[::-1])",
+   "cuidado": "Índice fora do tamanho dá IndexError, mas fatias fora do tamanho não dão erro.",
+   "rel": [
+    "len"
+   ],
+   "tags": "indice fatia slice pedaco inverter",
+   "entrada": "",
+   "saida": "p\nn\nyth\nnohtyp",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.append",
+   "nome": ".append()",
+   "cat": "listas",
+   "sig": "lista.append(item)",
+   "resumo": "Coloca um item no fim.",
+   "explica": "Altera a própria lista.",
+   "params": [
+    {
+     "nome": "item",
+     "desc": "O que adicionar."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "frutas = [\"maçã\"]\nfrutas.append(\"uva\")\nprint(frutas)",
+   "cuidado": "Não faça lista = lista.append(x): append devolve None e você perde a lista.",
+   "rel": [
+    "list.extend",
+    "list.insert"
+   ],
+   "tags": "adicionar inserir final",
+   "entrada": "",
+   "saida": "['maçã', 'uva']",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.extend",
+   "nome": ".extend()",
+   "cat": "listas",
+   "sig": "lista.extend(outra)",
+   "resumo": "Junta outra coleção no fim.",
+   "explica": "Coloca cada item da outra coleção, um por um.",
+   "params": [
+    {
+     "nome": "outra",
+     "desc": "Lista, tupla, string…"
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "a = [1, 2]\na.extend([3, 4])\nprint(a)\nb = [1, 2]\nb.append([3, 4])\nprint(b)",
+   "cuidado": "append coloca a lista inteira como um item só; extend coloca os itens.",
+   "rel": [
+    "list.append"
+   ],
+   "tags": "juntar concatenar",
+   "entrada": "",
+   "saida": "[1, 2, 3, 4]\n[1, 2, [3, 4]]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.insert",
+   "nome": ".insert()",
+   "cat": "listas",
+   "sig": "lista.insert(posição, item)",
+   "resumo": "Coloca um item numa posição.",
+   "explica": "Os itens dali em diante andam uma casa.",
+   "params": [
+    {
+     "nome": "posição",
+     "desc": "Índice onde inserir."
+    },
+    {
+     "nome": "item",
+     "desc": "O que inserir."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "letras = [\"a\", \"c\"]\nletras.insert(1, \"b\")\nprint(letras)",
+   "cuidado": null,
+   "rel": [
+    "list.append"
+   ],
+   "tags": "inserir posicao",
+   "entrada": "",
+   "saida": "['a', 'b', 'c']",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.remove",
+   "nome": ".remove()",
+   "cat": "listas",
+   "sig": "lista.remove(valor)",
+   "resumo": "Remove a primeira ocorrência de um valor.",
+   "explica": "Procura pelo valor, não pela posição.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "O que remover."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "nums = [3, 1, 3]\nnums.remove(3)\nprint(nums)",
+   "cuidado": "Se o valor não existir, dá ValueError. Teste com in antes.",
+   "rel": [
+    "list.pop",
+    "list.clear"
+   ],
+   "tags": "remover apagar excluir",
+   "entrada": "",
+   "saida": "[1, 3]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.pop",
+   "nome": ".pop()",
+   "cat": "listas",
+   "sig": "lista.pop(posição=-1)",
+   "resumo": "Remove e devolve um item.",
+   "explica": "Sem argumento, tira o último. Com uma posição, tira aquele.",
+   "params": [
+    {
+     "nome": "posição",
+     "desc": "Índice a remover (opcional)."
+    }
+   ],
+   "retorna": "O item removido.",
+   "exemplo": "pilha = [1, 2, 3]\nultimo = pilha.pop()\nprimeiro = pilha.pop(0)\nprint(ultimo, primeiro, pilha)",
+   "cuidado": "pop() em lista vazia dá IndexError.",
+   "rel": [
+    "list.remove"
+   ],
+   "tags": "remover ultimo pilha",
+   "entrada": "",
+   "saida": "3 1 [2]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.clear",
+   "nome": ".clear()",
+   "cat": "listas",
+   "sig": "lista.clear()",
+   "resumo": "Esvazia a lista.",
+   "explica": "Remove todos os itens.",
+   "params": [],
+   "retorna": "None.",
+   "exemplo": "nums = [1, 2, 3]\nnums.clear()\nprint(nums)",
+   "cuidado": null,
+   "rel": [
+    "list.remove"
+   ],
+   "tags": "limpar esvaziar",
+   "entrada": "",
+   "saida": "[]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.index",
+   "nome": ".index()",
+   "cat": "listas",
+   "sig": "lista.index(valor)",
+   "resumo": "Posição de um valor.",
+   "explica": "Devolve o índice da primeira ocorrência.",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "O que procurar."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "cores = [\"azul\", \"verde\", \"azul\"]\nprint(cores.index(\"verde\"))",
+   "cuidado": "Dá ValueError se não achar.",
+   "rel": [
+    "list.count",
+    "in"
+   ],
+   "tags": "posicao procurar",
+   "entrada": "",
+   "saida": "1",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.count",
+   "nome": ".count()",
+   "cat": "listas",
+   "sig": "lista.count(valor)",
+   "resumo": "Conta quantas vezes um valor aparece.",
+   "explica": "",
+   "params": [
+    {
+     "nome": "valor",
+     "desc": "O que contar."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "votos = [\"sim\", \"não\", \"sim\"]\nprint(votos.count(\"sim\"))",
+   "cuidado": null,
+   "rel": [
+    "list.index"
+   ],
+   "tags": "contar",
+   "entrada": "",
+   "saida": "2",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list.sort",
+   "nome": ".sort()",
+   "cat": "listas",
+   "sig": "lista.sort(reverse=False, key=None)",
+   "resumo": "Ordena a própria lista.",
+   "explica": "Altera a lista no lugar. reverse=True ordena do maior para o menor; key escolhe o critério.",
+   "params": [
+    {
+     "nome": "reverse",
+     "desc": "True para ordem decrescente."
+    },
+    {
+     "nome": "key",
+     "desc": "Função que diz como comparar."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "nums = [3, 1, 2]\nnums.sort()\nprint(nums)\nnomes = [\"Bia\", \"ana\", \"Caio\"]\nnomes.sort(key=str.lower)\nprint(nomes)",
+   "cuidado": "sort devolve None: não faça lista = lista.sort(). Para uma cópia ordenada, use sorted().",
+   "rel": [
+    "sorted",
+    "list.reverse"
+   ],
+   "tags": "ordenar classificar",
+   "entrada": "",
+   "saida": "[1, 2, 3]\n['ana', 'Bia', 'Caio']",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "sorted",
+   "nome": "sorted()",
+   "cat": "listas",
+   "sig": "sorted(coleção, reverse=False, key=None)",
+   "resumo": "Devolve uma cópia ordenada.",
+   "explica": "Funciona com qualquer coleção e não mexe na original.",
+   "params": [
+    {
+     "nome": "coleção",
+     "desc": "Lista, tupla, string, conjunto…"
+    },
+    {
+     "nome": "reverse",
+     "desc": "True para decrescente."
+    },
+    {
+     "nome": "key",
+     "desc": "Critério de ordenação."
+    }
+   ],
+   "retorna": "list nova.",
+   "exemplo": "notas = [7, 10, 5]\nprint(sorted(notas))\nprint(sorted(notas, reverse=True))\nprint(notas)\nprint(sorted([\"pera\", \"uva\", \"abacaxi\"], key=len))",
+   "cuidado": null,
+   "rel": [
+    "list.sort",
+    "reversed"
+   ],
+   "tags": "ordenar copia",
+   "entrada": "",
+   "saida": "[5, 7, 10]\n[10, 7, 5]\n[7, 10, 5]\n['uva', 'pera', 'abacaxi']",
+   "licao": "fn_sorted_l0",
+   "builtin": true
+  },
+  {
+   "id": "list.reverse",
+   "nome": ".reverse()",
+   "cat": "listas",
+   "sig": "lista.reverse()",
+   "resumo": "Inverte a própria lista.",
+   "explica": "",
+   "params": [],
+   "retorna": "None.",
+   "exemplo": "nums = [1, 2, 3]\nnums.reverse()\nprint(nums)",
+   "cuidado": null,
+   "rel": [
+    "reversed",
+    "list.sort"
+   ],
+   "tags": "inverter",
+   "entrada": "",
+   "saida": "[3, 2, 1]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "reversed",
+   "nome": "reversed()",
+   "cat": "listas",
+   "sig": "reversed(sequência)",
+   "resumo": "Percorre de trás para frente.",
+   "explica": "Devolve um iterador; use list() para ver como lista ou use direto num for.",
+   "params": [
+    {
+     "nome": "sequência",
+     "desc": "Lista, tupla, string ou range."
+    }
+   ],
+   "retorna": "Um iterador.",
+   "exemplo": "for n in reversed([1, 2, 3]):\n    print(n)\nprint(list(reversed(\"abc\")))",
+   "cuidado": null,
+   "rel": [
+    "list.reverse",
+    "fatias"
+   ],
+   "tags": "inverter tras",
+   "entrada": "",
+   "saida": "3\n2\n1\n['c', 'b', 'a']",
+   "licao": "fn_reversed_l0",
+   "builtin": true
+  },
+  {
+   "id": "list.copy",
+   "nome": ".copy()",
+   "cat": "listas",
+   "sig": "lista.copy()",
+   "resumo": "Faz uma cópia da lista.",
+   "explica": "Mudanças na cópia não afetam a original.",
+   "params": [],
+   "retorna": "list nova.",
+   "exemplo": "a = [1, 2]\nb = a\nc = a.copy()\na.append(3)\nprint(b)\nprint(c)",
+   "cuidado": "b = a NÃO copia: as duas variáveis apontam para a mesma lista.",
+   "rel": [
+    "fatias"
+   ],
+   "tags": "copiar clonar",
+   "entrada": "",
+   "saida": "[1, 2, 3]\n[1, 2]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "compreensao",
+   "nome": "[x for x in …]",
+   "cat": "listas",
+   "sig": "[expressão for item in coleção if condição]",
+   "resumo": "Cria uma lista nova numa linha.",
+   "explica": "Percorre a coleção, opcionalmente filtra com if e transforma cada item.",
+   "params": [],
+   "retorna": "list nova.",
+   "exemplo": "quadrados = [n * n for n in range(5)]\npares = [n for n in range(10) if n % 2 == 0]\nprint(quadrados)\nprint(pares)",
+   "cuidado": "Se ficar difícil de ler, use um for normal.",
+   "rel": [
+    "map",
+    "filter",
+    "for"
+   ],
+   "tags": "compreensao list comprehension",
+   "entrada": "",
+   "saida": "[0, 1, 4, 9, 16]\n[0, 2, 4, 6, 8]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "list",
+   "nome": "list()",
+   "cat": "listas",
+   "sig": "list(coleção)",
+   "resumo": "Cria uma lista.",
+   "explica": "Transforma strings, tuplas, conjuntos e ranges em lista.",
+   "params": [
+    {
+     "nome": "coleção",
+     "desc": "Qualquer coleção (opcional)."
+    }
+   ],
+   "retorna": "list.",
+   "exemplo": "print(list(\"abc\"))\nprint(list(range(4)))\nprint(list())",
+   "cuidado": null,
+   "rel": [
+    "tuple",
+    "set"
+   ],
+   "tags": "criar converter lista",
+   "entrada": "",
+   "saida": "['a', 'b', 'c']\n[0, 1, 2, 3]\n[]",
+   "licao": "fn_list_l0",
+   "builtin": true
+  },
+  {
+   "id": "dict",
+   "nome": "dict() e {}",
+   "cat": "dicionarios",
+   "sig": "{chave: valor, …}",
+   "resumo": "Guarda pares chave → valor.",
+   "explica": "Busca rápida pela chave. As chaves precisam ser imutáveis (str, int, tupla). Atribuir a uma chave cria ou atualiza.",
+   "params": [],
+   "retorna": "dict.",
+   "exemplo": "aluno = {\"nome\": \"Ana\", \"idade\": 20}\naluno[\"idade\"] = 21\naluno[\"curso\"] = \"Python\"\nprint(aluno)\nprint(aluno[\"nome\"])",
+   "cuidado": "Buscar uma chave que não existe com [ ] dá KeyError. Use .get().",
+   "rel": [
+    "dict.get",
+    "dict.items",
+    "in"
+   ],
+   "tags": "dicionario chave valor mapa",
+   "entrada": "",
+   "saida": "{'nome': 'Ana', 'idade': 21, 'curso': 'Python'}\nAna",
+   "licao": "fn_dict_l0",
+   "builtin": true
+  },
+  {
+   "id": "dict.get",
+   "nome": ".get()",
+   "cat": "dicionarios",
+   "sig": "dic.get(chave, padrão=None)",
+   "resumo": "Busca uma chave sem dar erro.",
+   "explica": "Se a chave não existir, devolve None ou o padrão que você passar.",
+   "params": [
+    {
+     "nome": "chave",
+     "desc": "O que buscar."
+    },
+    {
+     "nome": "padrão",
+     "desc": "Valor devolvido se não achar (opcional)."
+    }
+   ],
+   "retorna": "O valor, ou o padrão.",
+   "exemplo": "estoque = {\"maçã\": 3}\nprint(estoque.get(\"uva\"))\nprint(estoque.get(\"uva\", 0))\ncont = {}\nfor letra in \"aba\":\n    cont[letra] = cont.get(letra, 0) + 1\nprint(cont)",
+   "cuidado": null,
+   "rel": [
+    "dict",
+    "dict.setdefault"
+   ],
+   "tags": "buscar padrao contar",
+   "entrada": "",
+   "saida": "None\n0\n{'a': 2, 'b': 1}",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "dict.keys",
+   "nome": ".keys()",
+   "cat": "dicionarios",
+   "sig": "dic.keys()",
+   "resumo": "As chaves do dicionário.",
+   "explica": "Um for direto no dicionário já percorre as chaves.",
+   "params": [],
+   "retorna": "Uma visão das chaves.",
+   "exemplo": "d = {\"a\": 1, \"b\": 2}\nprint(list(d.keys()))",
+   "cuidado": null,
+   "rel": [
+    "dict.values",
+    "dict.items"
+   ],
+   "tags": "chaves",
+   "entrada": "",
+   "saida": "['a', 'b']",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "dict.values",
+   "nome": ".values()",
+   "cat": "dicionarios",
+   "sig": "dic.values()",
+   "resumo": "Os valores do dicionário.",
+   "explica": "Ótimo para somar ou achar o maior valor.",
+   "params": [],
+   "retorna": "Uma visão dos valores.",
+   "exemplo": "precos = {\"pão\": 2, \"café\": 7}\nprint(sum(precos.values()))",
+   "cuidado": null,
+   "rel": [
+    "dict.keys",
+    "dict.items"
+   ],
+   "tags": "valores",
+   "entrada": "",
+   "saida": "9",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "dict.items",
+   "nome": ".items()",
+   "cat": "dicionarios",
+   "sig": "dic.items()",
+   "resumo": "Pares (chave, valor).",
+   "explica": "O jeito mais comum de percorrer um dicionário.",
+   "params": [],
+   "retorna": "Uma visão dos pares.",
+   "exemplo": "notas = {\"Ana\": 9, \"Caio\": 7}\nfor nome, nota in notas.items():\n    print(nome, nota)",
+   "cuidado": null,
+   "rel": [
+    "dict.keys",
+    "dict.values"
+   ],
+   "tags": "percorrer pares",
+   "entrada": "",
+   "saida": "Ana 9\nCaio 7",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "dict.update",
+   "nome": ".update()",
+   "cat": "dicionarios",
+   "sig": "dic.update(outro)",
+   "resumo": "Junta outro dicionário.",
+   "explica": "Chaves repetidas ficam com o valor novo.",
+   "params": [
+    {
+     "nome": "outro",
+     "desc": "Outro dicionário."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "config = {\"tema\": \"claro\", \"som\": True}\nconfig.update({\"tema\": \"escuro\"})\nprint(config)",
+   "cuidado": null,
+   "rel": [
+    "dict"
+   ],
+   "tags": "juntar atualizar mesclar",
+   "entrada": "",
+   "saida": "{'tema': 'escuro', 'som': True}",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "dict.pop",
+   "nome": ".pop()",
+   "cat": "dicionarios",
+   "sig": "dic.pop(chave, padrão)",
+   "resumo": "Remove e devolve uma chave.",
+   "explica": "",
+   "params": [
+    {
+     "nome": "chave",
+     "desc": "Qual remover."
+    },
+    {
+     "nome": "padrão",
+     "desc": "Devolvido se a chave não existir (opcional)."
+    }
+   ],
+   "retorna": "O valor removido.",
+   "exemplo": "d = {\"a\": 1, \"b\": 2}\nprint(d.pop(\"a\"))\nprint(d)\nprint(d.pop(\"z\", \"não tinha\"))",
+   "cuidado": "Sem padrão, chave inexistente dá KeyError.",
+   "rel": [
+    "dict.get"
+   ],
+   "tags": "remover apagar",
+   "entrada": "",
+   "saida": "1\n{'b': 2}\nnão tinha",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "dict.setdefault",
+   "nome": ".setdefault()",
+   "cat": "dicionarios",
+   "sig": "dic.setdefault(chave, padrão)",
+   "resumo": "Pega a chave ou cria com um padrão.",
+   "explica": "Se a chave não existe, cria com o padrão e devolve.",
+   "params": [
+    {
+     "nome": "chave",
+     "desc": "A chave."
+    },
+    {
+     "nome": "padrão",
+     "desc": "Valor inicial se não existir."
+    }
+   ],
+   "retorna": "O valor.",
+   "exemplo": "grupos = {}\nfor nome in [\"Ana\", \"Alice\", \"Bia\"]:\n    grupos.setdefault(nome[0], []).append(nome)\nprint(grupos)",
+   "cuidado": null,
+   "rel": [
+    "dict.get"
+   ],
+   "tags": "agrupar padrao",
+   "entrada": "",
+   "saida": "{'A': ['Ana', 'Alice'], 'B': ['Bia']}",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "set",
+   "nome": "set()",
+   "cat": "conjuntos",
+   "sig": "set(coleção) ou {1, 2, 3}",
+   "resumo": "Coleção sem repetição.",
+   "explica": "Ótimo para remover duplicados e testar se algo pertence muito rápido. Não tem ordem nem índice.",
+   "params": [
+    {
+     "nome": "coleção",
+     "desc": "Qualquer coleção (opcional)."
+    }
+   ],
+   "retorna": "set.",
+   "exemplo": "print(set([1, 2, 2, 3, 3]))\nprint(len(set(\"banana\")))",
+   "cuidado": "{} cria um dicionário vazio! Conjunto vazio é set().",
+   "rel": [
+    "set.add",
+    "set.ops"
+   ],
+   "tags": "conjunto unico duplicados",
+   "entrada": "",
+   "saida": "{1, 2, 3}\n3",
+   "licao": "fn_set_l0",
+   "builtin": true
+  },
+  {
+   "id": "set.add",
+   "nome": ".add()",
+   "cat": "conjuntos",
+   "sig": "conjunto.add(item)",
+   "resumo": "Adiciona um item ao conjunto.",
+   "explica": "Se já existir, nada muda.",
+   "params": [
+    {
+     "nome": "item",
+     "desc": "O que adicionar."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "vistos = set()\nfor n in [1, 2, 1]:\n    vistos.add(n)\nprint(vistos)",
+   "cuidado": null,
+   "rel": [
+    "set",
+    "set.discard"
+   ],
+   "tags": "adicionar",
+   "entrada": "",
+   "saida": "{1, 2}",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "set.discard",
+   "nome": ".discard()",
+   "cat": "conjuntos",
+   "sig": "conjunto.discard(item)",
+   "resumo": "Remove um item, se existir.",
+   "explica": "Diferente de remove(), não dá erro quando o item não está lá.",
+   "params": [
+    {
+     "nome": "item",
+     "desc": "O que remover."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "s = {1, 2, 3}\ns.discard(2)\ns.discard(9)\nprint(s)",
+   "cuidado": null,
+   "rel": [
+    "set.add"
+   ],
+   "tags": "remover",
+   "entrada": "",
+   "saida": "{1, 3}",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "set.ops",
+   "nome": "| & - ^",
+   "cat": "conjuntos",
+   "sig": "a | b, a & b, a - b, a ^ b",
+   "resumo": "União, interseção e diferença.",
+   "explica": "| junta tudo, & fica com o que está nos dois, - tira do primeiro o que está no segundo, ^ fica com o que está em só um deles.",
+   "params": [],
+   "retorna": "set novo.",
+   "exemplo": "a = {1, 2, 3}\nb = {3, 4}\nprint(a | b)\nprint(a & b)\nprint(a - b)\nprint(a ^ b)",
+   "cuidado": null,
+   "rel": [
+    "set"
+   ],
+   "tags": "uniao intersecao diferenca",
+   "entrada": "",
+   "saida": "{1, 2, 3, 4}\n{3}\n{1, 2}\n{1, 2, 4}",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "tuple",
+   "nome": "tuple() e ( )",
+   "cat": "conjuntos",
+   "sig": "(a, b, c)",
+   "resumo": "Sequência que não pode mudar.",
+   "explica": "Parecida com lista, mas imutável. Muito usada para devolver vários valores de uma função e para desempacotar.",
+   "params": [],
+   "retorna": "tuple.",
+   "exemplo": "ponto = (3, 4)\nx, y = ponto\nprint(x + y)\nprint(ponto[0])\nunico = (5,)\nprint(type(unico))",
+   "cuidado": "Tupla de um item precisa da vírgula: (5,). Sem ela, (5) é só o número 5.",
+   "rel": [
+    "list",
+    "desempacotar"
+   ],
+   "tags": "tupla imutavel",
+   "entrada": "",
+   "saida": "7\n3\n<class 'tuple'>",
+   "licao": "fn_tuple_l0",
+   "builtin": true
+  },
+  {
+   "id": "desempacotar",
+   "nome": "a, b = …",
+   "cat": "conjuntos",
+   "sig": "a, b = sequência",
+   "resumo": "Separa uma sequência em variáveis.",
+   "explica": "Cada variável recebe um item. Com * uma variável pega o resto. Também serve para trocar valores.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "nome, idade = [\"Ana\", 20]\nprimeiro, *resto = [1, 2, 3, 4]\nprint(nome, idade, primeiro, resto)\na, b = 1, 2\na, b = b, a\nprint(a, b)",
+   "cuidado": "A quantidade de variáveis precisa bater com a de itens (a não ser usando *).",
+   "rel": [
+    "tuple",
+    "enumerate"
+   ],
+   "tags": "desempacotar trocar unpack",
+   "entrada": "",
+   "saida": "Ana 20 1 [2, 3, 4]\n2 1",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "range",
+   "nome": "range()",
+   "cat": "lacos",
+   "sig": "range(fim) / range(início, fim, passo)",
+   "resumo": "Sequência de números.",
+   "explica": "Gera do início até antes do fim. Muito usado no for.",
+   "params": [
+    {
+     "nome": "início",
+     "desc": "Primeiro número (padrão 0)."
+    },
+    {
+     "nome": "fim",
+     "desc": "Para antes deste."
+    },
+    {
+     "nome": "passo",
+     "desc": "De quanto em quanto (padrão 1)."
+    }
+   ],
+   "retorna": "Um range.",
+   "exemplo": "print(list(range(5)))\nprint(list(range(2, 10, 3)))\nprint(list(range(5, 0, -1)))",
+   "cuidado": "O fim nunca entra: range(1, 5) vai até 4.",
+   "rel": [
+    "for",
+    "enumerate",
+    "len"
+   ],
+   "tags": "sequencia numeros contar",
+   "entrada": "",
+   "saida": "[0, 1, 2, 3, 4]\n[2, 5, 8]\n[5, 4, 3, 2, 1]",
+   "licao": "fn_range_l0",
+   "builtin": true
+  },
+  {
+   "id": "enumerate",
+   "nome": "enumerate()",
+   "cat": "lacos",
+   "sig": "enumerate(coleção, start=0)",
+   "resumo": "Percorre com o número da posição.",
+   "explica": "Dá o índice e o item juntos, sem precisar de range(len(…)).",
+   "params": [
+    {
+     "nome": "coleção",
+     "desc": "O que percorrer."
+    },
+    {
+     "nome": "start",
+     "desc": "Número inicial (padrão 0)."
+    }
+   ],
+   "retorna": "Pares (índice, item).",
+   "exemplo": "for i, fruta in enumerate([\"maçã\", \"uva\"], start=1):\n    print(i, fruta)",
+   "cuidado": null,
+   "rel": [
+    "range",
+    "zip"
+   ],
+   "tags": "indice posicao numerar",
+   "entrada": "",
+   "saida": "1 maçã\n2 uva",
+   "licao": "fn_enumerate_l0",
+   "builtin": true
+  },
+  {
+   "id": "zip",
+   "nome": "zip()",
+   "cat": "lacos",
+   "sig": "zip(a, b, …)",
+   "resumo": "Percorre várias coleções juntas.",
+   "explica": "Junta o 1º com o 1º, o 2º com o 2º… Para quando a menor acaba.",
+   "params": [
+    {
+     "nome": "a, b",
+     "desc": "Duas ou mais coleções."
+    }
+   ],
+   "retorna": "Tuplas com um item de cada.",
+   "exemplo": "nomes = [\"Ana\", \"Caio\"]\nnotas = [9, 7]\nfor nome, nota in zip(nomes, notas):\n    print(nome, nota)\nprint(dict(zip(nomes, notas)))",
+   "cuidado": "Itens sobrando na coleção maior são ignorados.",
+   "rel": [
+    "enumerate",
+    "dict"
+   ],
+   "tags": "juntar paralelo parear",
+   "entrada": "",
+   "saida": "Ana 9\nCaio 7\n{'Ana': 9, 'Caio': 7}",
+   "licao": "fn_zip_l0",
+   "builtin": true
+  },
+  {
+   "id": "map",
+   "nome": "map()",
+   "cat": "lacos",
+   "sig": "map(função, coleção)",
+   "resumo": "Aplica uma função a cada item.",
+   "explica": "Devolve um iterador; use list() para ver o resultado.",
+   "params": [
+    {
+     "nome": "função",
+     "desc": "O que fazer com cada item."
+    },
+    {
+     "nome": "coleção",
+     "desc": "Os itens."
+    }
+   ],
+   "retorna": "Um iterador.",
+   "exemplo": "numeros = list(map(int, [\"1\", \"2\", \"3\"]))\nprint(numeros)\nprint(list(map(str.upper, [\"a\", \"b\"])))",
+   "cuidado": "Uma compreensão de lista costuma ser mais legível: [int(x) for x in itens].",
+   "rel": [
+    "filter",
+    "compreensao",
+    "lambda"
+   ],
+   "tags": "aplicar transformar",
+   "entrada": "",
+   "saida": "[1, 2, 3]\n['A', 'B']",
+   "licao": "fn_map_l0",
+   "builtin": true
+  },
+  {
+   "id": "filter",
+   "nome": "filter()",
+   "cat": "lacos",
+   "sig": "filter(função, coleção)",
+   "resumo": "Fica só com os itens aprovados.",
+   "explica": "Mantém os itens em que a função devolve True.",
+   "params": [
+    {
+     "nome": "função",
+     "desc": "Teste que devolve True ou False."
+    },
+    {
+     "nome": "coleção",
+     "desc": "Os itens."
+    }
+   ],
+   "retorna": "Um iterador.",
+   "exemplo": "idades = [12, 20, 17, 30]\nprint(list(filter(lambda i: i >= 18, idades)))",
+   "cuidado": null,
+   "rel": [
+    "map",
+    "compreensao"
+   ],
+   "tags": "filtrar selecionar",
+   "entrada": "",
+   "saida": "[20, 30]",
+   "licao": "fn_filter_l0",
+   "builtin": true
+  },
+  {
+   "id": "any",
+   "nome": "any()",
+   "cat": "lacos",
+   "sig": "any(coleção)",
+   "resumo": "Algum é verdadeiro?",
+   "explica": "True se pelo menos um item for verdadeiro.",
+   "params": [
+    {
+     "nome": "coleção",
+     "desc": "Valores ou testes."
+    }
+   ],
+   "retorna": "bool.",
+   "exemplo": "senha = \"abc7\"\nprint(any(c.isdigit() for c in senha))\nprint(any([]))",
+   "cuidado": null,
+   "rel": [
+    "all"
+   ],
+   "tags": "algum existe",
+   "entrada": "",
+   "saida": "True\nFalse",
+   "licao": "fn_any_l0",
+   "builtin": true
+  },
+  {
+   "id": "all",
+   "nome": "all()",
+   "cat": "lacos",
+   "sig": "all(coleção)",
+   "resumo": "Todos são verdadeiros?",
+   "explica": "True se todos os itens forem verdadeiros (e também para coleção vazia).",
+   "params": [
+    {
+     "nome": "coleção",
+     "desc": "Valores ou testes."
+    }
+   ],
+   "retorna": "bool.",
+   "exemplo": "notas = [7, 8, 9]\nprint(all(n >= 6 for n in notas))\nprint(all([]))",
+   "cuidado": "all([]) é True: não há nenhum item falso.",
+   "rel": [
+    "any"
+   ],
+   "tags": "todos",
+   "entrada": "",
+   "saida": "True\nTrue",
+   "licao": "fn_all_l0",
+   "builtin": true
+  },
+  {
+   "id": "for",
+   "nome": "for",
+   "cat": "lacos",
+   "sig": "for item in coleção:",
+   "resumo": "Repete para cada item.",
+   "explica": "A cada volta, a variável recebe o próximo item. break sai do laço; continue pula para a próxima volta.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "for letra in \"oi\":\n    print(letra)\nfor n in range(10):\n    if n == 3:\n        break\n    print(n)",
+   "cuidado": null,
+   "rel": [
+    "while",
+    "range",
+    "enumerate"
+   ],
+   "tags": "repetir laco loop percorrer",
+   "entrada": "",
+   "saida": "o\ni\n0\n1\n2",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "while",
+   "nome": "while",
+   "cat": "lacos",
+   "sig": "while condição:",
+   "resumo": "Repete enquanto a condição for verdadeira.",
+   "explica": "Algo dentro do laço precisa mudar a condição, senão ele nunca termina.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "contador = 3\nwhile contador > 0:\n    print(contador)\n    contador -= 1\nprint(\"Já!\")",
+   "cuidado": "while True sem break é um laço infinito.",
+   "rel": [
+    "for"
+   ],
+   "tags": "repetir enquanto laco loop",
+   "entrada": "",
+   "saida": "3\n2\n1\nJá!",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "open",
+   "nome": "open()",
+   "cat": "arquivos",
+   "sig": "open(nome, modo='r', encoding=None)",
+   "resumo": "Abre um arquivo.",
+   "explica": "Use dentro de with para o arquivo fechar sozinho. Modos: \"r\" lê, \"w\" escreve apagando o que havia, \"a\" acrescenta no fim.",
+   "params": [
+    {
+     "nome": "nome",
+     "desc": "Caminho do arquivo."
+    },
+    {
+     "nome": "modo",
+     "desc": "\"r\", \"w\" ou \"a\" (e outros)."
+    },
+    {
+     "nome": "encoding",
+     "desc": "Use \"utf-8\" para acentos."
+    }
+   ],
+   "retorna": "Um objeto arquivo.",
+   "exemplo": "with open(\"nota.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"Olá, arquivo!\")\nwith open(\"nota.txt\", encoding=\"utf-8\") as f:\n    print(f.read())",
+   "cuidado": "Abrir para leitura um arquivo que não existe dá FileNotFoundError.",
+   "rel": [
+    "file.read",
+    "file.write",
+    "with"
+   ],
+   "tags": "arquivo abrir ler escrever",
+   "entrada": "",
+   "saida": "Olá, arquivo!",
+   "licao": "fn_open_l0",
+   "builtin": true
+  },
+  {
+   "id": "file.read",
+   "nome": ".read() / .readlines()",
+   "cat": "arquivos",
+   "sig": "f.read() / f.readlines()",
+   "resumo": "Lê o conteúdo do arquivo.",
+   "explica": "read() traz tudo como um texto só. readlines() traz uma lista de linhas. Um for no arquivo lê linha por linha.",
+   "params": [],
+   "retorna": "str ou list.",
+   "exemplo": "with open(\"lista.txt\", \"w\") as f:\n    f.write(\"pão\\nleite\\n\")\nwith open(\"lista.txt\") as f:\n    for linha in f:\n        print(linha.strip())",
+   "cuidado": "Cada linha lida vem com \\n no fim: use strip() ou rstrip(\"\\n\").",
+   "rel": [
+    "open",
+    "str.strip"
+   ],
+   "tags": "ler linhas",
+   "entrada": "",
+   "saida": "pão\nleite",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "file.write",
+   "nome": ".write()",
+   "cat": "arquivos",
+   "sig": "f.write(texto)",
+   "resumo": "Escreve texto no arquivo.",
+   "explica": "Não pula linha sozinho: coloque \\n quando quiser.",
+   "params": [
+    {
+     "nome": "texto",
+     "desc": "O que escrever (precisa ser str)."
+    }
+   ],
+   "retorna": "int: quantos caracteres foram escritos.",
+   "exemplo": "with open(\"saida.txt\", \"w\") as f:\n    for i in range(3):\n        f.write(f\"linha {i}\\n\")\nprint(open(\"saida.txt\").read())",
+   "cuidado": "write só aceita texto: converta números com str().",
+   "rel": [
+    "open"
+   ],
+   "tags": "escrever gravar salvar",
+   "entrada": "",
+   "saida": "linha 0\nlinha 1\nlinha 2",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "with",
+   "nome": "with",
+   "cat": "arquivos",
+   "sig": "with algo as nome:",
+   "resumo": "Usa um recurso e fecha sozinho no fim.",
+   "explica": "O jeito certo de abrir arquivos: quando o bloco termina, o arquivo é fechado, mesmo se der erro.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "with open(\"x.txt\", \"w\") as f:\n    f.write(\"oi\")\nprint(f.closed)",
+   "cuidado": null,
+   "rel": [
+    "open"
+   ],
+   "tags": "fechar contexto",
+   "entrada": "",
+   "saida": "True",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "try",
+   "nome": "try / except",
+   "cat": "erros",
+   "sig": "try: … except Tipo: …",
+   "resumo": "Trata erros sem parar o programa.",
+   "explica": "O código arriscado fica no try. Se acontecer o erro indicado, roda o except. else roda se não houve erro; finally roda sempre.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "for texto in [\"10\", \"abc\"]:\n    try:\n        n = int(texto)\n    except ValueError:\n        print(texto, \"não é número\")\n    else:\n        print(\"dobro:\", n * 2)",
+   "cuidado": "Evite except sozinho: ele esconde qualquer erro, até os que você não esperava.",
+   "rel": [
+    "raise",
+    "erros.comuns"
+   ],
+   "tags": "tratar excecao erro",
+   "entrada": "",
+   "saida": "dobro: 20\nabc não é número",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "raise",
+   "nome": "raise",
+   "cat": "erros",
+   "sig": "raise TipoDeErro(\"mensagem\")",
+   "resumo": "Dispara um erro de propósito.",
+   "explica": "Use quando algo não faz sentido no seu programa, para avisar quem chamou a função.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "def sacar(saldo, valor):\n    if valor > saldo:\n        raise ValueError(\"saldo insuficiente\")\n    return saldo - valor\n\ntry:\n    sacar(50, 80)\nexcept ValueError as erro:\n    print(\"Erro:\", erro)",
+   "cuidado": null,
+   "rel": [
+    "try"
+   ],
+   "tags": "lancar erro excecao",
+   "entrada": "",
+   "saida": "Erro: saldo insuficiente",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "erros.comuns",
+   "nome": "Erros comuns",
+   "cat": "erros",
+   "sig": "NameError, TypeError, ValueError, IndexError, KeyError…",
+   "resumo": "O que cada erro significa.",
+   "explica": "NameError: nome que não existe. TypeError: tipos que não combinam. ValueError: valor inválido. IndexError: posição fora da lista. KeyError: chave que não existe. ZeroDivisionError: divisão por zero. SyntaxError: algo escrito errado. IndentationError: recuo errado.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "testes = [\"nome_que_nao_existe\", \"1 + 'a'\", \"int('x')\", \"[1][5]\", \"{}['k']\", \"1 / 0\"]\nfor t in testes:\n    try:\n        eval(t)\n    except Exception as erro:\n        print(type(erro).__name__)",
+   "cuidado": "Leia a última linha da mensagem de erro: ela diz o tipo e o motivo. A linha indicada mostra onde o Python parou.",
+   "rel": [
+    "try"
+   ],
+   "tags": "erro mensagem traceback",
+   "entrada": "",
+   "saida": "NameError\nTypeError\nValueError\nIndexError\nKeyError\nZeroDivisionError",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "assert",
+   "nome": "assert",
+   "cat": "erros",
+   "sig": "assert condição, \"mensagem\"",
+   "resumo": "Confere se algo é verdade.",
+   "explica": "Se a condição for falsa, dá AssertionError com a mensagem. Muito usado em testes, como os dos desafios do PyPasso.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "def dobro(n):\n    return n * 2\n\nassert dobro(3) == 6, \"dobro(3) deveria ser 6\"\nprint(\"Teste passou!\")",
+   "cuidado": null,
+   "rel": [
+    "raise"
+   ],
+   "tags": "testar conferir verificar",
+   "entrada": "",
+   "saida": "Teste passou!",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "import",
+   "nome": "import",
+   "cat": "modulos",
+   "sig": "import módulo / from módulo import nome",
+   "resumo": "Traz funções de um módulo.",
+   "explica": "O Python vem com muitos módulos prontos (math, random, datetime…). Também dá para importar seus próprios arquivos da aba Código.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "import math\nfrom random import choice\nprint(math.pi)\nprint(choice([\"só uma opção\"]))",
+   "cuidado": null,
+   "rel": [
+    "math.sqrt",
+    "random.randint"
+   ],
+   "tags": "importar modulo biblioteca",
+   "entrada": "",
+   "saida": "3.141592653589793\nsó uma opção",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "math.sqrt",
+   "nome": "math.sqrt()",
+   "cat": "modulos",
+   "sig": "math.sqrt(número)",
+   "resumo": "Raiz quadrada.",
+   "explica": "Precisa de import math.",
+   "params": [
+    {
+     "nome": "número",
+     "desc": "Número não negativo."
+    }
+   ],
+   "retorna": "float.",
+   "exemplo": "import math\nprint(math.sqrt(16))\nprint(math.sqrt(2))",
+   "cuidado": "Raiz de negativo dá ValueError.",
+   "rel": [
+    "pow",
+    "import"
+   ],
+   "tags": "raiz quadrada",
+   "entrada": "",
+   "saida": "4.0\n1.4142135623730951",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "math.floor",
+   "nome": "math.floor() / math.ceil()",
+   "cat": "modulos",
+   "sig": "math.floor(x) / math.ceil(x)",
+   "resumo": "Arredonda para baixo / para cima.",
+   "explica": "floor vai sempre para o inteiro de baixo; ceil sempre para o de cima.",
+   "params": [
+    {
+     "nome": "x",
+     "desc": "Um número."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "import math\nprint(math.floor(3.7), math.ceil(3.2))\nprint(math.floor(-3.5))",
+   "cuidado": null,
+   "rel": [
+    "round",
+    "int"
+   ],
+   "tags": "arredondar baixo cima piso teto",
+   "entrada": "",
+   "saida": "3 4\n-4",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "math.pi",
+   "nome": "math.pi",
+   "cat": "modulos",
+   "sig": "math.pi",
+   "resumo": "O número π.",
+   "explica": "Constante com o valor de pi. Também existe math.e.",
+   "params": [],
+   "retorna": "float.",
+   "exemplo": "import math\nraio = 2\nprint(round(math.pi * raio ** 2, 2))",
+   "cuidado": null,
+   "rel": [
+    "math.sqrt"
+   ],
+   "tags": "pi circulo",
+   "entrada": "",
+   "saida": "12.57",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "random.randint",
+   "nome": "random.randint()",
+   "cat": "modulos",
+   "sig": "random.randint(a, b)",
+   "resumo": "Sorteia um inteiro entre a e b.",
+   "explica": "Os dois limites podem sair. Use random.seed() para sortear sempre a mesma sequência (útil em testes).",
+   "params": [
+    {
+     "nome": "a",
+     "desc": "Menor valor."
+    },
+    {
+     "nome": "b",
+     "desc": "Maior valor (incluído)."
+    }
+   ],
+   "retorna": "int.",
+   "exemplo": "import random\nrandom.seed(42)\nprint(random.randint(1, 6))\nprint(random.randint(1, 6))",
+   "cuidado": null,
+   "rel": [
+    "random.choice",
+    "random.shuffle"
+   ],
+   "tags": "sortear aleatorio dado",
+   "entrada": "",
+   "saida": "6\n1",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "random.choice",
+   "nome": "random.choice()",
+   "cat": "modulos",
+   "sig": "random.choice(sequência)",
+   "resumo": "Sorteia um item.",
+   "explica": "Escolhe um item de uma lista, tupla ou string.",
+   "params": [
+    {
+     "nome": "sequência",
+     "desc": "Onde sortear."
+    }
+   ],
+   "retorna": "Um item.",
+   "exemplo": "import random\nrandom.seed(1)\nprint(random.choice([\"pedra\", \"papel\", \"tesoura\"]))",
+   "cuidado": "Lista vazia dá IndexError.",
+   "rel": [
+    "random.randint",
+    "random.shuffle"
+   ],
+   "tags": "sortear escolher",
+   "entrada": "",
+   "saida": "pedra",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "random.shuffle",
+   "nome": "random.shuffle()",
+   "cat": "modulos",
+   "sig": "random.shuffle(lista)",
+   "resumo": "Embaralha a lista.",
+   "explica": "Mexe na própria lista e devolve None.",
+   "params": [
+    {
+     "nome": "lista",
+     "desc": "A lista a embaralhar."
+    }
+   ],
+   "retorna": "None.",
+   "exemplo": "import random\nrandom.seed(3)\ncartas = [1, 2, 3, 4, 5]\nrandom.shuffle(cartas)\nprint(cartas)",
+   "cuidado": "Não faça lista = random.shuffle(lista): você ficaria com None.",
+   "rel": [
+    "random.choice"
+   ],
+   "tags": "embaralhar misturar",
+   "entrada": "",
+   "saida": "[1, 3, 4, 5, 2]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "datetime",
+   "nome": "datetime.date",
+   "cat": "modulos",
+   "sig": "date(ano, mês, dia)",
+   "resumo": "Trabalha com datas.",
+   "explica": "date.today() dá a data de hoje. Subtrair datas dá a diferença em dias. strftime formata a data como texto.",
+   "params": [],
+   "retorna": "date.",
+   "exemplo": "from datetime import date\ninicio = date(2026, 1, 1)\nfim = date(2026, 10, 7)\nprint((fim - inicio).days, \"dias\")\nprint(fim.strftime(\"%d/%m/%Y\"))",
+   "cuidado": null,
+   "rel": [
+    "import"
+   ],
+   "tags": "data dia mes ano calendario",
+   "entrada": "",
+   "saida": "279 dias\n07/10/2026",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "if",
+   "nome": "if / elif / else",
+   "cat": "palavras",
+   "sig": "if condição: … elif outra: … else: …",
+   "resumo": "Toma decisões.",
+   "explica": "Roda só o primeiro bloco cuja condição for verdadeira. A linha termina com dois-pontos e o bloco vai recuado com 4 espaços.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "nota = 6\nif nota >= 7:\n    print(\"aprovado\")\nelif nota >= 5:\n    print(\"recuperação\")\nelse:\n    print(\"reprovado\")",
+   "cuidado": "Para comparar use ==. Um = sozinho guarda valor e dá erro dentro do if.",
+   "rel": [
+    "bool",
+    "and"
+   ],
+   "tags": "condicao decisao se senao",
+   "entrada": "",
+   "saida": "recuperação",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "and",
+   "nome": "and / or / not",
+   "cat": "palavras",
+   "sig": "a and b, a or b, not a",
+   "resumo": "Combina condições.",
+   "explica": "and: as duas precisam ser verdadeiras. or: basta uma. not: inverte.",
+   "params": [],
+   "retorna": "bool (ou um dos valores).",
+   "exemplo": "idade, tem_ingresso = 20, True\nprint(idade >= 18 and tem_ingresso)\nprint(idade < 12 or idade > 60)\nprint(not tem_ingresso)",
+   "cuidado": "x == 1 or 2 é sempre verdadeiro. Escreva x == 1 or x == 2, ou x in (1, 2).",
+   "rel": [
+    "if"
+   ],
+   "tags": "e ou nao logica",
+   "entrada": "",
+   "saida": "True\nFalse\nFalse",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "def",
+   "nome": "def / return",
+   "cat": "palavras",
+   "sig": "def nome(parâmetros): … return valor",
+   "resumo": "Cria uma função.",
+   "explica": "Uma função é um bloco com nome que você chama quando quiser. Parâmetros recebem valores; return devolve o resultado.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "def area(base, altura=1):\n    return base * altura\n\nprint(area(3, 4))\nprint(area(5))",
+   "cuidado": "Sem return, a função devolve None. print dentro da função mostra, mas não devolve.",
+   "rel": [
+    "lambda",
+    "assert"
+   ],
+   "tags": "funcao criar retornar parametro",
+   "entrada": "",
+   "saida": "12\n5",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "lambda",
+   "nome": "lambda",
+   "cat": "palavras",
+   "sig": "lambda parâmetros: expressão",
+   "resumo": "Função pequena de uma linha.",
+   "explica": "Muito usada como argumento de sorted, map e filter.",
+   "params": [],
+   "retorna": "Uma função.",
+   "exemplo": "dobro = lambda n: n * 2\nprint(dobro(5))\npessoas = [(\"Ana\", 30), (\"Bia\", 25)]\nprint(sorted(pessoas, key=lambda p: p[1]))",
+   "cuidado": null,
+   "rel": [
+    "def",
+    "sorted",
+    "map"
+   ],
+   "tags": "funcao anonima",
+   "entrada": "",
+   "saida": "10\n[('Bia', 25), ('Ana', 30)]",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "class",
+   "nome": "class",
+   "cat": "palavras",
+   "sig": "class Nome: def __init__(self, …): …",
+   "resumo": "Cria um molde de objetos.",
+   "explica": "__init__ roda ao criar o objeto; self é o próprio objeto. Métodos são funções dentro da classe.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "class Cachorro:\n    def __init__(self, nome):\n        self.nome = nome\n\n    def latir(self):\n        return f\"{self.nome}: au au!\"\n\nrex = Cachorro(\"Rex\")\nprint(rex.latir())",
+   "cuidado": "Esquecer o self como primeiro parâmetro dos métodos dá TypeError.",
+   "rel": [
+    "def"
+   ],
+   "tags": "classe objeto metodo orientacao",
+   "entrada": "",
+   "saida": "Rex: au au!",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "none",
+   "nome": "None",
+   "cat": "palavras",
+   "sig": "None",
+   "resumo": "O valor que representa \"nada\".",
+   "explica": "Funções sem return devolvem None. Compare com is None, não com ==.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "def nada():\n    pass\n\nr = nada()\nprint(r)\nprint(r is None)",
+   "cuidado": null,
+   "rel": [
+    "def"
+   ],
+   "tags": "nulo nada vazio",
+   "entrada": "",
+   "saida": "None\nTrue",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "pass",
+   "nome": "pass / break / continue",
+   "cat": "palavras",
+   "sig": "pass, break, continue",
+   "resumo": "Controle de blocos e laços.",
+   "explica": "pass não faz nada (ocupa um bloco vazio). break sai do laço. continue pula para a próxima volta.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "for n in range(6):\n    if n == 1:\n        continue\n    if n == 4:\n        break\n    print(n)",
+   "cuidado": null,
+   "rel": [
+    "for",
+    "while"
+   ],
+   "tags": "pular sair vazio",
+   "entrada": "",
+   "saida": "0\n2\n3",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "global",
+   "nome": "global",
+   "cat": "palavras",
+   "sig": "global nome",
+   "resumo": "Usa a variável de fora dentro da função.",
+   "explica": "Sem global, atribuir dentro da função cria uma variável local. Prefira passar valores como parâmetro e devolver com return.",
+   "params": [],
+   "retorna": "—",
+   "exemplo": "pontos = 0\n\ndef marcar():\n    global pontos\n    pontos += 10\n\nmarcar()\nprint(pontos)",
+   "cuidado": "Usar global demais deixa o código difícil de entender.",
+   "rel": [
+    "def"
+   ],
+   "tags": "escopo variavel",
+   "entrada": "",
+   "saida": "10",
+   "licao": null,
+   "builtin": false
+  },
+  {
+   "id": "id",
+   "nome": "id()",
+   "cat": "embutidas",
+   "sig": "id(objeto)",
+   "resumo": "Número de identidade de um objeto.",
+   "explica": "Cada objeto na memória tem um id único enquanto existe. Duas variáveis com o mesmo id apontam para o mesmo objeto.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "a = [1, 2]\nb = a\nc = [1, 2]\nprint(id(a) == id(b))\nprint(id(a) == id(c))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "True\nFalse",
+   "licao": "fn_id_l0",
+   "builtin": true
+  },
+  {
+   "id": "complex",
+   "nome": "complex()",
+   "cat": "embutidas",
+   "sig": "complex(real, imaginário=0)",
+   "resumo": "Cria um número complexo.",
+   "explica": "Números complexos têm parte real e imaginária. Em Python a parte imaginária usa j. Aparecem em engenharia e matemática.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "z = complex(3, 4)\nprint(z)\nprint(z.real, z.imag)\nprint(abs(z))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "(3+4j)\n3.0 4.0\n5.0",
+   "licao": "fn_complex_l0",
+   "builtin": true
+  },
+  {
+   "id": "frozenset",
+   "nome": "frozenset()",
+   "cat": "embutidas",
+   "sig": "frozenset(coleção)",
+   "resumo": "Conjunto que não pode mudar.",
+   "explica": "Igual ao set, mas imutável. Por isso pode ser chave de dicionário ou item de outro conjunto.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "f = frozenset([1, 2, 2])\nprint(f)\nprint(2 in f)\nd = {frozenset([\"a\", \"b\"]): \"par\"}\nprint(d[frozenset([\"b\", \"a\"])])",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "frozenset({1, 2})\nTrue\npar",
+   "licao": "fn_frozenset_l0",
+   "builtin": true
+  },
+  {
+   "id": "callable",
+   "nome": "callable()",
+   "cat": "embutidas",
+   "sig": "callable(objeto)",
+   "resumo": "Dá para chamar com ()?",
+   "explica": "True para funções, métodos e classes. False para números, strings e listas.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "def f():\n    pass\n\nprint(callable(f))\nprint(callable(print))\nprint(callable(42))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "True\nTrue\nFalse",
+   "licao": "fn_callable_l0",
+   "builtin": true
+  },
+  {
+   "id": "issubclass",
+   "nome": "issubclass()",
+   "cat": "embutidas",
+   "sig": "issubclass(classe, outra)",
+   "resumo": "Esta classe herda daquela?",
+   "explica": "Compara classes (não objetos). Toda classe é subclasse de si mesma e de object.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Animal:\n    pass\n\nclass Gato(Animal):\n    pass\n\nprint(issubclass(Gato, Animal))\nprint(issubclass(Animal, Gato))\nprint(issubclass(bool, int))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "True\nFalse\nTrue",
+   "licao": "fn_issubclass_l0",
+   "builtin": true
+  },
+  {
+   "id": "hasattr",
+   "nome": "hasattr()",
+   "cat": "embutidas",
+   "sig": "hasattr(objeto, 'nome')",
+   "resumo": "Tem este atributo ou método?",
+   "explica": "Responde se o objeto possui algo com aquele nome.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(hasattr(\"texto\", \"upper\"))\nprint(hasattr([1, 2], \"append\"))\nprint(hasattr(42, \"append\"))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "True\nTrue\nFalse",
+   "licao": "fn_hasattr_l0",
+   "builtin": true
+  },
+  {
+   "id": "ord",
+   "nome": "ord()",
+   "cat": "embutidas",
+   "sig": "ord(caractere)",
+   "resumo": "Código numérico de um caractere.",
+   "explica": "Cada caractere tem um número no padrão Unicode. ord mostra esse número.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(ord(\"A\"))\nprint(ord(\"a\"))\nprint(ord(\"é\"))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "65\n97\n233",
+   "licao": "fn_ord_l0",
+   "builtin": true
+  },
+  {
+   "id": "chr",
+   "nome": "chr()",
+   "cat": "embutidas",
+   "sig": "chr(código)",
+   "resumo": "Caractere a partir do código.",
+   "explica": "O contrário do ord: transforma o número Unicode no caractere.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(chr(65))\nprint(chr(97 + 2))\nprint(chr(128013))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "A\nc\n🐍",
+   "licao": "fn_chr_l0",
+   "builtin": true
+  },
+  {
+   "id": "bin",
+   "nome": "bin()",
+   "cat": "embutidas",
+   "sig": "bin(inteiro)",
+   "resumo": "Número em binário (texto).",
+   "explica": "Mostra o número na base 2, com o prefixo 0b.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(bin(5))\nprint(bin(255))\nprint(bin(5)[2:])",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "0b101\n0b11111111\n101",
+   "licao": "fn_bin_l0",
+   "builtin": true
+  },
+  {
+   "id": "oct",
+   "nome": "oct()",
+   "cat": "embutidas",
+   "sig": "oct(inteiro)",
+   "resumo": "Número em octal (texto).",
+   "explica": "Mostra o número na base 8, com o prefixo 0o. Aparece em permissões de arquivos no Linux.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(oct(8))\nprint(oct(64))\nprint(0o17)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "0o10\n0o100\n15",
+   "licao": "fn_oct_l0",
+   "builtin": true
+  },
+  {
+   "id": "hex",
+   "nome": "hex()",
+   "cat": "embutidas",
+   "sig": "hex(inteiro)",
+   "resumo": "Número em hexadecimal (texto).",
+   "explica": "Base 16, com algarismos 0-9 e a-f e prefixo 0x. Muito usado em cores e memória.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(hex(255))\nprint(hex(16))\nprint(int(\"ff\", 16))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "0xff\n0x10\n255",
+   "licao": "fn_hex_l0",
+   "builtin": true
+  },
+  {
+   "id": "ascii",
+   "nome": "ascii()",
+   "cat": "embutidas",
+   "sig": "ascii(objeto)",
+   "resumo": "Como repr, mas só com caracteres ASCII.",
+   "explica": "Acentos e emojis viram códigos de escape como \\xe9. Útil para registrar textos com segurança.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(ascii(\"olá\"))\nprint(ascii(\"Pipo\"))\nprint(repr(\"olá\"))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "'ol\\xe1'\n'Pipo'\n'olá'",
+   "licao": "fn_ascii_l0",
+   "builtin": true
+  },
+  {
+   "id": "format",
+   "nome": "format()",
+   "cat": "embutidas",
+   "sig": "format(valor, especificação)",
+   "resumo": "Formata um valor como texto.",
+   "explica": "Usa a mesma mini-linguagem das f-strings: casas decimais, alinhamento, separador de milhar, porcentagem…",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(format(3.14159, \".2f\"))\nprint(format(1234567, \",\"))\nprint(format(0.25, \".0%\"))\nprint(format(\"oi\", \">6\") + \"|\")",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "3.14\n1,234,567\n25%\n    oi|",
+   "licao": "fn_format_l0",
+   "builtin": true
+  },
+  {
+   "id": "iter",
+   "nome": "iter()",
+   "cat": "embutidas",
+   "sig": "iter(coleção)",
+   "resumo": "Cria um iterador.",
+   "explica": "Um iterador entrega os itens um de cada vez, lembrando onde parou. O for usa iter por baixo dos panos.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "it = iter([10, 20, 30])\nprint(next(it))\nprint(next(it))\nprint(list(it))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "10\n20\n[30]",
+   "licao": "fn_iter_l0",
+   "builtin": true
+  },
+  {
+   "id": "next",
+   "nome": "next()",
+   "cat": "embutidas",
+   "sig": "next(iterador, padrão)",
+   "resumo": "Pega o próximo item.",
+   "explica": "Quando o iterador acaba, dá StopIteration, a não ser que você passe um valor padrão.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "it = iter([1])\nprint(next(it))\nprint(next(it, \"acabou\"))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "1\nacabou",
+   "licao": "fn_next_l0",
+   "builtin": true
+  },
+  {
+   "id": "slice",
+   "nome": "slice()",
+   "cat": "embutidas",
+   "sig": "slice(início, fim, passo)",
+   "resumo": "Um objeto de fatia.",
+   "explica": "lista[1:4] é o mesmo que lista[slice(1, 4)]. Útil para guardar uma fatia numa variável e reutilizar.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "primeiros = slice(0, 3)\nprint(\"python\"[primeiros])\nprint([1, 2, 3, 4, 5][slice(None, None, 2)])",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "pyt\n[1, 3, 5]",
+   "licao": "fn_slice_l0",
+   "builtin": true
+  },
+  {
+   "id": "aiter",
+   "nome": "aiter()",
+   "cat": "embutidas",
+   "sig": "aiter(iterável_assíncrono)",
+   "resumo": "Iterador de uma coleção assíncrona.",
+   "explica": "É o iter() do mundo assíncrono (async/await). Usado com async for e geradores async def. Você vai ver isso ao trabalhar com tarefas que esperam rede ou arquivos.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "async def contar():\n    for i in range(3):\n        yield i\n\nasync def main():\n    it = aiter(contar())\n    print(await anext(it))\n    print(await anext(it))\n\n# Num programa normal: import asyncio; asyncio.run(main())\n# Aqui rodamos a função assíncrona \"na mão\", que funciona em qualquer lugar:\ntry:\n    main().send(None)\nexcept StopIteration:\n    pass",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "0\n1",
+   "licao": "fn_aiter_l0",
+   "builtin": true
+  },
+  {
+   "id": "anext",
+   "nome": "anext()",
+   "cat": "embutidas",
+   "sig": "await anext(iterador_assíncrono, padrão)",
+   "resumo": "Próximo item de um iterador assíncrono.",
+   "explica": "É o next() do mundo assíncrono. Precisa de await. Como o next, aceita um valor padrão para quando acabar.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "async def letras():\n    yield \"a\"\n\nasync def main():\n    it = aiter(letras())\n    print(await anext(it))\n    print(await anext(it, \"fim\"))\n\n# Num programa normal: import asyncio; asyncio.run(main())\ntry:\n    main().send(None)\nexcept StopIteration:\n    pass",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "a\nfim",
+   "licao": "fn_anext_l0",
+   "builtin": true
+  },
+  {
+   "id": "bytes",
+   "nome": "bytes()",
+   "cat": "embutidas",
+   "sig": "bytes(valor, encoding)",
+   "resumo": "Sequência de bytes (imutável).",
+   "explica": "Bytes são números de 0 a 255. Textos viram bytes com encode e voltam com decode. Arquivos e redes trabalham com bytes.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "b = \"olá\".encode(\"utf-8\")\nprint(b)\nprint(len(b))\nprint(b.decode(\"utf-8\"))\nprint(bytes([80, 121]))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "b'ol\\xc3\\xa1'\n4\nolá\nb'Py'",
+   "licao": "fn_bytes_l0",
+   "builtin": true
+  },
+  {
+   "id": "bytearray",
+   "nome": "bytearray()",
+   "cat": "embutidas",
+   "sig": "bytearray(valor)",
+   "resumo": "Bytes que podem mudar.",
+   "explica": "Igual a bytes, mas mutável: dá para trocar, adicionar e remover bytes.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "ba = bytearray(b\"gato\")\nba[0] = ord(\"p\")\nprint(ba)\nba.append(33)\nprint(ba.decode())",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "bytearray(b'pato')\npato!",
+   "licao": "fn_bytearray_l0",
+   "builtin": true
+  },
+  {
+   "id": "memoryview",
+   "nome": "memoryview()",
+   "cat": "embutidas",
+   "sig": "memoryview(bytes_ou_bytearray)",
+   "resumo": "Janela para a memória sem copiar.",
+   "explica": "Permite ler e alterar pedaços de bytes grandes sem fazer cópias. Útil com imagens, áudio e dados binários.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "dados = bytearray(b\"abcdef\")\njanela = memoryview(dados)[2:4]\nprint(bytes(janela))\njanela[0] = ord(\"X\")\nprint(dados)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "b'cd'\nbytearray(b'abXdef')",
+   "licao": "fn_memoryview_l0",
+   "builtin": true
+  },
+  {
+   "id": "hash",
+   "nome": "hash()",
+   "cat": "embutidas",
+   "sig": "hash(objeto)",
+   "resumo": "Número de impressão digital.",
+   "explica": "Objetos imutáveis (números, strings, tuplas) têm hash. É o que permite usá-los como chave de dicionário e em conjuntos. O valor de strings muda entre execuções.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(hash(1) == hash(1.0))\nprint(hash((1, 2)) == hash((1, 2)))\ntry:\n    hash([1, 2])\nexcept TypeError as e:\n    print(\"lista:\", e)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "True\nTrue\nlista: unhashable type: 'list'",
+   "licao": "fn_hash_l0",
+   "builtin": true
+  },
+  {
+   "id": "object",
+   "nome": "object()",
+   "cat": "embutidas",
+   "sig": "object()",
+   "resumo": "A classe mãe de todas.",
+   "explica": "Toda classe herda de object, mesmo sem escrever. object() cria um objeto vazio e único, às vezes usado como marcador.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Ponto:\n    pass\n\nprint(issubclass(Ponto, object))\nmarcador = object()\nprint(marcador == object())",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "True\nFalse",
+   "licao": "fn_object_l0",
+   "builtin": true
+  },
+  {
+   "id": "getattr",
+   "nome": "getattr()",
+   "cat": "embutidas",
+   "sig": "getattr(objeto, 'nome', padrão)",
+   "resumo": "Pega um atributo pelo nome.",
+   "explica": "Útil quando o nome do atributo está numa variável. Com padrão, não dá erro se não existir.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Gato:\n    nome = \"Mimi\"\n\ng = Gato()\nprint(getattr(g, \"nome\"))\nprint(getattr(g, \"idade\", \"?\"))\nprint(getattr(\"oi\", \"upper\")())",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "Mimi\n?\nOI",
+   "licao": "fn_getattr_l0",
+   "builtin": true
+  },
+  {
+   "id": "setattr",
+   "nome": "setattr()",
+   "cat": "embutidas",
+   "sig": "setattr(objeto, 'nome', valor)",
+   "resumo": "Define um atributo pelo nome.",
+   "explica": "O contrário do getattr: cria ou muda um atributo usando o nome em texto.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Config:\n    pass\n\nc = Config()\nfor chave, valor in {\"tema\": \"escuro\", \"som\": True}.items():\n    setattr(c, chave, valor)\nprint(c.tema, c.som)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "escuro True",
+   "licao": "fn_setattr_l0",
+   "builtin": true
+  },
+  {
+   "id": "delattr",
+   "nome": "delattr()",
+   "cat": "embutidas",
+   "sig": "delattr(objeto, 'nome')",
+   "resumo": "Apaga um atributo pelo nome.",
+   "explica": "É o mesmo que del objeto.nome, mas com o nome em texto.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class A:\n    pass\n\na = A()\na.x = 1\ndelattr(a, \"x\")\nprint(hasattr(a, \"x\"))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "False",
+   "licao": "fn_delattr_l0",
+   "builtin": true
+  },
+  {
+   "id": "vars",
+   "nome": "vars()",
+   "cat": "embutidas",
+   "sig": "vars(objeto)",
+   "resumo": "Os atributos de um objeto como dicionário.",
+   "explica": "Mostra o __dict__ do objeto: nome → valor de cada atributo criado nele.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Pessoa:\n    def __init__(self, nome, idade):\n        self.nome = nome\n        self.idade = idade\n\nprint(vars(Pessoa(\"Ana\", 20)))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "{'nome': 'Ana', 'idade': 20}",
+   "licao": "fn_vars_l0",
+   "builtin": true
+  },
+  {
+   "id": "property",
+   "nome": "property()",
+   "cat": "embutidas",
+   "sig": "@property",
+   "resumo": "Método que se usa como atributo.",
+   "explica": "Com @property, você calcula ou valida um valor, mas acessa como atributo, sem parênteses.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Retangulo:\n    def __init__(self, l, a):\n        self.l, self.a = l, a\n\n    @property\n    def area(self):\n        return self.l * self.a\n\nr = Retangulo(3, 4)\nprint(r.area)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "12",
+   "licao": "fn_property_l0",
+   "builtin": true
+  },
+  {
+   "id": "staticmethod",
+   "nome": "staticmethod()",
+   "cat": "embutidas",
+   "sig": "@staticmethod",
+   "resumo": "Função dentro da classe, sem self.",
+   "explica": "Um método estático não recebe self nem a classe. É uma função comum guardada na classe por organização.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Matematica:\n    @staticmethod\n    def dobro(n):\n        return n * 2\n\nprint(Matematica.dobro(5))\nprint(Matematica().dobro(1))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "10\n2",
+   "licao": "fn_staticmethod_l0",
+   "builtin": true
+  },
+  {
+   "id": "classmethod",
+   "nome": "classmethod()",
+   "cat": "embutidas",
+   "sig": "@classmethod",
+   "resumo": "Método que recebe a classe (cls).",
+   "explica": "Em vez de self, recebe cls, a própria classe. Muito usado para criar objetos de outros jeitos (construtores alternativos).",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Data:\n    def __init__(self, d, m):\n        self.d, self.m = d, m\n\n    @classmethod\n    def de_texto(cls, texto):\n        d, m = map(int, texto.split(\"/\"))\n        return cls(d, m)\n\nx = Data.de_texto(\"07/10\")\nprint(x.d, x.m)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "7 10",
+   "licao": "fn_classmethod_l0",
+   "builtin": true
+  },
+  {
+   "id": "super",
+   "nome": "super()",
+   "cat": "embutidas",
+   "sig": "super().metodo()",
+   "resumo": "Chama o método da classe mãe.",
+   "explica": "Dentro de uma classe filha, super() acessa a versão da mãe. Muito usado no __init__ para aproveitar o que a mãe já faz.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "class Animal:\n    def __init__(self, nome):\n        self.nome = nome\n\nclass Cachorro(Animal):\n    def __init__(self, nome, raca):\n        super().__init__(nome)\n        self.raca = raca\n\nc = Cachorro(\"Rex\", \"vira-lata\")\nprint(c.nome, c.raca)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "Rex vira-lata",
+   "licao": "fn_super_l0",
+   "builtin": true
+  },
+  {
+   "id": "eval",
+   "nome": "eval()",
+   "cat": "embutidas",
+   "sig": "eval(expressão)",
+   "resumo": "Calcula uma expressão escrita em texto.",
+   "explica": "Recebe um texto com uma expressão Python e devolve o resultado. Nunca use com texto vindo de usuários: ele pode rodar qualquer coisa.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "print(eval(\"2 + 3 * 4\"))\nx = 10\nprint(eval(\"x * 2\"))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "14\n20",
+   "licao": "fn_eval_l0",
+   "builtin": true
+  },
+  {
+   "id": "exec",
+   "nome": "exec()",
+   "cat": "embutidas",
+   "sig": "exec(código)",
+   "resumo": "Roda um trecho de código escrito em texto.",
+   "explica": "Diferente do eval, executa comandos (atribuições, laços, def…) e devolve None. Também é perigoso com textos de fora.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "codigo = \"for i in range(3):\\n    print(i)\"\nexec(codigo)\nexec(\"y = 5\")\nprint(y)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "0\n1\n2\n5",
+   "licao": "fn_exec_l0",
+   "builtin": true
+  },
+  {
+   "id": "compile",
+   "nome": "compile()",
+   "cat": "embutidas",
+   "sig": "compile(código, nome, modo)",
+   "resumo": "Prepara código em texto para rodar depois.",
+   "explica": "Transforma o texto em código pronto (objeto code), nos modos \"eval\", \"exec\" ou \"single\". Útil para rodar o mesmo trecho muitas vezes. É o que o terminal do PyPasso usa por dentro.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "expr = compile(\"x * 2\", \"<conta>\", \"eval\")\nfor x in range(3):\n    print(eval(expr))",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "0\n2\n4",
+   "licao": "fn_compile_l0",
+   "builtin": true
+  },
+  {
+   "id": "globals",
+   "nome": "globals()",
+   "cat": "embutidas",
+   "sig": "globals()",
+   "resumo": "Dicionário com as variáveis globais.",
+   "explica": "Mostra tudo o que foi criado no nível de cima do arquivo: variáveis, funções, imports.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "nivel = \"global\"\nprint(\"nivel\" in globals())\nprint(globals()[\"nivel\"])",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "True\nglobal",
+   "licao": "fn_globals_l0",
+   "builtin": true
+  },
+  {
+   "id": "locals",
+   "nome": "locals()",
+   "cat": "embutidas",
+   "sig": "locals()",
+   "resumo": "Dicionário com as variáveis locais.",
+   "explica": "Dentro de uma função, mostra as variáveis daquela função naquele momento.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "def f(a):\n    b = a * 2\n    print(locals())\n\nf(3)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "{'a': 3, 'b': 6}",
+   "licao": "fn_locals_l0",
+   "builtin": true
+  },
+  {
+   "id": "__import__",
+   "nome": "__import__()",
+   "cat": "embutidas",
+   "sig": "__import__('nome')",
+   "resumo": "Importa um módulo pelo nome em texto.",
+   "explica": "É o que o comando import usa por baixo. No dia a dia prefira import ou importlib.import_module; __import__ aparece em códigos que escolhem o módulo em tempo de execução.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "m = __import__(\"math\")\nprint(m.sqrt(16))\nnome = \"random\"\nr = __import__(nome)\nprint(r.__name__)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "4.0\nrandom",
+   "licao": "fn___import___l0",
+   "builtin": true
+  },
+  {
+   "id": "breakpoint",
+   "nome": "breakpoint()",
+   "cat": "embutidas",
+   "sig": "breakpoint()",
+   "resumo": "Pausa o programa para investigar.",
+   "explica": "Num computador, abre o depurador (pdb) naquela linha para você inspecionar variáveis. O comportamento pode ser trocado; aqui trocamos por uma mensagem para ver o efeito.",
+   "params": [],
+   "retorna": "",
+   "exemplo": "import sys\nsys.breakpointhook = lambda: print(\"(pausa: aqui você inspecionaria as variáveis)\")\nx = 42\nbreakpoint()\nprint(\"continuou com x =\", x)",
+   "cuidado": null,
+   "rel": [],
+   "tags": "built-in embutida",
+   "entrada": "",
+   "saida": "(pausa: aqui você inspecionaria as variáveis)\ncontinuou com x = 42",
+   "licao": "fn_breakpoint_l0",
+   "builtin": true
+  }
+ ]
+}

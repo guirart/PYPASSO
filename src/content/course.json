@@ -1,0 +1,2962 @@
+{
+ "units": [
+  {
+   "id": "u0",
+   "title": "Primeiros passos",
+   "description": "print, strings e comentários",
+   "lessons": [
+    {
+     "id": "u0l0",
+     "title": "Olá, mundo",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u0l0c0",
+       "host": "pipo",
+       "q": "print() mostra coisas na tela",
+       "body": "print é a função que exibe na tela o que estiver entre os parênteses. Textos (strings) vão entre aspas; as aspas não aparecem na saída. Números vão sem aspas.",
+       "c": "print(\"Olá, mundo!\")\nprint(42)",
+       "out": "Olá, mundo!\n42",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "Qual função mostra um texto na tela?",
+       "o": [
+        "print()",
+        "show()",
+        "echo()",
+        "write()"
+       ],
+       "e": "print() escreve valores na saída.",
+       "id": "u0l0e0",
+       "host": "pipo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"Olá, mundo!\")",
+       "o": [
+        "Olá, mundo!",
+        "\"Olá, mundo!\"",
+        "print(Olá, mundo!)",
+        "Erro"
+       ],
+       "e": "As aspas só delimitam a string; não aparecem na saída.",
+       "id": "u0l0e1",
+       "host": "ana"
+      },
+      {
+       "k": "fill",
+       "q": "Complete para exibir a palavra Python.",
+       "c": "___(\"Python\")",
+       "b": [
+        "print",
+        "input",
+        "len",
+        "type"
+       ],
+       "a": [
+        "print"
+       ],
+       "e": "print() exibe; input() lê do teclado.",
+       "id": "u0l0e2",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "id": "u0l0c1",
+       "host": "pipo",
+       "q": "Juntando textos com +",
+       "body": "O sinal + entre duas strings cola uma na outra, sem colocar espaço. Se quiser o espaço, ele precisa estar dentro das aspas.",
+       "c": "print(\"bom\" + \"dia\")\nprint(\"bom \" + \"dia\")",
+       "out": "bomdia\nbom dia",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"Py\" + \"thon\")",
+       "o": [
+        "Python",
+        "Py thon",
+        "Py+thon",
+        "Erro"
+       ],
+       "e": "+ entre strings concatena, sem inserir espaço.",
+       "id": "u0l0e3",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "id": "u0l0c2",
+       "host": "pipo",
+       "q": "len() conta caracteres",
+       "body": "len devolve o tamanho de uma string: quantos caracteres ela tem. Espaços e pontuação também contam.",
+       "c": "print(len(\"gato\"))\nprint(len(\"oi, tudo\"))",
+       "out": "4\n8",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída exata.",
+       "c": "print(len(\"casa\"))",
+       "a": [
+        "4"
+       ],
+       "e": "len() conta os caracteres: c-a-s-a.",
+       "id": "u0l0e4",
+       "host": "teo"
+      }
+     ]
+    },
+    {
+     "id": "u0l1",
+     "title": "Comentários e entrada",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u0l1c0",
+       "host": "pipo",
+       "q": "Comentários com #",
+       "body": "Tudo que vem depois de # numa linha é um comentário: o Python ignora. Serve para explicar o código para quem lê.",
+       "c": "# isto é um comentário\nprint(\"oi\")  # aqui também",
+       "out": "oi",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "Como começa um comentário de uma linha em Python?",
+       "o": [
+        "#",
+        "//",
+        "--",
+        "/*"
+       ],
+       "e": "Tudo depois de # até o fim da linha é ignorado.",
+       "id": "u0l1e0",
+       "host": "ana"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "# print(\"A\")\nprint(\"B\")",
+       "o": [
+        "B",
+        "A\nB",
+        "A",
+        "Nada"
+       ],
+       "e": "A primeira linha é comentário e não roda.",
+       "id": "u0l1e1",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "id": "u0l1c1",
+       "host": "pipo",
+       "q": "input() lê o teclado",
+       "body": "input mostra uma pergunta e espera a pessoa digitar. O que ela digita volta sempre como texto (string), mesmo que seja um número. O sinal = guarda esse valor num nome, a variável, que você verá melhor na Unidade 2.",
+       "c": "nome = input(\"Seu nome: \")\nprint(\"Olá, \" + nome)",
+       "out": "Seu nome: Ana\nOlá, Ana",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "O que input() devolve?",
+       "o": [
+        "Sempre uma string",
+        "Sempre um int",
+        "Um float",
+        "Depende do que foi digitado"
+       ],
+       "e": "Mesmo que você digite 42, chega \"42\". Converta com int().",
+       "id": "u0l1e2",
+       "host": "bia"
+      },
+      {
+       "k": "order",
+       "q": "Monte o programa que pergunta o nome e cumprimenta.",
+       "l": [
+        "nome = input(\"Nome: \")",
+        "saudacao = \"Olá, \" + nome",
+        "print(saudacao)"
+       ],
+       "e": "Primeiro lê, depois monta a frase, por fim exibe.",
+       "id": "u0l1e3",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "id": "u0l1c2",
+       "host": "pipo",
+       "q": "Vários valores no mesmo print",
+       "body": "Separando valores por vírgula, o print mostra todos com um espaço entre eles. Com sep= você troca esse separador.",
+       "c": "print(\"a\", \"b\", \"c\")\nprint(\"a\", \"b\", sep=\"-\")",
+       "out": "a b c\na-b",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"a\", \"b\", sep=\"-\")",
+       "o": [
+        "a-b",
+        "a b",
+        "ab",
+        "a-b-"
+       ],
+       "e": "sep troca o separador padrão (espaço) entre os valores.",
+       "id": "u0l1e4",
+       "host": "pipo"
+      },
+      {
+       "k": "code",
+       "q": "Escreva um programa que exiba exatamente: Olá, Python!",
+       "starter": "# escreva seu código abaixo\n",
+       "tests": "assert __stdout__.strip() == \"Olá, Python!\", \"A saída deve ser exatamente: Olá, Python!\"",
+       "e": "Basta print(\"Olá, Python!\").",
+       "id": "u0l1e5",
+       "host": "ana"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u1",
+   "title": "Variáveis e tipos",
+   "description": "nomes, int, float, str e bool",
+   "lessons": [
+    {
+     "id": "u1l0",
+     "title": "Guardando valores",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u1l0c0",
+       "host": "pipo",
+       "q": "Variáveis guardam valores",
+       "body": "Uma variável é um nome que guarda um valor. O = atribui: coloca o valor da direita no nome da esquerda. Você pode reatribuir quantas vezes quiser. Nomes podem ter letras, números e _, mas não começam com número, não têm hífen e não podem ser palavras do Python como if ou class.",
+       "c": "idade = 30\nidade = idade + 1\nprint(idade)",
+       "out": "31",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "Qual destes é um nome de variável válido?",
+       "o": [
+        "idade_1",
+        "1idade",
+        "idade-1",
+        "class"
+       ],
+       "e": "Não pode começar com dígito, ter hífen ou ser palavra reservada.",
+       "id": "u1l0e0",
+       "host": "ana"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "x = 5\nx = x + 2\nprint(x)",
+       "a": [
+        "7"
+       ],
+       "e": "x recebe 5 e depois 5 + 2.",
+       "id": "u1l0e1",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "id": "u1l0c1",
+       "host": "pipo",
+       "q": "Os tipos básicos",
+       "body": "Todo valor tem um tipo. int é número inteiro, float é número com ponto decimal, str é texto e bool é verdadeiro ou falso (True ou False). type() mostra o tipo de um valor.",
+       "c": "print(type(10))\nprint(type(2.5))\nprint(type(\"oi\"))\nprint(type(True))",
+       "out": "<class 'int'>\n<class 'float'>\n<class 'str'>\n<class 'bool'>",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(type(3.0))",
+       "o": [
+        "<class 'float'>",
+        "<class 'int'>",
+        "<class 'str'>",
+        "<class 'decimal'>"
+       ],
+       "e": "Qualquer número com ponto decimal é float.",
+       "id": "u1l0e2",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "id": "u1l0c2",
+       "host": "pipo",
+       "q": "Convertendo tipos",
+       "body": "int(), float() e str() convertem valores. É assim que você transforma o texto vindo do input em número para fazer contas.",
+       "c": "n = int(\"42\")\nprint(n + 1)\nprint(str(7) + \"7\")",
+       "out": "43\n77",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Converta o texto em número inteiro.",
+       "c": "n = ___(\"42\")",
+       "b": [
+        "int",
+        "str",
+        "float",
+        "list"
+       ],
+       "a": [
+        "int"
+       ],
+       "e": "int(\"42\") devolve o número 42.",
+       "id": "u1l0e3",
+       "host": "teo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(type(True))",
+       "o": [
+        "<class 'bool'>",
+        "<class 'str'>",
+        "<class 'int'>",
+        "True"
+       ],
+       "e": "True e False são do tipo bool.",
+       "id": "u1l0e4",
+       "host": "pipo"
+      }
+     ]
+    },
+    {
+     "id": "u1l1",
+     "title": "Trabalhando com strings",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u1l1c0",
+       "host": "pipo",
+       "q": "Posições numa string",
+       "body": "Cada caractere tem uma posição, o índice, que começa em 0. s[0] é o primeiro. Índices negativos contam do fim: s[-1] é o último.",
+       "c": "s = \"gato\"\nprint(s[0])\nprint(s[-1])",
+       "out": "g\no",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "s = \"python\"\nprint(s[0])",
+       "o": [
+        "p",
+        "y",
+        "python",
+        "Erro"
+       ],
+       "e": "Índices começam em 0.",
+       "id": "u1l1e0",
+       "host": "caio"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "s = \"python\"\nprint(s[-1])",
+       "a": [
+        "n"
+       ],
+       "e": "Índice -1 é o último caractere.",
+       "id": "u1l1e1",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "id": "u1l1c1",
+       "host": "pipo",
+       "q": "Métodos de string",
+       "body": "Métodos são funções que vêm junto com o valor e são chamadas com ponto. upper() devolve tudo em maiúsculas; lower(), em minúsculas.",
+       "c": "print(\"Oi\".upper())\nprint(\"Oi\".lower())",
+       "out": "OI\noi",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"abc\".upper())",
+       "o": [
+        "ABC",
+        "abc",
+        "Abc",
+        "Erro"
+       ],
+       "e": "upper() devolve a string em maiúsculas.",
+       "id": "u1l1e2",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "id": "u1l1c2",
+       "host": "pipo",
+       "q": "f-strings",
+       "body": "Coloque f antes das aspas e escreva variáveis entre chaves: o Python troca cada {nome} pelo valor. É o jeito mais prático de montar frases.",
+       "c": "idade = 30\nprint(f\"Tenho {idade} anos\")",
+       "out": "Tenho 30 anos",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Complete para formatar a frase com a variável.",
+       "c": "idade = 30\nprint(___\"Tenho {idade} anos\")",
+       "b": [
+        "f",
+        "r",
+        "b",
+        "s"
+       ],
+       "a": [
+        "f"
+       ],
+       "e": "f-strings substituem {idade} pelo valor.",
+       "id": "u1l1e3",
+       "host": "pipo"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(len(\"olá mundo\"))",
+       "a": [
+        "9"
+       ],
+       "e": "O espaço também conta: 3 + 1 + 5.",
+       "id": "u1l1e4",
+       "host": "ana"
+      },
+      {
+       "k": "code",
+       "q": "Crie a variável nome com o valor \"Ana\" e exiba \"Oi, Ana\" usando uma f-string.",
+       "starter": "nome = \n",
+       "tests": "assert nome == \"Ana\", \"nome deve valer \\\"Ana\\\"\"\nassert __stdout__.strip() == \"Oi, Ana\", \"A saída deve ser: Oi, Ana\"",
+       "e": "nome = \"Ana\" e depois print(f\"Oi, {nome}\").",
+       "id": "u1l1e5",
+       "host": "caio"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "title": "Operadores",
+   "description": "aritmética, comparação e lógica",
+   "lessons": [
+    {
+     "id": "u2l0",
+     "title": "Contas",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u2l0c0",
+       "host": "pipo",
+       "q": "Contas básicas",
+       "body": "Python faz contas com + - * e /. A divisão com / sempre devolve float, mesmo quando o resultado é exato.",
+       "c": "print(7 + 2)\nprint(7 * 2)\nprint(7 / 2)\nprint(10 / 2)",
+       "out": "9\n14\n3.5\n5.0",
+       "e": ""
+      },
+      {
+       "k": "learn",
+       "id": "u2l0c1",
+       "host": "pipo",
+       "q": "Divisão inteira, resto e potência",
+       "body": "// divide e descarta a parte decimal. % devolve o resto da divisão (muito usado para saber se um número é par). ** é potência.",
+       "c": "print(7 // 2)\nprint(7 % 2)\nprint(2 ** 3)",
+       "out": "3\n1\n8",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(7 // 2)",
+       "o": [
+        "3",
+        "3.5",
+        "4",
+        "1"
+       ],
+       "e": "// é divisão inteira: descarta a parte decimal.",
+       "id": "u2l0e0",
+       "host": "caio"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(7 % 2)",
+       "o": [
+        "1",
+        "3",
+        "3.5",
+        "0"
+       ],
+       "e": "% devolve o resto da divisão.",
+       "id": "u2l0e1",
+       "host": "bia"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(2 ** 3)",
+       "a": [
+        "8"
+       ],
+       "e": "** é potência: 2³.",
+       "id": "u2l0e2",
+       "host": "teo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(10 / 2)",
+       "o": [
+        "5.0",
+        "5",
+        "\"5\"",
+        "Erro"
+       ],
+       "e": "/ sempre devolve float em Python 3.",
+       "id": "u2l0e3",
+       "host": "pipo"
+      },
+      {
+       "k": "fill",
+       "q": "Complete para testar se n é par.",
+       "c": "if n ___ 2 == 0:\n    print(\"par\")",
+       "b": [
+        "%",
+        "//",
+        "/",
+        "**"
+       ],
+       "a": [
+        "%"
+       ],
+       "e": "Resto zero na divisão por 2 significa par.",
+       "id": "u2l0e4",
+       "host": "ana"
+      }
+     ]
+    },
+    {
+     "id": "u2l1",
+     "title": "Comparações e lógica",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u2l1c0",
+       "host": "pipo",
+       "q": "Comparações",
+       "body": "Comparações respondem True ou False. == testa igualdade (um = só serve para atribuir), != testa diferença, e há também > < >= <=.",
+       "c": "print(3 > 2)\nprint(5 == 5)\nprint(5 != 5)\nprint(4 <= 3)",
+       "out": "True\nTrue\nFalse\nFalse",
+       "e": ""
+      },
+      {
+       "k": "learn",
+       "id": "u2l1c1",
+       "host": "pipo",
+       "q": "and, or e not",
+       "body": "and é verdadeiro só se os dois lados forem. or é verdadeiro se pelo menos um for. not inverte o valor.",
+       "c": "print(True and False)\nprint(True or False)\nprint(not True)",
+       "out": "False\nTrue\nFalse",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(3 > 2 and 2 > 5)",
+       "o": [
+        "False",
+        "True",
+        "None",
+        "Erro"
+       ],
+       "e": "and exige os dois lados verdadeiros; 2 > 5 é falso.",
+       "id": "u2l1e0",
+       "host": "bia"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(not False)",
+       "o": [
+        "True",
+        "False",
+        "None",
+        "0"
+       ],
+       "e": "not inverte o valor lógico.",
+       "id": "u2l1e1",
+       "host": "teo"
+      },
+      {
+       "k": "mc",
+       "q": "Qual operador compara se dois valores são iguais?",
+       "o": [
+        "==",
+        "=",
+        "===",
+        "equals"
+       ],
+       "e": "= atribui; == compara.",
+       "id": "u2l1e2",
+       "host": "pipo"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(5 != 5)",
+       "a": [
+        "False"
+       ],
+       "e": "!= significa \"diferente\"; 5 não é diferente de 5.",
+       "id": "u2l1e3",
+       "host": "ana"
+      },
+      {
+       "k": "fill",
+       "q": "Imprima True se x estiver entre 1 e 10.",
+       "c": "print(1 < x ___ x < 10)",
+       "b": [
+        "and",
+        "or",
+        "not",
+        "&&"
+       ],
+       "a": [
+        "and"
+       ],
+       "e": "As duas condições precisam valer. Também funciona 1 < x < 10.",
+       "id": "u2l1e4",
+       "host": "caio"
+      },
+      {
+       "k": "code",
+       "q": "Calcule a média de 7, 8 e 9 na variável media e exiba o resultado.",
+       "starter": "media = \nprint(media)\n",
+       "tests": "assert media == 8, \"media deve ser 8\"\nassert __stdout__.strip() in (\"8\", \"8.0\"), \"Exiba a média com print\"",
+       "e": "media = (7 + 8 + 9) / 3 dá 8.0.",
+       "id": "u2l1e5",
+       "host": "bia"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "title": "Condicionais",
+   "description": "if, elif, else e verdade",
+   "lessons": [
+    {
+     "id": "u3l0",
+     "title": "Tomando decisões",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u3l0c0",
+       "host": "pipo",
+       "q": "if e else",
+       "body": "if executa um bloco só quando a condição é verdadeira; else executa quando não é. A linha do if termina com dois-pontos, e o bloco vai recuado com 4 espaços: é o recuo que diz o que está dentro do if.",
+       "c": "temperatura = 30\nif temperatura > 25:\n    print(\"calor\")\nelse:\n    print(\"agradável\")",
+       "out": "calor",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "x = 10\nif x > 5:\n    print(\"grande\")\nelse:\n    print(\"pequeno\")",
+       "o": [
+        "grande",
+        "pequeno",
+        "grande\npequeno",
+        "Nada"
+       ],
+       "e": "10 > 5 é verdadeiro, então só o bloco do if roda.",
+       "id": "u3l0e0",
+       "host": "bia"
+      },
+      {
+       "k": "mc",
+       "q": "O que define o bloco de código de um if em Python?",
+       "o": [
+        "A indentação",
+        "Chaves { }",
+        "begin e end",
+        "Parênteses"
+       ],
+       "e": "Python usa recuo (normalmente 4 espaços) para delimitar blocos.",
+       "id": "u3l0e1",
+       "host": "teo"
+      },
+      {
+       "k": "order",
+       "q": "Monte o teste de maioridade.",
+       "l": [
+        "idade = 20",
+        "if idade >= 18:",
+        "    print(\"maior\")",
+        "else:",
+        "    print(\"menor\")"
+       ],
+       "e": "Atribuição, condição, bloco, else, bloco.",
+       "id": "u3l0e2",
+       "host": "pipo"
+      },
+      {
+       "k": "learn",
+       "id": "u3l0c1",
+       "host": "pipo",
+       "q": "elif: mais de duas opções",
+       "body": "elif quer dizer \"senão, se\". O Python testa as condições de cima para baixo e executa só o primeiro bloco verdadeiro.",
+       "c": "hora = 14\nif hora < 12:\n    print(\"bom dia\")\nelif hora < 18:\n    print(\"boa tarde\")\nelse:\n    print(\"boa noite\")",
+       "out": "boa tarde",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Complete a cadeia de condições.",
+       "c": "if nota >= 7:\n    print(\"aprovado\")\n___ nota >= 5:\n    print(\"recuperação\")\nelse:\n    print(\"reprovado\")",
+       "b": [
+        "elif",
+        "else if",
+        "elseif",
+        "if"
+       ],
+       "a": [
+        "elif"
+       ],
+       "e": "Em Python o \"senão se\" é escrito elif.",
+       "id": "u3l0e3",
+       "host": "ana"
+      },
+      {
+       "k": "out",
+       "q": "Com nota = 6 no código anterior, qual é a saída?",
+       "c": "nota = 6\nif nota >= 7:\n    print(\"aprovado\")\nelif nota >= 5:\n    print(\"recuperação\")\nelse:\n    print(\"reprovado\")",
+       "o": [
+        "recuperação",
+        "aprovado",
+        "reprovado",
+        "Nada"
+       ],
+       "e": "6 falha no primeiro teste e passa no elif.",
+       "id": "u3l0e4",
+       "host": "caio"
+      }
+     ]
+    },
+    {
+     "id": "u3l1",
+     "title": "Verdadeiro ou falso",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u3l1c0",
+       "host": "pipo",
+       "q": "Verdadeiro e falso sem comparar",
+       "body": "Qualquer valor pode ir direto num if. Contam como falso: 0, string vazia \"\", lista vazia [] e None. Todo o resto conta como verdadeiro. (Listas você verá na Unidade 5: são valores entre colchetes.)",
+       "c": "if \"\":\n    print(\"não aparece\")\nif \"oi\":\n    print(\"aparece\")",
+       "out": "aparece",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "if \"\":\n    print(\"sim\")\nelse:\n    print(\"não\")",
+       "o": [
+        "não",
+        "sim",
+        "Erro",
+        "Nada"
+       ],
+       "e": "String vazia é considerada falsa.",
+       "id": "u3l1e0",
+       "host": "teo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "if [0]:\n    print(\"sim\")\nelse:\n    print(\"não\")",
+       "o": [
+        "sim",
+        "não",
+        "Erro",
+        "0"
+       ],
+       "e": "A lista tem um item, então não está vazia: é verdadeira.",
+       "id": "u3l1e1",
+       "host": "pipo"
+      },
+      {
+       "k": "mc",
+       "q": "Qual destes valores é avaliado como False?",
+       "o": [
+        "0",
+        "\"0\"",
+        "[0]",
+        "-1"
+       ],
+       "e": "Só zero, vazios e None são falsos. \"0\" é uma string com conteúdo.",
+       "id": "u3l1e2",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "id": "u3l1c1",
+       "host": "pipo",
+       "q": "if numa linha só",
+       "body": "Para escolher entre dois valores, dá para escrever: valor_se_sim if condição else valor_se_não.",
+       "c": "idade = 20\nprint(\"adulto\" if idade >= 18 else \"menor\")",
+       "out": "adulto",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "x = 3\nprint(\"par\" if x % 2 == 0 else \"ímpar\")",
+       "o": [
+        "ímpar",
+        "par",
+        "True",
+        "Erro"
+       ],
+       "e": "Expressão condicional em uma linha: A if condição else B.",
+       "id": "u3l1e3",
+       "host": "caio"
+      },
+      {
+       "k": "fill",
+       "q": "Exiba \"vazia\" quando a lista não tiver itens.",
+       "c": "if ___ lista:\n    print(\"vazia\")",
+       "b": [
+        "not",
+        "!",
+        "no",
+        "isnt"
+       ],
+       "a": [
+        "not"
+       ],
+       "e": "Lista vazia é falsa, então not lista é verdadeiro.",
+       "id": "u3l1e4",
+       "host": "bia"
+      },
+      {
+       "k": "code",
+       "q": "Complete a função classificar(n) para devolver \"positivo\", \"negativo\" ou \"zero\".",
+       "starter": "def classificar(n):\n    # seu código aqui\n    pass\n",
+       "tests": "assert classificar(5) == \"positivo\", \"classificar(5) deve ser positivo\"\nassert classificar(-2) == \"negativo\", \"classificar(-2) deve ser negativo\"\nassert classificar(0) == \"zero\", \"classificar(0) deve ser zero\"",
+       "e": "Use if n > 0, elif n < 0 e else.",
+       "id": "u3l1e5",
+       "host": "teo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "title": "Listas",
+   "description": "índices, fatias e métodos",
+   "lessons": [
+    {
+     "id": "u4l0",
+     "title": "Criando listas",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u4l0c0",
+       "host": "pipo",
+       "q": "Listas",
+       "body": "Uma lista guarda vários valores em ordem, entre colchetes e separados por vírgula. Os índices funcionam como nas strings: começam em 0. len() conta os itens.",
+       "c": "nums = [10, 20, 30]\nprint(nums[0])\nprint(len(nums))",
+       "out": "10\n3",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "nums = [10, 20, 30]\nprint(nums[1])",
+       "o": [
+        "20",
+        "10",
+        "30",
+        "[10, 20]"
+       ],
+       "e": "Índice 1 é o segundo item.",
+       "id": "u4l0e0",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "id": "u4l0c1",
+       "host": "pipo",
+       "q": "Adicionando itens",
+       "body": "append() coloca um item no final da lista. A lista muda: por isso dizemos que listas são mutáveis.",
+       "c": "cores = [\"azul\"]\ncores.append(\"verde\")\nprint(cores)",
+       "out": "['azul', 'verde']",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Adicione \"uva\" ao fim da lista.",
+       "c": "frutas = [\"maçã\"]\nfrutas.___(\"uva\")",
+       "b": [
+        "append",
+        "add",
+        "push",
+        "insert"
+       ],
+       "a": [
+        "append"
+       ],
+       "e": "append() coloca um item no final.",
+       "id": "u4l0e1",
+       "host": "pipo"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(len([1, 2, 3, 4]))",
+       "a": [
+        "4"
+       ],
+       "e": "len() de uma lista conta os itens.",
+       "id": "u4l0e2",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "id": "u4l0c2",
+       "host": "pipo",
+       "q": "Fatias",
+       "body": "lista[início:fim] pega um pedaço da lista. O início entra, o fim não entra.",
+       "c": "letras = [\"a\", \"b\", \"c\", \"d\"]\nprint(letras[1:3])",
+       "out": "['b', 'c']",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "nums = [1, 2, 3, 4, 5]\nprint(nums[1:3])",
+       "o": [
+        "[2, 3]",
+        "[1, 2, 3]",
+        "[2, 3, 4]",
+        "[1, 2]"
+       ],
+       "e": "A fatia inclui o início e exclui o fim: índices 1 e 2.",
+       "id": "u4l0e3",
+       "host": "caio"
+      },
+      {
+       "k": "mc",
+       "q": "Listas em Python são...",
+       "o": [
+        "Mutáveis: dá para alterar itens",
+        "Imutáveis: não mudam depois de criadas",
+        "Só aceitam um tipo de dado",
+        "Têm tamanho fixo"
+       ],
+       "e": "Você pode trocar, inserir e remover itens.",
+       "id": "u4l0e4",
+       "host": "bia"
+      }
+     ]
+    },
+    {
+     "id": "u4l1",
+     "title": "Métodos e compreensões",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u4l1c0",
+       "host": "pipo",
+       "q": "Mais métodos de lista",
+       "body": "sort() ordena a própria lista. in testa se um valor está nela. pop() remove e devolve o último item.",
+       "c": "n = [3, 1, 2]\nn.sort()\nprint(n)\nprint(2 in n)\nprint(n.pop())\nprint(n)",
+       "out": "[1, 2, 3]\nTrue\n3\n[1, 2]",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "n = [3, 1, 2]\nn.sort()\nprint(n)",
+       "o": [
+        "[1, 2, 3]",
+        "[3, 2, 1]",
+        "[3, 1, 2]",
+        "None"
+       ],
+       "e": "sort() ordena a própria lista.",
+       "id": "u4l1e0",
+       "host": "pipo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(3 in [1, 2, 3])",
+       "o": [
+        "True",
+        "False",
+        "2",
+        "Erro"
+       ],
+       "e": "in testa se o valor está na lista.",
+       "id": "u4l1e1",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "id": "u4l1c1",
+       "host": "pipo",
+       "q": "Compreensão de lista e range()",
+       "body": "Dá para criar uma lista transformando outra numa linha: [expressão for x in sequência]. range(n) gera os números de 0 até n-1, muito usado nesses casos.",
+       "c": "quadrados = [x * x for x in [1, 2, 3]]\nprint(quadrados)\nprint(list(range(4)))",
+       "out": "[1, 4, 9]\n[0, 1, 2, 3]",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "q = [x * 2 for x in range(3)]\nprint(q)",
+       "o": [
+        "[0, 2, 4]",
+        "[2, 4, 6]",
+        "[0, 1, 2]",
+        "[1, 2, 3]"
+       ],
+       "e": "range(3) dá 0, 1, 2; cada um é dobrado.",
+       "id": "u4l1e2",
+       "host": "caio"
+      },
+      {
+       "k": "fill",
+       "q": "Remova e guarde o último item da lista.",
+       "c": "ultimo = nums.___()",
+       "b": [
+        "pop",
+        "remove",
+        "last",
+        "del"
+       ],
+       "a": [
+        "pop"
+       ],
+       "e": "pop() sem argumento remove e devolve o último item.",
+       "id": "u4l1e3",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "id": "u4l1c2",
+       "host": "pipo",
+       "q": "Tuplas",
+       "body": "Tuplas são como listas, mas com parênteses e imutáveis: depois de criadas, não mudam.",
+       "c": "ponto = (3, 4)\nprint(ponto[0])",
+       "out": "3",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "Qual destas estruturas é imutável?",
+       "o": [
+        "tupla (1, 2)",
+        "lista [1, 2]",
+        "dicionário {\"a\": 1}",
+        "conjunto {1, 2}"
+       ],
+       "e": "Tuplas não podem ser alteradas depois de criadas.",
+       "id": "u4l1e4",
+       "host": "teo"
+      },
+      {
+       "k": "code",
+       "q": "Crie a lista pares com os números pares de 0 a 10 (inclusive).",
+       "starter": "pares = \n",
+       "tests": "assert pares == [0, 2, 4, 6, 8, 10], \"pares deve ser [0, 2, 4, 6, 8, 10]\"",
+       "e": "list(range(0, 11, 2)) ou uma compreensão com if x % 2 == 0.",
+       "id": "u4l1e5",
+       "host": "pipo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "title": "Laços",
+   "description": "for, range e while",
+   "lessons": [
+    {
+     "id": "u5l0",
+     "title": "Repetindo com for",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u5l0c0",
+       "host": "pipo",
+       "q": "Laço for",
+       "body": "for repete um bloco para cada item de uma sequência. A cada volta, a variável recebe o próximo item.",
+       "c": "for fruta in [\"maçã\", \"uva\"]:\n    print(fruta)",
+       "out": "maçã\nuva",
+       "e": ""
+      },
+      {
+       "k": "learn",
+       "id": "u5l0c1",
+       "host": "pipo",
+       "q": "range() no for",
+       "body": "range(n) gera 0, 1, …, n-1. range(início, fim) começa no início e para antes do fim.",
+       "c": "for i in range(3):\n    print(i)\nprint(list(range(2, 5)))",
+       "out": "0\n1\n2\n[2, 3, 4]",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "for i in range(3):\n    print(i)",
+       "o": [
+        "0\n1\n2",
+        "1\n2\n3",
+        "0\n1\n2\n3",
+        "3"
+       ],
+       "e": "range(3) vai de 0 até 2.",
+       "id": "u5l0e0",
+       "host": "pipo"
+      },
+      {
+       "k": "mc",
+       "q": "Quais números range(2, 6) gera?",
+       "o": [
+        "2, 3, 4, 5",
+        "2, 3, 4, 5, 6",
+        "3, 4, 5, 6",
+        "2, 4, 6"
+       ],
+       "e": "O fim nunca é incluído.",
+       "id": "u5l0e1",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "id": "u5l0c2",
+       "host": "pipo",
+       "q": "Acumulando valores",
+       "body": "Para somar dentro de um laço, comece uma variável em 0 antes e vá somando. total += n é o mesmo que total = total + n.",
+       "c": "soma = 0\nfor n in [5, 10]:\n    soma += n\nprint(soma)",
+       "out": "15",
+       "e": ""
+      },
+      {
+       "k": "order",
+       "q": "Monte o programa que soma os números da lista.",
+       "l": [
+        "total = 0",
+        "for n in [1, 2, 3]:",
+        "    total += n",
+        "print(total)"
+       ],
+       "e": "Inicia o acumulador, soma no laço e exibe depois.",
+       "id": "u5l0e2",
+       "host": "caio"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "total = 0\nfor n in [1, 2, 3]:\n    total += n\nprint(total)",
+       "a": [
+        "6"
+       ],
+       "e": "1 + 2 + 3.",
+       "id": "u5l0e3",
+       "host": "bia"
+      },
+      {
+       "k": "fill",
+       "q": "Percorra cada letra da string.",
+       "c": "for letra ___ \"abc\":\n    print(letra)",
+       "b": [
+        "in",
+        "of",
+        "em",
+        "at"
+       ],
+       "a": [
+        "in"
+       ],
+       "e": "A sintaxe é for item in sequência.",
+       "id": "u5l0e4",
+       "host": "teo"
+      }
+     ]
+    },
+    {
+     "id": "u5l1",
+     "title": "while, break e continue",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u5l1c0",
+       "host": "pipo",
+       "q": "Laço while",
+       "body": "while repete enquanto a condição for verdadeira. Algo dentro do laço precisa mudar a condição, senão ele nunca para.",
+       "c": "contador = 3\nwhile contador > 0:\n    print(contador)\n    contador -= 1",
+       "out": "3\n2\n1",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "i = 0\nwhile i < 3:\n    i += 1\nprint(i)",
+       "a": [
+        "3"
+       ],
+       "e": "O laço para quando i chega a 3.",
+       "id": "u5l1e0",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "id": "u5l1c1",
+       "host": "pipo",
+       "q": "break e continue",
+       "body": "break sai do laço na hora. continue pula o resto desta volta e vai para a próxima.",
+       "c": "for n in range(10):\n    if n == 3:\n        continue\n    if n == 5:\n        break\n    print(n)",
+       "out": "0\n1\n2\n4",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "O que break faz dentro de um laço?",
+       "o": [
+        "Encerra o laço imediatamente",
+        "Pula para a próxima volta",
+        "Reinicia o laço",
+        "Pausa o programa"
+       ],
+       "e": "Para pular só a volta atual, use continue.",
+       "id": "u5l1e1",
+       "host": "caio"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "for i in range(5):\n    if i == 2:\n        continue\n    print(i, end=\" \")",
+       "o": [
+        "0 1 3 4",
+        "0 1",
+        "0 1 2 3 4",
+        "2"
+       ],
+       "e": "continue pula o print quando i é 2.",
+       "id": "u5l1e2",
+       "host": "bia"
+      },
+      {
+       "k": "mc",
+       "q": "O que acontece com while True: sem nenhum break?",
+       "o": [
+        "Laço infinito",
+        "Roda uma vez",
+        "Erro de sintaxe",
+        "Não roda"
+       ],
+       "e": "A condição nunca fica falsa.",
+       "id": "u5l1e3",
+       "host": "teo"
+      },
+      {
+       "k": "fill",
+       "q": "Peça a senha até o usuário acertar.",
+       "c": "senha = \"\"\nwhile senha != \"123\":\n    senha = ___(\"Senha: \")",
+       "b": [
+        "input",
+        "print",
+        "read",
+        "get"
+       ],
+       "a": [
+        "input"
+       ],
+       "e": "input() lê o que a pessoa digita a cada volta.",
+       "id": "u5l1e4",
+       "host": "pipo"
+      },
+      {
+       "k": "code",
+       "q": "Use um laço for para exibir os números de 1 a 5, um por linha.",
+       "starter": "for \n",
+       "tests": "assert __stdout__.split() == [\"1\", \"2\", \"3\", \"4\", \"5\"], \"Exiba 1, 2, 3, 4 e 5, um por linha\"",
+       "e": "for i in range(1, 6): print(i).",
+       "id": "u5l1e5",
+       "host": "ana"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "title": "Funções",
+   "description": "def, return, parâmetros e módulos",
+   "lessons": [
+    {
+     "id": "u6l0",
+     "title": "Criando funções",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u6l0c0",
+       "host": "pipo",
+       "q": "Criando funções",
+       "body": "def cria uma função: um bloco com nome que você pode chamar quando quiser. Os parâmetros entre parênteses recebem valores, e return devolve o resultado.",
+       "c": "def saudar(nome):\n    return \"Oi, \" + nome\n\nprint(saudar(\"Ana\"))",
+       "out": "Oi, Ana",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Defina a função dobro.",
+       "c": "___ dobro(n):\n    return n * 2",
+       "b": [
+        "def",
+        "func",
+        "function",
+        "fn"
+       ],
+       "a": [
+        "def"
+       ],
+       "e": "Funções começam com def.",
+       "id": "u6l0e0",
+       "host": "ana"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "def soma(a, b):\n    return a + b\n\nprint(soma(2, 3))",
+       "a": [
+        "5"
+       ],
+       "e": "soma devolve 2 + 3.",
+       "id": "u6l0e1",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "id": "u6l0c1",
+       "host": "pipo",
+       "q": "Funções sem return",
+       "body": "Se a função não tem return, ela devolve None, o valor que representa \"nada\".",
+       "c": "def ola():\n    print(\"olá\")\n\nr = ola()\nprint(r)",
+       "out": "olá\nNone",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "O que uma função sem return devolve?",
+       "o": [
+        "None",
+        "0",
+        "\"\" (string vazia)",
+        "Um erro"
+       ],
+       "e": "Sem return explícito, o resultado é None.",
+       "id": "u6l0e2",
+       "host": "bia"
+      },
+      {
+       "k": "order",
+       "q": "Monte a função de saudação e chame-a.",
+       "l": [
+        "def saudar(nome):",
+        "    return \"Oi, \" + nome",
+        "print(saudar(\"Ana\"))"
+       ],
+       "e": "Defina antes de chamar.",
+       "id": "u6l0e3",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "id": "u6l0c2",
+       "host": "pipo",
+       "q": "Valores padrão",
+       "body": "Um parâmetro pode ter valor padrão. Se a chamada não passar esse argumento, o padrão é usado.",
+       "c": "def potencia(b, e=2):\n    return b ** e\n\nprint(potencia(3))\nprint(potencia(2, 3))",
+       "out": "9\n8",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "def f(x=1):\n    return x * 10\n\nprint(f())",
+       "o": [
+        "10",
+        "1",
+        "None",
+        "Erro"
+       ],
+       "e": "Sem argumento, x usa o valor padrão 1.",
+       "id": "u6l0e4",
+       "host": "pipo"
+      }
+     ]
+    },
+    {
+     "id": "u6l1",
+     "title": "Indo além",
+     "exercises": [
+      {
+       "k": "learn",
+       "id": "u6l1c0",
+       "host": "pipo",
+       "q": "Quantidade livre de argumentos",
+       "body": "Com *args a função aceita quantos argumentos vierem. Eles chegam juntos numa tupla.",
+       "c": "def total(*nums):\n    return sum(nums)\n\nprint(total(1, 2, 3))",
+       "out": "6",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "def f(*args):\n    return len(args)\n\nprint(f(1, 2, 3))",
+       "o": [
+        "3",
+        "1",
+        "6",
+        "(1, 2, 3)"
+       ],
+       "e": "*args junta os argumentos em uma tupla.",
+       "id": "u6l1e0",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "id": "u6l1c1",
+       "host": "pipo",
+       "q": "lambda",
+       "body": "lambda cria uma função pequena numa linha só: lambda parâmetro: resultado.",
+       "c": "dobro = lambda x: x * 2\nprint(dobro(5))",
+       "out": "10",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "quadrado = lambda x: x ** 2\nprint(quadrado(4))",
+       "a": [
+        "16"
+       ],
+       "e": "lambda cria uma função pequena em uma linha.",
+       "id": "u6l1e1",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "id": "u6l1c2",
+       "host": "pipo",
+       "q": "Escopo local",
+       "body": "Uma variável criada dentro da função só existe lá dentro. Mudar um x dentro da função não muda o x de fora.",
+       "c": "x = 1\ndef muda():\n    x = 99\n\nmuda()\nprint(x)",
+       "out": "1",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "x = 5\ndef f():\n    x = 10\n\nf()\nprint(x)",
+       "o": [
+        "5",
+        "10",
+        "None",
+        "Erro"
+       ],
+       "e": "O x de dentro da função é local; o de fora não muda.",
+       "id": "u6l1e2",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "id": "u6l1c3",
+       "host": "pipo",
+       "q": "Módulos e funções prontas",
+       "body": "import traz um módulo com funções extras, como math. O Python também tem funções prontas, como max(), min() e sum().",
+       "c": "import math\nprint(math.sqrt(9))\nprint(max([3, 8, 1]))",
+       "out": "3.0\n8",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Use o módulo de matemática.",
+       "c": "___ math\nprint(math.sqrt(16))",
+       "b": [
+        "import",
+        "include",
+        "using",
+        "require"
+       ],
+       "a": [
+        "import"
+       ],
+       "e": "import carrega um módulo.",
+       "id": "u6l1e3",
+       "host": "pipo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(max([4, 9, 2]))",
+       "o": [
+        "9",
+        "4",
+        "2",
+        "[9]"
+       ],
+       "e": "max() devolve o maior item.",
+       "id": "u6l1e4",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "id": "u6l1c4",
+       "host": "pipo",
+       "q": "Fatorial",
+       "body": "O fatorial de n, escrito n!, é a multiplicação de 1 até n: 5! = 5 × 4 × 3 × 2 × 1 = 120. Por definição, 0! = 1. Um jeito de calcular é começar com 1 e ir multiplicando num laço.",
+       "c": "r = 1\nfor i in range(1, 4):\n    r *= i\nprint(r)",
+       "out": "6",
+       "e": ""
+      },
+      {
+       "k": "code",
+       "q": "Escreva a função fatorial(n) que devolve n! (fatorial(5) == 120).",
+       "starter": "def fatorial(n):\n    pass\n",
+       "tests": "assert fatorial(0) == 1, \"fatorial(0) deve ser 1\"\nassert fatorial(1) == 1, \"fatorial(1) deve ser 1\"\nassert fatorial(5) == 120, \"fatorial(5) deve ser 120\"",
+       "e": "Multiplique um acumulador de 1 até n, começando em 1.",
+       "id": "u6l1e5",
+       "host": "caio"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u7",
+   "title": "Dicionários e conjuntos",
+   "description": "chave e valor, get, items e set",
+   "lessons": [
+    {
+     "id": "u7l0",
+     "title": "Dicionários",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Dicionários",
+       "body": "Um dicionário guarda pares chave: valor entre chaves { }. Em vez de buscar por posição, como na lista, você busca pela chave.",
+       "c": "aluno = {\"nome\": \"Ana\", \"idade\": 20}\nprint(aluno[\"nome\"])\nprint(len(aluno))",
+       "out": "Ana\n2",
+       "id": "u7l0c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "d = {\"a\": 1, \"b\": 2}\nprint(d[\"b\"])",
+       "o": [
+        "2",
+        "1",
+        "\"b\"",
+        "Erro"
+       ],
+       "e": "d[\"b\"] busca o valor da chave \"b\".",
+       "id": "u7l0e0",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "q": "Adicionando e mudando valores",
+       "body": "d[chave] = valor cria a chave se ela não existe, ou troca o valor se já existe.",
+       "c": "estoque = {\"maçã\": 3}\nestoque[\"uva\"] = 5\nestoque[\"maçã\"] = 4\nprint(estoque)",
+       "out": "{'maçã': 4, 'uva': 5}",
+       "id": "u7l0c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "p = {\"x\": 1}\np[\"x\"] = 10\np[\"y\"] = 2\nprint(p)",
+       "o": [
+        "{'x': 10, 'y': 2}",
+        "{'x': 1, 'y': 2}",
+        "{'x': 10}",
+        "Erro"
+       ],
+       "e": "\"x\" foi atualizado e \"y\" foi criado.",
+       "id": "u7l0e1",
+       "host": "caio"
+      },
+      {
+       "k": "fill",
+       "q": "Verifique se a chave \"Ana\" existe.",
+       "c": "notas = {\"Ana\": 9}\nprint(\"Ana\" ___ notas)",
+       "b": [
+        "in",
+        "has",
+        "of",
+        "contains"
+       ],
+       "a": [
+        "in"
+       ],
+       "e": "in testa se a chave existe no dicionário.",
+       "id": "u7l0e2",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "get() e chaves que não existem",
+       "body": "Buscar uma chave que não existe com [ ] dá erro. get() devolve None, ou o valor padrão que você passar, sem erro.",
+       "c": "cores = {\"céu\": \"azul\"}\nprint(cores.get(\"mar\"))\nprint(cores.get(\"mar\", \"?\"))",
+       "out": "None\n?",
+       "id": "u7l0c2",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "d = {\"a\": 1}\nprint(d.get(\"z\", 0))",
+       "a": [
+        "0"
+       ],
+       "e": "\"z\" não existe, então get devolve o padrão 0.",
+       "id": "u7l0e3",
+       "host": "teo"
+      },
+      {
+       "k": "mc",
+       "q": "Qual destes pode ser chave de um dicionário?",
+       "o": [
+        "\"nome\" (uma string)",
+        "[1, 2] (uma lista)",
+        "{} (um dicionário)",
+        "Nenhum deles"
+       ],
+       "e": "Chaves precisam ser imutáveis: strings, números e tuplas servem; listas não.",
+       "id": "u7l0e4",
+       "host": "ana"
+      }
+     ]
+    },
+    {
+     "id": "u7l1",
+     "title": "Percorrendo e conjuntos",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Percorrendo um dicionário",
+       "body": "Um for direto no dicionário passa pelas chaves. Com items() você recebe chave e valor juntos. values() traz só os valores.",
+       "c": "precos = {\"pão\": 2, \"leite\": 5}\nfor item, valor in precos.items():\n    print(item, valor)",
+       "out": "pão 2\nleite 5",
+       "id": "u7l1c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "d = {\"a\": 1, \"b\": 2}\nfor k in d:\n    print(k)",
+       "o": [
+        "a\nb",
+        "1\n2",
+        "('a', 1)\n('b', 2)",
+        "Erro"
+       ],
+       "e": "O for direto no dicionário percorre as chaves.",
+       "id": "u7l1e0",
+       "host": "caio"
+      },
+      {
+       "k": "fill",
+       "q": "Some todos os preços.",
+       "c": "precos = {\"pão\": 2, \"leite\": 5}\ntotal = sum(precos.___())\nprint(total)",
+       "b": [
+        "values",
+        "keys",
+        "items",
+        "list"
+       ],
+       "a": [
+        "values"
+       ],
+       "e": "values() devolve só os valores: 2 e 5.",
+       "id": "u7l1e1",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "Conjuntos (set)",
+       "body": "Um set guarda valores sem repetição e sem ordem fixa. & devolve o que dois conjuntos têm em comum; | junta tudo.",
+       "c": "s = {1, 2, 2, 3}\nprint(s)\nprint({1, 2} & {2, 3})\nprint({1, 2} | {2, 3})",
+       "out": "{1, 2, 3}\n{2}\n{1, 2, 3}",
+       "id": "u7l1c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(len({1, 1, 2, 2, 3}))",
+       "a": [
+        "3"
+       ],
+       "e": "Repetidos somem: sobram 1, 2 e 3.",
+       "id": "u7l1e2",
+       "host": "teo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "a = {1, 2, 3}\nb = {2, 3, 4}\nprint(a & b)",
+       "o": [
+        "{2, 3}",
+        "{1, 2, 3, 4}",
+        "{1, 4}",
+        "Erro"
+       ],
+       "e": "& fica só com os itens que estão nos dois.",
+       "id": "u7l1e3",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "q": "Contando com get()",
+       "body": "Para contar quantas vezes cada coisa aparece, use get com padrão 0 e some 1 a cada ocorrência.",
+       "c": "c = {}\nfor letra in \"aba\":\n    c[letra] = c.get(letra, 0) + 1\nprint(c)",
+       "out": "{'a': 2, 'b': 1}",
+       "id": "u7l1c2",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "code",
+       "q": "Escreva contar(palavras): devolve um dicionário com quantas vezes cada palavra aparece na lista.",
+       "starter": "def contar(palavras):\n    contagem = {}\n    # seu código aqui\n    return contagem\n",
+       "tests": "assert contar([\"a\", \"b\", \"a\"]) == {\"a\": 2, \"b\": 1}, \"contar([\\\"a\\\", \\\"b\\\", \\\"a\\\"]) deve dar {\\\"a\\\": 2, \\\"b\\\": 1}\"\nassert contar([]) == {}, \"Lista vazia deve dar {}\"",
+       "e": "Percorra a lista e faça contagem[p] = contagem.get(p, 0) + 1.",
+       "id": "u7l1e4",
+       "host": "caio"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u8",
+   "title": "Strings poderosas",
+   "description": "strip, replace, split, join e busca",
+   "lessons": [
+    {
+     "id": "u8l0",
+     "title": "Métodos úteis",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "strip() e replace()",
+       "body": "strip() tira espaços do começo e do fim. replace(velho, novo) troca todas as ocorrências de um trecho.",
+       "c": "s = \"  Olá  \"\nprint(s.strip())\nprint(\"banana\".replace(\"a\", \"o\"))",
+       "out": "Olá\nbonono",
+       "id": "u8l0c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"abacate\".replace(\"a\", \"\"))",
+       "o": [
+        "bcte",
+        "abacate",
+        "bacate",
+        "Erro"
+       ],
+       "e": "Trocar \"a\" por nada apaga todos os \"a\".",
+       "id": "u8l0e0",
+       "host": "caio"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(\"  py  \".strip() + \"!\")",
+       "a": [
+        "py!"
+       ],
+       "e": "strip() remove os espaços antes de juntar o \"!\".",
+       "id": "u8l0e1",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "split() e join()",
+       "body": "split() quebra uma string numa lista de pedaços (sem argumento, quebra nos espaços). join() faz o caminho inverso: junta uma lista usando a string como cola.",
+       "c": "partes = \"a,b,c\".split(\",\")\nprint(partes)\nprint(\"-\".join(partes))",
+       "out": "['a', 'b', 'c']\na-b-c",
+       "id": "u8l0c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"um dois três\".split())",
+       "o": [
+        "['um', 'dois', 'três']",
+        "um dois três",
+        "['um dois três']",
+        "('um', 'dois', 'três')"
+       ],
+       "e": "Sem argumento, split() quebra nos espaços.",
+       "id": "u8l0e2",
+       "host": "teo"
+      },
+      {
+       "k": "fill",
+       "q": "Junte as palavras sem espaço.",
+       "c": "palavras = [\"Py\", \"Passo\"]\nprint(\"\".___(palavras))",
+       "b": [
+        "join",
+        "split",
+        "add",
+        "concat"
+       ],
+       "a": [
+        "join"
+       ],
+       "e": "\"\".join(lista) cola os itens sem separador: PyPasso.",
+       "id": "u8l0e3",
+       "host": "ana"
+      },
+      {
+       "k": "mc",
+       "q": "O que \"a b\".split() devolve?",
+       "o": [
+        "Uma lista",
+        "Uma string",
+        "Uma tupla",
+        "Um número"
+       ],
+       "e": "split() sempre devolve uma lista de strings.",
+       "id": "u8l0e4",
+       "host": "caio"
+      }
+     ]
+    },
+    {
+     "id": "u8l1",
+     "title": "Fatias e busca",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Fatias de string",
+       "body": "Strings aceitam fatias como as listas: s[início:fim]. Deixar um lado vazio vai até a ponta. s[::-1] devolve a string invertida.",
+       "c": "s = \"python\"\nprint(s[0:2])\nprint(s[2:])\nprint(s[::-1])",
+       "out": "py\nthon\nnohtyp",
+       "id": "u8l1c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"python\"[-3:])",
+       "o": [
+        "hon",
+        "pyt",
+        "nohtyp",
+        "on"
+       ],
+       "e": "-3 começa no terceiro caractere a partir do fim.",
+       "id": "u8l1e0",
+       "host": "bia"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(\"abc\"[::-1])",
+       "a": [
+        "cba"
+       ],
+       "e": "[::-1] percorre de trás para frente.",
+       "id": "u8l1e1",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "q": "Buscando dentro do texto",
+       "body": "in diz se um trecho existe. find() devolve a posição dele, ou -1 se não achar. count() conta ocorrências. startswith() testa o começo.",
+       "c": "frase = \"olá mundo\"\nprint(\"mundo\" in frase)\nprint(frase.find(\"m\"))\nprint(frase.count(\"o\"))\nprint(frase.startswith(\"olá\"))",
+       "out": "True\n4\n2\nTrue",
+       "id": "u8l1c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"banana\".count(\"a\"))",
+       "o": [
+        "3",
+        "2",
+        "1",
+        "6"
+       ],
+       "e": "Há três letras \"a\" em banana.",
+       "id": "u8l1e2",
+       "host": "ana"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"casa\".find(\"z\"))",
+       "o": [
+        "-1",
+        "0",
+        "None",
+        "Erro"
+       ],
+       "e": "find() devolve -1 quando não encontra.",
+       "id": "u8l1e3",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "q": "Ignorando maiúsculas",
+       "body": "Para comparar textos sem ligar para maiúsculas, converta os dois lados com lower() antes.",
+       "c": "print(\"Ovo\".lower() == \"ovo\")",
+       "out": "True",
+       "id": "u8l1c2",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "code",
+       "q": "Escreva eh_palindromo(texto): devolve True se o texto for igual lido de trás para frente, ignorando maiúsculas.",
+       "starter": "def eh_palindromo(texto):\n    pass\n",
+       "tests": "assert eh_palindromo(\"Arara\") is True, \"Arara é palíndromo\"\nassert eh_palindromo(\"ovo\") is True, \"ovo é palíndromo\"\nassert eh_palindromo(\"python\") is False, \"python não é palíndromo\"",
+       "e": "t = texto.lower() e depois compare t com t[::-1].",
+       "id": "u8l1e4",
+       "host": "bia"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u12",
+   "title": "Métodos de string",
+   "description": "strip, center, join, split, title e mais",
+   "lessons": [
+    {
+     "id": "u12l0",
+     "title": "Limpando e alinhando",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Espaços invisíveis e repr()",
+       "body": "Textos digitados costumam vir com espaços sobrando nas pontas, e o print não mostra isso. A função repr() mostra a string com aspas, então os espaços aparecem. Vamos usá-la neste módulo.",
+       "c": "nome = \"  Ana  \"\nprint(nome)\nprint(repr(nome))",
+       "out": "  Ana  \n'  Ana  '",
+       "id": "u12l0c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "learn",
+       "q": "strip, lstrip e rstrip",
+       "body": "strip() tira espaços (e também \\n e \\t) das duas pontas. lstrip() tira só da esquerda (left) e rstrip() só da direita (right). O meio do texto nunca é mexido.",
+       "c": "s = \"  oi  \"\nprint(repr(s.strip()))\nprint(repr(s.lstrip()))\nprint(repr(s.rstrip()))",
+       "out": "'oi'\n'oi  '\n'  oi'",
+       "id": "u12l0c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(repr(\"  py  \".lstrip()))",
+       "o": [
+        "'py  '",
+        "'  py'",
+        "'py'",
+        "'  py  '"
+       ],
+       "e": "lstrip() limpa só a esquerda; os espaços da direita ficam.",
+       "id": "u12l0e0",
+       "host": "caio"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(repr(\"\\n\\tolá\\n\".strip()))",
+       "o": [
+        "'olá'",
+        "'\\tolá'",
+        "'olá\\n'",
+        "'\\n\\tolá\\n'"
+       ],
+       "e": "strip() também remove quebras de linha e tabulações das pontas.",
+       "id": "u12l0e1",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "Tirando outros caracteres",
+       "body": "Passe os caracteres que quer remover: strip(\"*\"). Cuidado: o argumento é um conjunto de caracteres, não uma palavra. Por isso \"banana\".rstrip(\"an\") vira \"b\": ele vai tirando a e n do fim até achar outra letra.",
+       "c": "print(\"***oba***\".strip(\"*\"))\nprint(\"00042\".lstrip(\"0\"))\nprint(\"banana\".rstrip(\"an\"))",
+       "out": "oba\n42\nb",
+       "id": "u12l0c2",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(\"--olá--\".strip(\"-\"))",
+       "a": [
+        "olá"
+       ],
+       "e": "Os traços das duas pontas saem; o texto do meio fica.",
+       "id": "u12l0e2",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "q": "center, ljust e rjust",
+       "body": "Esses métodos colocam o texto num tamanho fixo e completam o resto com espaços, ou com o caractere que você escolher. center() centraliza, ljust() alinha à esquerda e rjust() alinha à direita.",
+       "c": "print(\"menu\".center(10, \"*\"))\nprint(\"a\".ljust(5, \".\") + \"|\")\nprint(\"7\".rjust(3, \"0\"))",
+       "out": "***menu***\na....|\n007",
+       "id": "u12l0c3",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"py\".center(6, \"-\"))",
+       "o": [
+        "--py--",
+        "---py-",
+        "-py---",
+        "py----"
+       ],
+       "e": "Sobram 4 posições: 2 vão para cada lado.",
+       "id": "u12l0e3",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "q": "zfill: zeros à esquerda",
+       "body": "zfill(n) completa com zeros à esquerda até o tamanho n. Ótimo para números de pedido, horários e códigos. Ele respeita o sinal de menos.",
+       "c": "print(\"42\".zfill(5))\nprint(\"-7\".zfill(4))\nprint(\"9\".zfill(2) + \":05\")",
+       "out": "00042\n-007\n09:05",
+       "id": "u12l0c4",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Complete para mostrar 005.",
+       "c": "print(\"5\".___(3))",
+       "b": [
+        "zfill",
+        "center",
+        "ljust",
+        "strip"
+       ],
+       "a": [
+        "zfill"
+       ],
+       "e": "zfill(3) completa com zeros até 3 caracteres.",
+       "id": "u12l0e4",
+       "host": "caio"
+      },
+      {
+       "k": "mc",
+       "q": "Qual método alinha o texto à direita?",
+       "o": [
+        "rjust()",
+        "ljust()",
+        "center()",
+        "rstrip()"
+       ],
+       "e": "rjust alinha à direita. rstrip, apesar do r, remove caracteres da direita.",
+       "id": "u12l0e5",
+       "host": "bia"
+      },
+      {
+       "k": "code",
+       "q": "Escreva moldura(texto): tire os espaços das pontas e centralize o texto em 20 caracteres usando \"=\".",
+       "starter": "def moldura(texto):\n    pass\n",
+       "tests": "assert moldura(\"  oi \") == \"=========oi=========\", \"moldura(\\\"  oi \\\") deve ser =========oi=========\"\nassert moldura(\"Python\") == \"=======Python=======\", \"moldura(\\\"Python\\\") deve ser =======Python=======\"",
+       "e": "Encadeie os métodos: texto.strip().center(20, \"=\").",
+       "id": "u12l0e6",
+       "host": "teo"
+      }
+     ]
+    },
+    {
+     "id": "u12l1",
+     "title": "Maiúsculas e perguntas",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Trocando maiúsculas e minúsculas",
+       "body": "upper() deixa tudo maiúsculo e lower() tudo minúsculo. title() põe maiúscula no começo de cada palavra; capitalize() só na primeira letra do texto (e o resto vira minúsculo). swapcase() inverte.",
+       "c": "s = \"olá, mundo PYTHON\"\nprint(s.title())\nprint(s.capitalize())\nprint(s.swapcase())",
+       "out": "Olá, Mundo Python\nOlá, mundo python\nOLÁ, MUNDO python",
+       "id": "u12l1c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"bom dia\".title())",
+       "o": [
+        "Bom Dia",
+        "Bom dia",
+        "BOM DIA",
+        "bom Dia"
+       ],
+       "e": "title() capitaliza cada palavra.",
+       "id": "u12l1e0",
+       "host": "bia"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"pYTHON é DEMAIS\".capitalize())",
+       "o": [
+        "Python é demais",
+        "Python É Demais",
+        "PYTHON É DEMAIS",
+        "pYTHON é DEMAIS"
+       ],
+       "e": "capitalize() deixa só a primeira letra maiúscula e o resto minúsculo.",
+       "id": "u12l1e1",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "q": "Métodos que respondem True ou False",
+       "body": "Alguns métodos fazem perguntas sobre o texto: isdigit() (só algarismos?), isalpha() (só letras?), isalnum() (só letras e algarismos?), isspace() (só espaços?), isupper() e islower(). Texto vazio responde False.",
+       "c": "print(\"2024\".isdigit())\nprint(\"abc1\".isalpha())\nprint(\"abc1\".isalnum())\nprint(\"   \".isspace())",
+       "out": "True\nFalse\nTrue\nTrue",
+       "id": "u12l1c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"12.5\".isdigit())",
+       "o": [
+        "False",
+        "True",
+        "12.5",
+        "Erro"
+       ],
+       "e": "O ponto não é algarismo. Para checar decimais, tente float() com try/except.",
+       "id": "u12l1e2",
+       "host": "ana"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(\"Ana\".isalpha())",
+       "a": [
+        "True"
+       ],
+       "e": "A, n e a são todas letras.",
+       "id": "u12l1e3",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "q": "Começa ou termina com?",
+       "body": "startswith() e endswith() testam o começo e o fim do texto. Eles aceitam uma tupla com várias opções de uma vez.",
+       "c": "arquivo = \"foto.png\"\nprint(arquivo.endswith(\".png\"))\nprint(arquivo.endswith((\".jpg\", \".png\")))\nprint(arquivo.startswith(\"doc\"))",
+       "out": "True\nTrue\nFalse",
+       "id": "u12l1c2",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Complete para identificar e-mails do Gmail.",
+       "c": "email = \"ana@gmail.com\"\nif email.___(\"@gmail.com\"):\n    print(\"gmail\")",
+       "b": [
+        "endswith",
+        "startswith",
+        "find",
+        "isalpha"
+       ],
+       "a": [
+        "endswith"
+       ],
+       "e": "O domínio fica no fim do e-mail.",
+       "id": "u12l1e4",
+       "host": "bia"
+      },
+      {
+       "k": "mc",
+       "q": "Para comparar uma resposta sem ligar para maiúsculas, o melhor é…",
+       "o": [
+        "resposta.lower() == \"sim\"",
+        "resposta == \"sim\"",
+        "resposta.isupper()",
+        "resposta.title() == \"sim\""
+       ],
+       "e": "Converta para minúsculas e compare com a versão em minúsculas: \"SIM\", \"Sim\" e \"sim\" passam.",
+       "id": "u12l1e5",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "q": "Testando letra por letra",
+       "body": "Um for numa string passa por cada caractere. Junte isso com os métodos de pergunta para descobrir o que o texto tem.",
+       "c": "tem_numero = False\nfor c in \"abc7\":\n    if c.isdigit():\n        tem_numero = True\nprint(tem_numero)",
+       "out": "True",
+       "id": "u12l1c3",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "code",
+       "q": "Escreva senha_forte(senha): devolve True se tiver pelo menos 8 caracteres, alguma letra e algum número.",
+       "starter": "def senha_forte(senha):\n    pass\n",
+       "tests": "assert senha_forte(\"abc12345\") is True, \"abc12345 é forte\"\nassert senha_forte(\"abcdefgh\") is False, \"Sem número não é forte\"\nassert senha_forte(\"12345678\") is False, \"Sem letra não é forte\"\nassert senha_forte(\"a1b2\") is False, \"Curta demais não é forte\"",
+       "e": "Percorra os caracteres marcando se achou letra (isalpha) e número (isdigit); no fim, confira também len(senha) >= 8.",
+       "id": "u12l1e6",
+       "host": "ana"
+      }
+     ]
+    },
+    {
+     "id": "u12l2",
+     "title": "Quebrar, juntar e trocar",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "join com qualquer separador",
+       "body": "separador.join(lista) junta os itens usando o separador entre eles. O separador pode ser espaço, traço, vírgula, quebra de linha ou até nada.",
+       "c": "palavras = [\"Python\", \"é\", \"legal\"]\nprint(\" \".join(palavras))\nprint(\"-\".join(palavras))\nprint(\"\".join([\"a\", \"b\", \"c\"]))",
+       "out": "Python é legal\nPython-é-legal\nabc",
+       "id": "u12l2c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\", \".join([\"maçã\", \"uva\", \"pera\"]))",
+       "o": [
+        "maçã, uva, pera",
+        "maçã,uva,pera",
+        "['maçã', 'uva', 'pera']",
+        "maçã uva pera"
+       ],
+       "e": "O separador \", \" vai só entre os itens, não no fim.",
+       "id": "u12l2e0",
+       "host": "teo"
+      },
+      {
+       "k": "learn",
+       "q": "join só aceita texto",
+       "body": "Se a lista tiver números, join dá TypeError. Converta antes, com uma compreensão de lista.",
+       "c": "nums = [1, 2, 3]\nprint(\"+\".join([str(n) for n in nums]))",
+       "out": "1+2+3",
+       "id": "u12l2c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Que erro este código dá?",
+       "c": "print(\"-\".join([1, 2]))",
+       "o": [
+        "TypeError",
+        "ValueError",
+        "NameError",
+        "Nenhum: mostra 1-2"
+       ],
+       "e": "join espera strings; 1 e 2 são int.",
+       "id": "u12l2e1",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "q": "split com limite, rsplit e splitlines",
+       "body": "split(sep, n) quebra no máximo n vezes, da esquerda. rsplit faz o mesmo começando pela direita. splitlines() quebra nas linhas.",
+       "c": "print(\"a-b-c\".split(\"-\", 1))\nprint(\"a-b-c\".rsplit(\"-\", 1))\nprint(\"linha1\\nlinha2\".splitlines())",
+       "out": "['a', 'b-c']\n['a-b', 'c']\n['linha1', 'linha2']",
+       "id": "u12l2c2",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"2024-10-07\".split(\"-\")[0])",
+       "o": [
+        "2024",
+        "10",
+        "07",
+        "['2024', '10', '07']"
+       ],
+       "e": "O índice 0 pega o primeiro pedaço.",
+       "id": "u12l2e2",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "q": "partition",
+       "body": "partition(sep) divide na primeira ocorrência e devolve sempre 3 partes: antes, o separador e depois. Ótimo para textos do tipo chave=valor.",
+       "c": "print(\"nome=Ana\".partition(\"=\"))\nchave, _, valor = \"idade=30\".partition(\"=\")\nprint(valor)",
+       "out": "('nome', '=', 'Ana')\n30",
+       "id": "u12l2c3",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "print(\"a:b:c\".partition(\":\")[2])",
+       "a": [
+        "b:c"
+       ],
+       "e": "Ele só divide no primeiro \":\"; o resto fica junto.",
+       "id": "u12l2e3",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "replace com limite, find e index",
+       "body": "replace(velho, novo, n) troca só as n primeiras ocorrências. find() devolve a posição ou -1 se não achar; index() faz o mesmo, mas dá ValueError quando não acha.",
+       "c": "print(\"banana\".replace(\"a\", \"o\", 1))\nprint(\"banana\".find(\"x\"))\nprint(\"banana\".index(\"n\"))",
+       "out": "bonana\n-1\n2",
+       "id": "u12l2c4",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "print(\"aaa\".replace(\"a\", \"b\", 2))",
+       "o": [
+        "bba",
+        "bbb",
+        "abb",
+        "baa"
+       ],
+       "e": "Só as 2 primeiras ocorrências foram trocadas.",
+       "id": "u12l2e4",
+       "host": "teo"
+      },
+      {
+       "k": "order",
+       "q": "Monte o programa que transforma um título em endereço de página.",
+       "l": [
+        "titulo = \"  Aprendendo Python  \"",
+        "limpo = titulo.strip().lower()",
+        "slug = \"-\".join(limpo.split())",
+        "print(slug)"
+       ],
+       "e": "Limpa as pontas, deixa minúsculo, quebra em palavras e junta com traço: aprendendo-python.",
+       "id": "u12l2e5",
+       "host": "ana"
+      },
+      {
+       "k": "code",
+       "q": "Escreva iniciais(nome): devolve as iniciais em maiúsculas, cada uma seguida de ponto. iniciais(\" ana maria silva \") deve dar \"A.M.S.\"",
+       "starter": "def iniciais(nome):\n    pass\n",
+       "tests": "assert iniciais(\" ana maria silva \") == \"A.M.S.\", \"iniciais(\\\" ana maria silva \\\") deve ser A.M.S.\"\nassert iniciais(\"Pipo\") == \"P.\", \"iniciais(\\\"Pipo\\\") deve ser P.\"",
+       "e": "split() quebra em palavras (e já ignora os espaços extras); pegue p[0].upper() de cada uma e junte com \".\" no fim.",
+       "id": "u12l2e6",
+       "host": "caio"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u9",
+   "title": "Erros e exceções",
+   "description": "ler erros, try, except e raise",
+   "lessons": [
+    {
+     "id": "u9l0",
+     "title": "Lendo mensagens de erro",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Erros têm nome",
+       "body": "Quando algo dá errado, o Python para e mostra o tipo do erro e uma explicação. NameError: usou um nome que não existe. TypeError: misturou tipos que não combinam.",
+       "c": "print(\"idade: \" + 30)",
+       "out": "TypeError: can only concatenate str (not \"int\") to str",
+       "id": "u9l0c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Que erro este código dá?",
+       "c": "print(nome)",
+       "o": [
+        "NameError",
+        "TypeError",
+        "SyntaxError",
+        "ValueError"
+       ],
+       "e": "nome nunca foi criado, então o Python não o conhece.",
+       "id": "u9l0e0",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "Outros erros comuns",
+       "body": "IndexError: posição fora da lista. ZeroDivisionError: divisão por zero. ValueError: valor inválido, como int(\"abc\"). KeyError: chave que não existe no dicionário.",
+       "c": "lista = [1, 2]\nprint(lista[5])",
+       "out": "IndexError: list index out of range",
+       "id": "u9l0c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Que erro este código dá?",
+       "c": "print(10 / 0)",
+       "o": [
+        "ZeroDivisionError",
+        "ValueError",
+        "IndexError",
+        "inf"
+       ],
+       "e": "Não existe divisão por zero.",
+       "id": "u9l0e1",
+       "host": "teo"
+      },
+      {
+       "k": "out",
+       "q": "Que erro este código dá?",
+       "c": "int(\"abc\")",
+       "o": [
+        "ValueError",
+        "TypeError",
+        "NameError",
+        "KeyError"
+       ],
+       "e": "\"abc\" é texto, mas não representa um número.",
+       "id": "u9l0e2",
+       "host": "ana"
+      },
+      {
+       "k": "out",
+       "q": "Que erro este código dá?",
+       "c": "d = {\"a\": 1}\nprint(d[\"b\"])",
+       "o": [
+        "KeyError",
+        "IndexError",
+        "ValueError",
+        "None"
+       ],
+       "e": "A chave \"b\" não existe. Para evitar, use d.get(\"b\").",
+       "id": "u9l0e3",
+       "host": "caio"
+      },
+      {
+       "k": "mc",
+       "q": "Um IndentationError indica problema em quê?",
+       "o": [
+        "No recuo das linhas",
+        "No nome de uma variável",
+        "Numa divisão por zero",
+        "Num índice de lista"
+       ],
+       "e": "Indentation é o recuo que define os blocos.",
+       "id": "u9l0e4",
+       "host": "bia"
+      }
+     ]
+    },
+    {
+     "id": "u9l1",
+     "title": "Tratando erros",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "try e except",
+       "body": "Coloque o código arriscado dentro de try. Se der o erro indicado no except, o programa não para: ele executa o bloco do except.",
+       "c": "try:\n    n = int(\"abc\")\nexcept ValueError:\n    print(\"isso não é número\")",
+       "out": "isso não é número",
+       "id": "u9l1c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "try:\n    print(1 / 0)\nexcept ZeroDivisionError:\n    print(\"ops\")",
+       "o": [
+        "ops",
+        "Erro",
+        "1",
+        "inf\nops"
+       ],
+       "e": "O erro é capturado e o except roda.",
+       "id": "u9l1e0",
+       "host": "teo"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "try:\n    x = int(\"7\")\n    print(x + 1)\nexcept ValueError:\n    print(\"inválido\")",
+       "o": [
+        "8",
+        "inválido",
+        "7",
+        "8\ninválido"
+       ],
+       "e": "Sem erro, o except é pulado.",
+       "id": "u9l1e1",
+       "host": "ana"
+      },
+      {
+       "k": "fill",
+       "q": "Complete para capturar a divisão por zero.",
+       "c": "try:\n    print(10 / 0)\n___ ZeroDivisionError:\n    print(\"não divida por zero\")",
+       "b": [
+        "except",
+        "catch",
+        "error",
+        "else"
+       ],
+       "a": [
+        "except"
+       ],
+       "e": "Em Python é except, não catch.",
+       "id": "u9l1e2",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "q": "else e finally",
+       "body": "else roda só se não houve erro. finally roda sempre, com ou sem erro: bom para encerrar algo.",
+       "c": "try:\n    v = 10 / 2\nexcept ZeroDivisionError:\n    print(\"erro\")\nelse:\n    print(\"resultado\", v)\nfinally:\n    print(\"fim\")",
+       "out": "resultado 5.0\nfim",
+       "id": "u9l1c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "order",
+       "q": "Monte o tratamento para um número inválido.",
+       "l": [
+        "try:",
+        "    idade = int(\"x\")",
+        "except ValueError:",
+        "    print(\"digite um número\")"
+       ],
+       "e": "try com o código arriscado, depois o except com a resposta.",
+       "id": "u9l1e3",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "raise: criando seus próprios erros",
+       "body": "raise dispara um erro de propósito, quando algo não faz sentido no seu programa.",
+       "c": "def sacar(saldo, valor):\n    if valor > saldo:\n        raise ValueError(\"saldo insuficiente\")\n    return saldo - valor\n\nprint(sacar(100, 30))",
+       "out": "70",
+       "id": "u9l1c2",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "code",
+       "q": "Escreva converter(texto): devolve int(texto), ou 0 se o texto não for um número.",
+       "starter": "def converter(texto):\n    pass\n",
+       "tests": "assert converter(\"12\") == 12, \"converter(\\\"12\\\") deve ser 12\"\nassert converter(\"abc\") == 0, \"converter(\\\"abc\\\") deve ser 0\"\nassert converter(\"\") == 0, \"converter(\\\"\\\") deve ser 0\"",
+       "e": "Use try: return int(texto) e except ValueError: return 0.",
+       "id": "u9l1e4",
+       "host": "teo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u10",
+   "title": "Arquivos",
+   "description": "open, with, ler, escrever e CSV",
+   "lessons": [
+    {
+     "id": "u10l0",
+     "title": "Escrevendo e lendo",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Abrindo arquivos com with",
+       "body": "open(nome, modo) abre um arquivo. O modo \"w\" escreve (apagando o que havia) e \"r\", o padrão, lê. Dentro de with, o arquivo é fechado sozinho no final.",
+       "c": "with open(\"nota.txt\", \"w\") as f:\n    f.write(\"Olá, arquivo!\")\n\nwith open(\"nota.txt\") as f:\n    print(f.read())",
+       "out": "Olá, arquivo!",
+       "id": "u10l0c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "mc",
+       "q": "Qual modo de open() apaga o conteúdo e escreve do zero?",
+       "o": [
+        "\"w\"",
+        "\"r\"",
+        "\"a\"",
+        "\"b\""
+       ],
+       "e": "\"w\" sobrescreve; \"a\" acrescenta no fim; \"r\" só lê.",
+       "id": "u10l0e0",
+       "host": "teo"
+      },
+      {
+       "k": "fill",
+       "q": "Complete para abrir o arquivo com fechamento automático.",
+       "c": "___ open(\"dados.txt\", \"w\") as f:\n    f.write(\"1\")",
+       "b": [
+        "with",
+        "for",
+        "if",
+        "def"
+       ],
+       "a": [
+        "with"
+       ],
+       "e": "with garante que o arquivo seja fechado.",
+       "id": "u10l0e1",
+       "host": "ana"
+      },
+      {
+       "k": "learn",
+       "q": "Acrescentando e lendo linhas",
+       "body": "O modo \"a\" escreve no fim, sem apagar. \\n é a quebra de linha. Um for no arquivo lê linha por linha, e readlines() devolve todas as linhas numa lista.",
+       "c": "with open(\"lista.txt\", \"w\") as f:\n    f.write(\"pão\\n\")\nwith open(\"lista.txt\", \"a\") as f:\n    f.write(\"leite\\n\")\nwith open(\"lista.txt\") as f:\n    for linha in f:\n        print(linha.strip())",
+       "out": "pão\nleite",
+       "id": "u10l0c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "with open(\"t.txt\", \"w\") as f:\n    f.write(\"a\")\nwith open(\"t.txt\", \"a\") as f:\n    f.write(\"b\")\nwith open(\"t.txt\") as f:\n    print(f.read())",
+       "o": [
+        "ab",
+        "b",
+        "a",
+        "a\nb"
+       ],
+       "e": "\"a\" acrescentou o b depois do a, sem quebra de linha.",
+       "id": "u10l0e2",
+       "host": "caio"
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "with open(\"n.txt\", \"w\") as f:\n    f.write(\"1\\n2\\n3\\n\")\nwith open(\"n.txt\") as f:\n    print(len(f.readlines()))",
+       "a": [
+        "3"
+       ],
+       "e": "Três quebras de linha, três linhas.",
+       "id": "u10l0e3",
+       "host": "bia"
+      }
+     ]
+    },
+    {
+     "id": "u10l1",
+     "title": "Trabalhando com dados",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Lendo um CSV simples",
+       "body": "Um CSV guarda dados em linhas, com valores separados por vírgula. Leia cada linha, tire o \\n com strip() e quebre com split(\",\").",
+       "c": "with open(\"notas.csv\", \"w\") as f:\n    f.write(\"Ana,9\\nBia,7\\n\")\nwith open(\"notas.csv\") as f:\n    for linha in f:\n        nome, nota = linha.strip().split(\",\")\n        print(nome, int(nota) + 1)",
+       "out": "Ana 10\nBia 8",
+       "id": "u10l1c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "linha = \"Caio,8\"\nnome, nota = linha.split(\",\")\nprint(nota)",
+       "o": [
+        "8",
+        "Caio",
+        "Caio,8",
+        "['Caio', '8']"
+       ],
+       "e": "split cria dois pedaços; o segundo vai para nota.",
+       "id": "u10l1e0",
+       "host": "ana"
+      },
+      {
+       "k": "mc",
+       "q": "Por que abrir arquivos com with?",
+       "o": [
+        "Ele fecha o arquivo sozinho ao terminar",
+        "Ele deixa a leitura mais rápida",
+        "Ele é obrigatório para ler",
+        "Ele cria uma cópia do arquivo"
+       ],
+       "e": "Esquecer de fechar pode perder dados; with resolve isso.",
+       "id": "u10l1e1",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "q": "Quando o arquivo não existe",
+       "body": "Abrir para leitura um arquivo que não existe dá FileNotFoundError. Dá para tratar com try e except, como você aprendeu.",
+       "c": "try:\n    with open(\"sumiu.txt\") as f:\n        print(f.read())\nexcept FileNotFoundError:\n    print(\"arquivo não encontrado\")",
+       "out": "arquivo não encontrado",
+       "id": "u10l1c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Capture o erro de arquivo inexistente.",
+       "c": "try:\n    open(\"x.txt\")\nexcept ___:\n    print(\"não achei\")",
+       "b": [
+        "FileNotFoundError",
+        "ValueError",
+        "KeyError",
+        "IndexError"
+       ],
+       "a": [
+        "FileNotFoundError"
+       ],
+       "e": "É o erro específico para arquivo ausente.",
+       "id": "u10l1e2",
+       "host": "bia"
+      },
+      {
+       "k": "code",
+       "q": "Escreva salvar_e_contar(itens): grave cada item numa linha de \"saida.txt\" e devolva quantas linhas o arquivo tem ao ser lido de novo.",
+       "starter": "def salvar_e_contar(itens):\n    pass\n",
+       "tests": "assert salvar_e_contar([\"a\", \"b\", \"c\"]) == 3, \"Com 3 itens, deve devolver 3\"\nassert open(\"saida.txt\").read() == \"a\\nb\\nc\\n\", \"O arquivo deve ter um item por linha\"",
+       "e": "Escreva com f.write(item + \"\\n\") no modo \"w\"; depois leia com readlines().",
+       "id": "u10l1e3",
+       "host": "teo"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u11",
+   "title": "Classes e objetos",
+   "description": "class, __init__, métodos e herança",
+   "lessons": [
+    {
+     "id": "u11l0",
+     "title": "Criando classes",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Classes e objetos",
+       "body": "Uma classe é um molde; cada objeto criado a partir dela é uma instância. __init__ roda ao criar o objeto, e self é o próprio objeto: self.nome guarda um dado dentro dele.",
+       "c": "class Cachorro:\n    def __init__(self, nome):\n        self.nome = nome\n\nrex = Cachorro(\"Rex\")\nprint(rex.nome)",
+       "out": "Rex",
+       "id": "u11l0c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Complete para criar uma classe vazia.",
+       "c": "___ Gato:\n    pass",
+       "b": [
+        "class",
+        "def",
+        "object",
+        "new"
+       ],
+       "a": [
+        "class"
+       ],
+       "e": "class cria a classe; pass deixa o corpo vazio.",
+       "id": "u11l0e0",
+       "host": "ana"
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "class P:\n    def __init__(self, x):\n        self.x = x\n\np = P(5)\nprint(p.x)",
+       "o": [
+        "5",
+        "x",
+        "None",
+        "Erro"
+       ],
+       "e": "__init__ guardou 5 em self.x.",
+       "id": "u11l0e1",
+       "host": "caio"
+      },
+      {
+       "k": "learn",
+       "q": "Métodos",
+       "body": "Métodos são funções dentro da classe. O primeiro parâmetro é sempre self, que dá acesso aos dados do objeto.",
+       "c": "class Conta:\n    def __init__(self, saldo):\n        self.saldo = saldo\n\n    def depositar(self, valor):\n        self.saldo += valor\n\nc = Conta(100)\nc.depositar(50)\nprint(c.saldo)",
+       "out": "150",
+       "id": "u11l0c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "type",
+       "q": "Digite a saída.",
+       "c": "class Contador:\n    def __init__(self):\n        self.n = 0\n\n    def somar(self):\n        self.n += 1\n\nc = Contador()\nc.somar()\nc.somar()\nprint(c.n)",
+       "a": [
+        "2"
+       ],
+       "e": "Cada chamada a somar() aumenta n em 1.",
+       "id": "u11l0e2",
+       "host": "bia"
+      },
+      {
+       "k": "mc",
+       "q": "O que é self dentro de um método?",
+       "o": [
+        "O próprio objeto que chamou o método",
+        "O nome da classe",
+        "Uma palavra que cria objetos",
+        "Uma variável global"
+       ],
+       "e": "Em c.somar(), self é o objeto c.",
+       "id": "u11l0e3",
+       "host": "teo"
+      },
+      {
+       "k": "order",
+       "q": "Monte a classe Pessoa e use-a.",
+       "l": [
+        "class Pessoa:",
+        "    def __init__(self, nome):",
+        "        self.nome = nome",
+        "ana = Pessoa(\"Ana\")",
+        "print(ana.nome)"
+       ],
+       "e": "Defina a classe antes de criar o objeto.",
+       "id": "u11l0e4",
+       "host": "ana"
+      }
+     ]
+    },
+    {
+     "id": "u11l1",
+     "title": "Herança e __str__",
+     "exercises": [
+      {
+       "k": "learn",
+       "q": "Herança",
+       "body": "class Filha(Mae): faz a nova classe herdar tudo da outra. Ela pode reescrever um método para mudar o comportamento.",
+       "c": "class Animal:\n    def falar(self):\n        return \"...\"\n\nclass Gato(Animal):\n    def falar(self):\n        return \"miau\"\n\nprint(Animal().falar())\nprint(Gato().falar())",
+       "out": "...\nmiau",
+       "id": "u11l1c0",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "out",
+       "q": "Qual é a saída?",
+       "c": "class A:\n    def oi(self):\n        return \"A\"\n\nclass B(A):\n    pass\n\nprint(B().oi())",
+       "o": [
+        "A",
+        "B",
+        "None",
+        "Erro"
+       ],
+       "e": "B não tem oi(), então usa o herdado de A.",
+       "id": "u11l1e0",
+       "host": "caio"
+      },
+      {
+       "k": "mc",
+       "q": "Em class Gato(Animal):, quem herda de quem?",
+       "o": [
+        "Gato herda de Animal",
+        "Animal herda de Gato",
+        "Nenhum herda de ninguém",
+        "Os dois herdam de Gato"
+       ],
+       "e": "A classe entre parênteses é a mãe.",
+       "id": "u11l1e1",
+       "host": "bia"
+      },
+      {
+       "k": "learn",
+       "q": "__str__: como o objeto aparece",
+       "body": "Sem __str__, print mostra algo como <__main__.Ponto object>. Com ele, você decide o texto.",
+       "c": "class Ponto:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f\"({self.x}, {self.y})\"\n\nprint(Ponto(1, 2))",
+       "out": "(1, 2)",
+       "id": "u11l1c1",
+       "host": "pipo",
+       "e": ""
+      },
+      {
+       "k": "fill",
+       "q": "Defina como o objeto aparece no print.",
+       "c": "class Produto:\n    def ___(self):\n        return \"Produto\"\n\nprint(Produto())",
+       "b": [
+        "__str__",
+        "__init__",
+        "print",
+        "show"
+       ],
+       "a": [
+        "__str__"
+       ],
+       "e": "__str__ devolve o texto usado pelo print.",
+       "id": "u11l1e2",
+       "host": "teo"
+      },
+      {
+       "k": "code",
+       "q": "Crie a classe Retangulo: __init__ recebe largura e altura, e o método area() devolve largura × altura.",
+       "starter": "class Retangulo:\n    pass\n",
+       "tests": "r = Retangulo(3, 4)\nassert r.largura == 3 and r.altura == 4, \"Guarde largura e altura em self\"\nassert r.area() == 12, \"Retangulo(3, 4).area() deve ser 12\"",
+       "e": "No __init__, self.largura = largura e self.altura = altura; area devolve o produto.",
+       "id": "u11l1e3",
+       "host": "ana"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

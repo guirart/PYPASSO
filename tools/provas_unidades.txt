@@ -1,0 +1,1427 @@
+# Bugs das provas de fogo que fecham cada unidade.
+# Formato:  @unidade linha_do_erro   / código /  >>> linha corrigida  /  !! explicação
+# Conferido por tools/gerar_provas.py (roda com e sem a correção).
+
+# ---------------------------------------------------------------- u0 Primeiros passos
+@u0 2
+print("Bem-vindo!")
+print("Olá, mundo!)
+>>> print("Olá, mundo!")
+!! As aspas do texto não foram fechadas.
+
+@u0 1
+Print("Oi")
+>>> print("Oi")
+!! print é com p minúsculo: o Python diferencia maiúsculas.
+
+@u0 2
+# meu primeiro programa
+print("Vamos lá"
+>>> print("Vamos lá")
+!! Faltou fechar o parêntese do print.
+
+@u0 1
+/ isto é um comentário
+print("ok")
+>>> # isto é um comentário
+!! Comentários em Python começam com #.
+
+@u0 2
+print("linha 1")
+print(linha 2)
+>>> print("linha 2")
+!! Texto precisa de aspas.
+
+@u0 1
+print("Python é "legal"")
+>>> print('Python é "legal"')
+!! Aspas duplas dentro de aspas duplas fecham o texto. Use aspas simples por fora.
+
+@u0 1
+print "Olá"
+>>> print("Olá")
+!! Em Python 3, print precisa de parênteses.
+
+# ---------------------------------------------------------------- u1 Variáveis e tipos
+@u1 2
+nome = "Ana"
+print(Nome)
+>>> print(nome)
+!! A variável foi criada como nome, com n minúsculo.
+
+@u1 1
+2nome = "Bia"
+print("ok")
+>>> nome2 = "Bia"
+!! Nomes de variável não podem começar com número.
+
+@u1 2
+idade = 15
+print("Idade: " + idade)
+>>> print("Idade: " + str(idade))
+!! Texto + número dá erro. Converta com str().
+
+@u1 2
+preco = "10"
+total = preco * 2
+print(total)  # esperado: 20
+>>> total = int(preco) * 2
+!! "10" * 2 repete o texto e dá 1010. Converta para int.
+
+@u1 1
+altura = 1,75
+print(altura * 2)  # esperado: 3.5
+>>> altura = 1.75
+!! O decimal em Python usa ponto. Com vírgula vira uma tupla.
+
+@u1 2
+ativo = True
+if ativo == "True":
+    print("ligado")
+else:
+    print("desligado")  # esperado: ligado
+>>> if ativo == True:
+!! True é um booleano, não o texto "True".
+
+@u1 1
+nome completo = "Ana Souza"
+print("ok")
+>>> nome_completo = "Ana Souza"
+!! Nomes de variável não têm espaço. Use _.
+
+# ---------------------------------------------------------------- u2 Operadores
+@u2 1
+media = 7 + 9 / 2
+print(media)  # esperado: 8.0
+>>> media = (7 + 9) / 2
+!! A divisão acontece antes da soma. Use parênteses.
+
+@u2 2
+n = 8
+eh_par = n / 2 == 0
+print(eh_par)  # esperado: True
+>>> eh_par = n % 2 == 0
+!! Para saber se é par, olhe o resto: n % 2.
+
+@u2 2
+lado = 3
+area = lado ^ 2
+print(area)  # esperado: 9
+>>> area = lado ** 2
+!! Potência em Python é **. O ^ é outra operação.
+
+@u2 2
+idade = 30
+if idade > 18 and < 60:
+    print("adulto")
+>>> if idade > 18 and idade < 60:
+!! Cada lado do and precisa de uma comparação completa.
+
+@u2 1
+total = 10 // 3
+print(round(total, 2))  # esperado: 3.33
+>>> total = 10 / 3
+!! // é divisão inteira e joga fora as casas decimais.
+
+@u2 1
+print(5 = 5)
+>>> print(5 == 5)
+!! Para comparar use ==.
+
+@u2 2
+x = 10
+x =+ 5
+print(x)  # esperado: 15
+>>> x += 5
+!! =+ guarda +5 em x. O certo é += .
+
+# ---------------------------------------------------------------- u3 Condicionais
+@u3 4
+n = 3
+if n > 0:
+    print("positivo")
+else
+    print("não positivo")
+>>> else:
+!! Faltaram os dois-pontos depois do else.
+
+@u3 4
+n = -2
+if n > 0:
+    print("positivo")
+else if n < 0:
+    print("negativo")
+>>> elif n < 0:
+!! Em Python, "senão se" se escreve elif.
+
+@u3 3
+nota = 8
+if nota >= 7:
+print("aprovado")
+>>>     print("aprovado")
+!! O que fica dentro do if precisa de recuo.
+
+@u3 2
+nota = 90
+if nota > 90:
+    print("A")
+else:
+    print("B")  # esperado: A
+>>> if nota >= 90:
+!! Com > o 90 fica de fora. Use >=.
+
+@u3 2
+nome = "Ana"
+if nome = "Ana":
+    print("Oi, Ana!")
+>>> if nome == "Ana":
+!! Para comparar use ==.
+
+@u3 2
+resposta = "Sim"
+if resposta == "sim":
+    print("ok")
+else:
+    print("não")  # esperado: ok
+>>> if resposta.lower() == "sim":
+!! "Sim" e "sim" são textos diferentes. Compare em minúsculas.
+
+@u3 2
+nome = ""
+if nome == None:
+    print("vazio")
+else:
+    print("tem nome")  # esperado: vazio
+>>> if not nome:
+!! Texto vazio não é None. Use if not nome.
+
+# ---------------------------------------------------------------- u4 Listas
+@u4 2
+frutas = ["uva", "kiwi", "pera"]
+print(frutas[3])
+>>> print(frutas[2])
+!! São 3 itens: os índices vão de 0 a 2.
+
+@u4 2
+nums = [1, 2, 3]
+nums.add(4)
+print(nums)
+>>> nums.append(4)
+!! Listas usam append.
+
+@u4 2
+nums = [1, 2, 3]
+nums = nums.append(4)
+print(nums)  # esperado: [1, 2, 3, 4]
+>>> nums.append(4)
+!! append muda a lista e devolve None. Não guarde o resultado.
+
+@u4 2
+v = [10, 20, 30, 40]
+print(v[0:2])  # esperado: [10, 20, 30]
+>>> print(v[0:3])  # esperado: [10, 20, 30]
+!! O fim da fatia não entra. Para pegar 3 itens use [0:3].
+
+@u4 2
+v = [10, 20, 30]
+print(v[-0])  # esperado: 30
+>>> print(v[-1])  # esperado: 30
+!! -0 é 0. O último item é v[-1].
+
+@u4 2
+cores = ["azul", "verde"]
+cores.remove("Azul")
+print(cores)
+>>> cores.remove("azul")
+!! "Azul" com A maiúsculo não está na lista.
+
+@u4 1
+quadrados = [n * 2 for n in range(4)]
+print(quadrados)  # esperado: [0, 1, 4, 9]
+>>> quadrados = [n ** 2 for n in range(4)]
+!! Quadrado é n ** 2. n * 2 é o dobro.
+
+# ---------------------------------------------------------------- u5 Laços
+@u5 1
+for i in range(1, 10):
+    print(2 * i)  # esperado: 20
+>>> for i in range(1, 11):
+!! range(1, 10) para no 9. A tabuada até 10 precisa de range(1, 11).
+
+@u5 3
+n = 0
+while n < 3:
+    n - 1
+print("fim")
+>>> n += 1
+!! n - 1 não muda n, e o laço nunca termina. Use n += 1.
+
+@u5 1
+for letra in "abc"
+    print(letra)
+>>> for letra in "abc":
+!! Faltaram os dois-pontos no fim do for.
+
+@u5 5
+v = [3, -1, -5]
+for n in v:
+    if n < 0:
+        print(n)
+        continue  # esperado: -1
+>>> break  # esperado: -1
+!! continue segue o laço. Para parar no primeiro negativo, use break.
+
+@u5 3
+soma = 0
+for n in [1, 2, 3]:
+    soma = n
+print(soma)  # esperado: 6
+>>> soma += n
+!! soma = n troca o valor. Para acumular, use soma += n.
+
+@u5 3
+nomes = ["Ana", "Bia"]
+for i in range(len(nomes)):
+    print(i)  # esperado: Bia
+>>> print(nomes[i])  # esperado: Bia
+!! i é a posição. O nome é nomes[i].
+
+@u5 3
+x = 10
+while x > 0:
+    x += 1
+print(x)  # esperado: 0
+>>> x -= 1
+!! x só cresce e o laço nunca termina. Diminua com x -= 1.
+
+# ---------------------------------------------------------------- u6 Funções
+@u6 2
+def soma(a, b):
+    print(a + b)
+
+total = soma(2, 3)
+print(total * 2)
+>>> return a + b
+!! Sem return, a função devolve None.
+
+@u6 1
+def dobro(n)
+    return n * 2
+
+print(dobro(4))
+>>> def dobro(n):
+!! Faltaram os dois-pontos no fim do def.
+
+@u6 4
+def area(base, altura):
+    return base * altura
+
+print(area(3))
+>>> print(area(3, 4))
+!! A função pede dois argumentos.
+
+@u6 5
+def soma(v):
+    t = 0
+    for n in v:
+        t += n
+        return t
+
+print(soma([1, 2, 3]))  # esperado: 6
+>>>     return t
+!! O return está dentro do for: a função para na primeira volta.
+
+@u6 2
+def saudar(nome):
+    print("Oi, " + name)
+
+saudar("Ana")
+>>> print("Oi, " + nome)
+!! O parâmetro se chama nome, não name.
+
+@u6 2
+import math
+print(math.sqroot(16))
+>>> print(math.sqrt(16))
+!! A raiz quadrada em math se chama sqrt.
+
+@u6 1
+def f(a=1, b):
+    return a + b
+
+print(f(b=2))
+>>> def f(b, a=1):
+!! Parâmetros com valor padrão vêm depois dos obrigatórios.
+
+# ---------------------------------------------------------------- u7 Dicionários e conjuntos
+@u7 2
+idades = {"ana": 20}
+print(idades["Ana"])
+>>> print(idades["ana"])
+!! As chaves diferenciam maiúsculas: a chave é "ana".
+
+@u7 2
+d = {"a": 1, "b": 2}
+for k, v in d:
+    print(k, v)
+>>> for k, v in d.items():
+!! Para pegar chave e valor juntos, use d.items().
+
+@u7 2
+votos = {}
+votos["sim"] = votos.get("sim") + 1
+print(votos)
+>>> votos["sim"] = votos.get("sim", 0) + 1
+!! get sem padrão devolve None, e None + 1 dá erro.
+
+@u7 2
+cores = {"azul", "verde"}
+cores.append("rosa")
+print(len(cores))  # esperado: 3
+>>> cores.add("rosa")
+!! Conjuntos usam add.
+
+@u7 1
+vistos = {}
+vistos.add(1)
+print(vistos)
+>>> vistos = set()
+!! {} cria um dicionário vazio. Conjunto vazio é set().
+
+@u7 2
+estoque = {"maçã": 3}
+estoque["maçã"] + 2
+print(estoque["maçã"])  # esperado: 5
+>>> estoque["maçã"] += 2
+!! A conta foi feita, mas não foi guardada.
+
+@u7 2
+d = {"x": 1, "y": 2}
+for chave in d.values():
+    print(chave, d[chave])
+>>> for chave in d:
+!! values() dá os valores, não as chaves.
+
+# ---------------------------------------------------------------- u8 Strings poderosas
+@u8 2
+texto = "gato"
+texto.replace("a", "o")
+print(texto)  # esperado: goto
+>>> texto = texto.replace("a", "o")
+!! replace devolve um texto novo. Guarde o resultado.
+
+@u8 2
+dados = "a,b,c"
+partes = dados.split()
+print(len(partes))  # esperado: 3
+>>> partes = dados.split(",")
+!! split() sem argumento separa nos espaços. Aqui o separador é a vírgula.
+
+@u8 2
+nums = [1, 2]
+print("-".join(nums))
+>>> print("-".join(map(str, nums)))
+!! join só junta textos.
+
+@u8 2
+nome = "Ana Souza"
+print(nome[0:2])  # esperado: Ana
+>>> print(nome[0:3])  # esperado: Ana
+!! O fim da fatia não entra: [0:3] pega 3 letras.
+
+@u8 2
+email = "ana@site.com"
+usuario = email.split("@")[1]
+print(usuario)  # esperado: ana
+>>> usuario = email.split("@")[0]
+!! O usuário é a primeira parte: índice 0.
+
+@u8 2
+nome = "  Ana  "
+print(len(nome.strip))
+>>> print(len(nome.strip()))
+!! Faltaram os parênteses para chamar strip.
+
+@u8 2
+texto = "olá"
+texto[0] = "O"
+print(texto)
+>>> texto = "O" + texto[1:]
+!! Textos não mudam por índice. Monte um texto novo.
+
+# ---------------------------------------------------------------- u12 Métodos de string
+@u12 1
+print("menu".center("*", 10))
+>>> print("menu".center(10, "*"))
+!! Primeiro vem a largura, depois o caractere: center(10, "*").
+
+@u12 2
+nome = "ana souza"
+print(nome.title)  # esperado: Ana Souza
+>>> print(nome.title())  # esperado: Ana Souza
+!! Faltaram os parênteses: sem eles o método não é chamado.
+
+@u12 2
+idade = "abc"
+if idade.isdigit:
+    print("número")
+else:
+    print("não é número")  # esperado: não é número
+>>> if idade.isdigit():
+!! Sem parênteses, o método sempre conta como verdadeiro.
+
+@u12 2
+nome = "main.py"
+print(nome.startwith("main"))
+>>> print(nome.startswith("main"))
+!! O método se chama startswith, com s.
+
+@u12 2
+frase = "Bom Dia"
+print(frase.lower() == "Bom dia")  # esperado: True
+>>> print(frase.lower() == "bom dia")  # esperado: True
+!! Depois de lower(), tudo fica minúsculo. Compare com "bom dia".
+
+@u12 3
+s = "a-b-c"
+partes = s.split("-")
+print("".join(partes, "+"))  # esperado: a+b+c
+>>> print("+".join(partes))  # esperado: a+b+c
+!! O separador vem antes: "+".join(partes).
+
+@u12 2
+nome = "  ana  "
+print(nome.lstrip() + "!")  # esperado: ana!
+>>> print(nome.strip() + "!")  # esperado: ana!
+!! lstrip só tira os espaços da esquerda. strip tira dos dois lados.
+
+# ---------------------------------------------------------------- u9 Erros e exceções
+@u9 3
+try:
+    n = int("abc")
+except TypeError:
+    print("inválido")
+>>> except ValueError:
+!! int("abc") dá ValueError, não TypeError.
+
+@u9 1
+try
+    x = 1 / 0
+except ZeroDivisionError:
+    print("não dá")
+>>> try:
+!! Faltaram os dois-pontos depois do try.
+
+@u9 3
+try:
+    x = int("5")
+except ValueError
+    print("erro")
+>>> except ValueError:
+!! Faltaram os dois-pontos depois do except.
+
+@u9 3
+def raiz(x):
+    if x < 0:
+        raise "negativo"
+    return x ** 0.5
+
+try:
+    print(raiz(-1))
+except ValueError as e:
+    print("erro:", e)
+>>> raise ValueError("negativo")
+!! raise precisa de uma exceção, como ValueError("..."), não de um texto.
+
+@u9 4
+try:
+    x = 1 / 0
+except ZeroDivisionError as e:
+    print("erro: " + e)
+>>> print("erro: " + str(e))
+!! e é uma exceção, não um texto. Converta com str(e).
+
+@u9 3
+try:
+    n = int("x")
+exept ValueError:
+    print("inválido")
+>>> except ValueError:
+!! Erro de digitação: é except.
+
+@u9 3
+try:
+    media = 10 / 0
+except ValueError:
+    media = 0
+print(media)
+>>> except ZeroDivisionError:
+!! Dividir por zero dá ZeroDivisionError.
+
+# ---------------------------------------------------------------- u10 Arquivos
+@u10 1
+with open("diario.txt", "r") as f:
+    f.write("oi")
+print("salvo")
+>>> with open("diario.txt", "w") as f:
+!! Para escrever use o modo "w". "r" só lê (e o arquivo nem existe).
+
+@u10 3
+with open("log.txt", "w") as f:
+    f.write("a\n")
+with open("log.txt", "w") as f:
+    f.write("b\n")
+print(open("log.txt").read().split())  # esperado: ['a', 'b']
+>>> with open("log.txt", "a") as f:
+!! "w" apaga o que já tinha. Para acrescentar, use "a".
+
+@u10 2
+with open("n.txt", "w") as f:
+    f.write(10)
+>>> f.write(str(10))
+!! write só aceita texto.
+
+@u10 1
+with open("a.txt", "w") as f
+    f.write("oi")
+>>> with open("a.txt", "w") as f:
+!! Faltaram os dois-pontos no fim do with.
+
+@u10 4
+with open("n.txt", "w") as f:
+    f.write("1\n2\n")
+with open("n.txt") as f:
+    for linha in f.read:
+        print(linha.strip())
+>>> for linha in f:
+!! f.read sem parênteses é o método. Percorra o arquivo direto: for linha in f.
+
+@u10 2
+linha = "Ana,20"
+nome, idade = linha.split()
+print(nome, idade)
+>>> nome, idade = linha.split(",")
+!! O separador do CSV é a vírgula.
+
+# ---------------------------------------------------------------- u11 Classes e objetos
+@u11 2
+class Cachorro:
+    def latir():
+        return "Au!"
+
+print(Cachorro().latir())
+>>> def latir(self):
+!! Todo método recebe self como primeiro parâmetro.
+
+@u11 2
+class Gato:
+    def __int__(self, nome):
+        self.nome = nome
+
+g = Gato("Mia")
+print(g.nome)
+>>> def __init__(self, nome):
+!! O construtor se chama __init__, não __int__.
+
+@u11 3
+class Pessoa:
+    def __init__(self, nome):
+        nome = nome
+
+p = Pessoa("Ana")
+print(p.nome)
+>>> self.nome = nome
+!! Para guardar no objeto, use self.nome.
+
+@u11 6
+class Cachorro:
+    def latir(self):
+        return "Au!"
+
+rex = Cachorro()
+print(rex.latir)  # esperado: Au!
+>>> print(rex.latir())  # esperado: Au!
+!! Faltaram os parênteses para chamar o método.
+
+@u11 8
+class Pai:
+    def __init__(self, nome):
+        self.nome = nome
+
+class Filho(Pai):
+    def __init__(self, nome, idade):
+        self.idade = idade
+        Pai.__init__(nome)
+
+print(Filho("Leo", 5).nome)
+>>> super().__init__(nome)
+!! Use super().__init__(nome) para chamar o __init__ da classe mãe.
+
+@u11 6
+class Livro:
+    def __init__(self, titulo):
+        self.titulo = titulo
+
+    def __str__(self):
+        print(self.titulo)
+
+print(str(Livro("Duna")))
+>>> return self.titulo
+!! __str__ precisa devolver (return) um texto.
+
+@u11 6
+class Ponto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+p = Ponto()
+print(p.x)
+>>> p = Ponto(1, 2)
+!! O __init__ pede x e y.
+
+# ---------------------------------------------------------------- b0 Primeiros built-ins
+@b0 1
+print("a", "b", sep="-" end="!")
+>>> print("a", "b", sep="-", end="!")
+!! Faltou a vírgula entre os argumentos sep e end.
+
+@b0 2
+numero = 12345
+print(len(numero))  # esperado: 5
+>>> print(len(str(numero)))  # esperado: 5
+!! Números não têm tamanho. Converta para texto primeiro.
+
+@b0 2
+x = 10
+if type(x) == "int":
+    print("inteiro")
+else:
+    print("outro")  # esperado: inteiro
+>>> if type(x) == int:
+!! type devolve a classe int, não o texto "int".
+
+@b0 1
+print(len["abc"])
+>>> print(len("abc"))
+!! Funções são chamadas com parênteses, não colchetes.
+
+@b0 2
+nome = "Ana"
+print("Nome tem", len(nome), "letras", sep=)
+>>> print("Nome tem", len(nome), "letras", sep=" ")
+!! sep= precisa de um valor.
+
+@b0 2
+tamanho = len("abc")
+print("Tamanho: " + tamanho)
+>>> print("Tamanho: " + str(tamanho))
+!! len devolve número. Converta com str() antes de juntar.
+
+# ---------------------------------------------------------------- b1 Conversões de tipo
+@b1 1
+n = int("3.5")
+print(n)
+>>> n = int(float("3.5"))
+!! int não lê texto com ponto. Passe por float antes.
+
+@b1 1
+preco = float("2,5")
+print(preco)
+>>> preco = float("2,5".replace(",", "."))
+!! float precisa de ponto. Troque a vírgula.
+
+@b1 2
+resposta = "False"
+if bool(resposta):
+    print("sim")
+else:
+    print("não")  # esperado: não
+>>> if resposta == "True":
+!! bool de qualquer texto com conteúdo é True, até "False".
+
+@b1 1
+print(str(10) + 5)  # esperado: 105
+>>> print(str(10) + str(5))  # esperado: 105
+!! Texto + número dá erro. Converta os dois.
+
+@b1 1
+print(int("ff"))  # esperado: 255
+>>> print(int("ff", 16))  # esperado: 255
+!! "ff" é hexadecimal: passe a base 16.
+
+@b1 1
+print(int(3.9))  # esperado: 4
+>>> print(round(3.9))  # esperado: 4
+!! int corta a parte decimal. Para arredondar, use round.
+
+# ---------------------------------------------------------------- b2 Contas embutidas
+@b2 1
+print(round(3.14159, 2.0))  # esperado: 3.14
+>>> print(round(3.14159, 2))  # esperado: 3.14
+!! O número de casas precisa ser inteiro.
+
+@b2 2
+notas = []
+print(max(notas))
+>>> print(max(notas, default=0))
+!! max de lista vazia dá erro. Use default=.
+
+@b2 1
+print(sum(1, 2, 3))
+>>> print(sum([1, 2, 3]))
+!! sum recebe uma coleção, como uma lista.
+
+@b2 1
+q, r = divmod(17)
+print(q, r)
+>>> q, r = divmod(17, 5)
+!! divmod precisa de dois números.
+
+@b2 1
+print(abs("-5"))
+>>> print(abs(-5))
+!! abs só funciona com números.
+
+@b2 1
+print(pow(2, 3, 0))  # esperado: 8
+>>> print(pow(2, 3))  # esperado: 8
+!! O terceiro argumento é o módulo, e não pode ser 0.
+
+@b2 1
+print(min(3, "1"))
+>>> print(min(3, 1))
+!! Não dá para comparar número com texto.
+
+# ---------------------------------------------------------------- b3 Coleções embutidas
+@b3 2
+t = (1, 2)
+t[0] = 5
+print(t)
+>>> t = (5, t[1])
+!! Tuplas não mudam. Crie uma tupla nova.
+
+@b3 1
+numeros = list(10)
+print(numeros)
+>>> numeros = list(range(10))
+!! list precisa de algo percorrível, como range(10).
+
+@b3 1
+d = dict(["a", 1])
+print(d)
+>>> d = dict([("a", 1)])
+!! dict precisa de pares (chave, valor).
+
+@b3 2
+s = set([1, 2])
+s.append(3)
+print(s)
+>>> s.add(3)
+!! set usa add.
+
+@b3 1
+for i in range(0, 10, 0):
+    print(i)
+>>> for i in range(0, 10, 2):
+!! O passo de range não pode ser 0.
+
+@b3 2
+f = frozenset([1])
+f.add(2)
+print(f)
+>>> f = f | {2}
+!! frozenset não muda. Junte criando um novo.
+
+@b3 1
+print(list(range(5))[5])
+>>> print(list(range(5))[4])
+!! range(5) vai de 0 a 4.
+
+# ---------------------------------------------------------------- b4 Ordenar e percorrer
+@b4 2
+v = [1, 2, 3]
+print(reversed(v))  # esperado: [3, 2, 1]
+>>> print(list(reversed(v)))  # esperado: [3, 2, 1]
+!! reversed devolve um iterador. Use list() para ver os itens.
+
+@b4 1
+for i, x in enumerate(["a"], inicio=1):
+    print(i, x)
+>>> for i, x in enumerate(["a"], start=1):
+!! O parâmetro se chama start.
+
+@b4 1
+print(sorted(3, 1, 2))
+>>> print(sorted([3, 1, 2]))
+!! sorted recebe uma coleção só, como uma lista.
+
+@b4 1
+print(list(map([1, 2], str)))
+>>> print(list(map(str, [1, 2])))
+!! Em map, a função vem primeiro.
+
+@b4 1
+print(list(filter(lambda n: n > 2)))
+>>> print(list(filter(lambda n: n > 2, [1, 2, 3])))
+!! filter precisa da função e da lista.
+
+@b4 1
+for a, b in zip([1, 2]):
+    print(a, b)
+>>> for a, b in zip([1, 2], [3, 4]):
+!! Para pegar pares, zip precisa de duas listas.
+
+# ---------------------------------------------------------------- b5 Perguntas de True ou False
+@b5 1
+print(all(1, 2))
+>>> print(all([1, 2]))
+!! all recebe uma coleção.
+
+@b5 1
+print(isinstance(5, "int"))
+>>> print(isinstance(5, int))
+!! isinstance recebe o tipo int, não o texto "int".
+
+@b5 1
+print(hasattr("abc", upper))
+>>> print(hasattr("abc", "upper"))
+!! O nome do atributo vai entre aspas.
+
+@b5 2
+v = [1, -2, 3]
+tem_negativo = all(n < 0 for n in v)
+print(tem_negativo)  # esperado: True
+>>> tem_negativo = any(n < 0 for n in v)
+!! Basta UM negativo: use any.
+
+@b5 1
+print(callable(print()))  # esperado: True
+>>> print(callable(print))  # esperado: True
+!! print() chama a função. Passe só o nome: print.
+
+@b5 1
+print(issubclass(True, int))
+>>> print(issubclass(bool, int))
+!! issubclass compara classes, não valores.
+
+# ---------------------------------------------------------------- b6 Caracteres e bases
+@b6 1
+print(ord("ab"))
+>>> print(ord("a"))
+!! ord recebe um caractere só.
+
+@b6 1
+print(chr("65"))
+>>> print(chr(65))
+!! chr recebe um número.
+
+@b6 1
+print(bin(5))  # esperado: 101
+>>> print(bin(5)[2:])  # esperado: 101
+!! bin devolve o texto com 0b na frente. Corte com [2:].
+
+@b6 1
+print(int("0b101"))  # esperado: 5
+>>> print(int("0b101", 2))  # esperado: 5
+!! Para ler binário, passe a base 2.
+
+@b6 1
+print(format(3.14159, ".2"))  # esperado: 3.14
+>>> print(format(3.14159, ".2f"))  # esperado: 3.14
+!! Para 2 casas decimais use ".2f".
+
+@b6 1
+print(hex("255"))
+>>> print(hex(255))
+!! hex recebe um número inteiro.
+
+# ---------------------------------------------------------------- b7 Iteradores
+@b7 1
+print(next([1, 2]))
+>>> print(next(iter([1, 2])))
+!! next precisa de um iterador. Crie com iter().
+
+@b7 3
+it = iter([1])
+next(it)
+print(next(it))
+>>> print(next(it, "fim"))
+!! O iterador acabou. Passe um valor padrão para next.
+
+@b7 2
+s = slice(1, 3)
+print("python"(s))  # esperado: yt
+>>> print("python"[s])  # esperado: yt
+!! Fatias usam colchetes.
+
+@b7 2
+total = 0
+for x in 5:
+    total += x
+print(total)  # esperado: 10
+>>> for x in range(5):
+!! Um número não é percorrível. Use range(5).
+
+@b7 2
+it = iter("abc")
+print(it[0])
+>>> print(next(it))
+!! Iteradores não têm índice. Use next.
+
+@b7 2
+meio = slice(1, -1)
+print([1, 2, 3, 4][meio()])  # esperado: [2, 3]
+>>> print([1, 2, 3, 4][meio])  # esperado: [2, 3]
+!! slice não se chama com (). Use direto entre colchetes.
+
+# ---------------------------------------------------------------- b8 Bytes e memória
+@b8 1
+b = bytes("oi")
+print(b)
+>>> b = bytes("oi", "utf-8")
+!! Para converter texto em bytes, diga a codificação.
+
+@b8 1
+b = b"abc"
+b[0] = 65
+print(b)
+>>> b = bytearray(b"abc")
+!! bytes não muda. bytearray muda.
+
+@b8 1
+print(hash([1, 2]))
+>>> print(hash((1, 2)))
+!! Listas não têm hash. Tuplas têm.
+
+@b8 1
+print(b"oi".decode)  # esperado: oi
+>>> print(b"oi".decode())  # esperado: oi
+!! Faltaram os parênteses para chamar decode.
+
+@b8 1
+print(bytes([300]))
+>>> print(bytes([65]))
+!! Cada byte vai de 0 a 255.
+
+@b8 1
+m = memoryview("abc")
+print(m[0])
+>>> m = memoryview(b"abc")
+!! memoryview só funciona com bytes.
+
+# ---------------------------------------------------------------- b9 Objetos e atributos
+@b9 5
+class Pessoa:
+    pass
+
+p = Pessoa()
+print(getattr(p, "idade"))
+>>> print(getattr(p, "idade", 0))
+!! O atributo não existe. Passe um valor padrão.
+
+@b9 5
+class Pessoa:
+    pass
+
+p = Pessoa()
+setattr(p, nome, "Ana")
+print(p.nome)
+>>> setattr(p, "nome", "Ana")
+!! O nome do atributo vai entre aspas.
+
+@b9 7
+class Caixa:
+    pass
+
+c = Caixa()
+c.x = 1
+delattr(c, "x")
+delattr(c, "x")
+>>> print(hasattr(c, "x"))
+!! O atributo já foi apagado na linha anterior.
+
+@b9 6
+class Caixa:
+    def __init__(self):
+        self.cor = "azul"
+
+c = Caixa()
+print(vars(5))
+>>> print(vars(c))
+!! vars precisa de um objeto com atributos.
+
+@b9 2
+metodo = getattr("abc", "upper")
+print(metodo)  # esperado: ABC
+>>> print(metodo())  # esperado: ABC
+!! getattr devolveu o método. Chame com ().
+
+@b9 6
+class Pessoa:
+    def __init__(self):
+        self.nome = "Ana"
+
+p = Pessoa()
+print(getattr(p, "nome")())
+>>> print(getattr(p, "nome"))
+!! nome é um texto, não uma função.
+
+# ---------------------------------------------------------------- b10 Classes avançadas
+@b10 7
+class Quadrado:
+    def __init__(self, lado):
+        self.lado = lado
+    @property
+    def area(self):
+        return self.lado ** 2
+print(Quadrado(3).area())
+>>> print(Quadrado(3).area)
+!! property é lida como atributo, sem ().
+
+@b10 3
+class K:
+    @staticmethod
+    def soma(self, a, b):
+        return a + b
+print(K.soma(1, 2))
+>>> def soma(a, b):
+!! staticmethod não recebe self.
+
+@b10 2
+class A:
+    # fábrica
+    def criar(cls):
+        return cls()
+print(type(A.criar()).__name__)
+>>> @classmethod
+!! Faltou o @classmethod para receber a classe em cls.
+
+@b10 7
+class Animal:
+    def __init__(self, nome):
+        self.nome = nome
+
+class Gato(Animal):
+    def __init__(self, nome):
+        super.__init__(nome)
+
+print(Gato("Mia").nome)
+>>> super().__init__(nome)
+!! super é chamado com parênteses: super().
+
+@b10 9
+class Q:
+    def __init__(self, lado):
+        self.lado = lado
+    @property
+    def area(self):
+        return self.lado ** 2
+
+q = Q(2)
+q.area = 25
+print(q.area)  # esperado: 25
+>>> q.lado = 5
+!! area é calculada e não tem setter. Mude o lado.
+
+@b10 7
+class A:
+    def oi(self):
+        return "A"
+
+class B(A):
+    def oi(self):
+        return "B" + A.oi()
+
+print(B().oi())
+>>> return "B" + super().oi()
+!! A.oi() sem objeto não recebe self. Use super().oi().
+
+# ---------------------------------------------------------------- b11 Código que roda código
+@b11 1
+eval("x = 5")
+print(x)
+>>> exec("x = 5")
+!! eval só calcula expressões. Para comandos, use exec.
+
+@b11 1
+c = compile("1 + 1", "<t>")
+print(eval(c))
+>>> c = compile("1 + 1", "<t>", "eval")
+!! compile precisa do modo: "eval", "exec" ou "single".
+
+@b11 1
+m = __import__(math)
+print(m.pi > 3)
+>>> m = __import__("math")
+!! O nome do módulo vai entre aspas.
+
+@b11 2
+nome = "Ana"
+print(globals["nome"])
+>>> print(globals()["nome"])
+!! globals é função: globals().
+
+@b11 1
+with open("novo.txt") as f:
+    f.write("oi")
+>>> with open("novo.txt", "w") as f:
+!! Sem modo, open só lê. Para escrever use "w".
+
+@b11 1
+resultado = exec("2 + 3")
+print(resultado)  # esperado: 5
+>>> resultado = eval("2 + 3")
+!! exec não devolve valor. Para calcular, use eval.
+
+# ---------------------------------------------------------------- b12 Built-ins em dupla
+@b12 2
+v = [4, 6]
+media = sum(v) / len
+print(media)
+>>> media = sum(v) / len(v)
+!! len precisa ser chamado com a lista.
+
+@b12 2
+nomes = ["bia", "ana", "caio"]
+print(sorted(nomes, key=len()))
+>>> print(sorted(nomes, key=len))
+!! key recebe a função, sem ().
+
+@b12 2
+pontos = {"ana": 7, "bia": 9}
+print(max(pontos, key=pontos.get()))
+>>> print(max(pontos, key=pontos.get))
+!! key recebe o método, sem ().
+
+@b12 2
+v = [3, 8, 10]
+print(len(n for n in v if n > 5))  # esperado: 2
+>>> print(sum(1 for n in v if n > 5))  # esperado: 2
+!! Uma expressão geradora não tem len. Some 1 para cada item.
+
+@b12 2
+v = [3, 10]
+print(min(v) - max(v))  # esperado: 7
+>>> print(max(v) - min(v))  # esperado: 7
+!! A diferença é maior menos menor.
+
+@b12 1
+print(sorted([1, 3, 2], reversed=True))
+>>> print(sorted([1, 3, 2], reverse=True))
+!! O parâmetro se chama reverse.
+
+# ---------------------------------------------------------------- b13 map, filter e lambda
+@b13 1
+dobro = lambda x: return x * 2
+print(dobro(3))
+>>> dobro = lambda x: x * 2
+!! lambda não usa return: a expressão já é o resultado.
+
+@b13 1
+print(list(map(lambda x, x + 1, [1, 2])))
+>>> print(list(map(lambda x: x + 1, [1, 2])))
+!! Depois dos parâmetros da lambda vêm os dois-pontos.
+
+@b13 2
+v = [1, 2, 3, 4]
+print(filter(lambda n: n % 2 == 0, v))  # esperado: [2, 4]
+>>> print(list(filter(lambda n: n % 2 == 0, v)))  # esperado: [2, 4]
+!! filter devolve um iterador. Use list().
+
+@b13 1
+print(list(map(lambda a, b: a + b, [1, 2])))  # esperado: [4, 6]
+>>> print(list(map(lambda a, b: a + b, [1, 2], [3, 4])))  # esperado: [4, 6]
+!! A lambda pede dois valores: passe duas listas para o map.
+
+@b13 2
+v = [1, 3]
+print([n for n in v if n > 2 else 0])  # esperado: [0, 3]
+>>> print([n if n > 2 else 0 for n in v])  # esperado: [0, 3]
+!! Com else, a condição vem antes do for.
+
+@b13 1
+nomes = list(map(str.upper(), ["a"]))
+print(nomes)
+>>> nomes = list(map(str.upper, ["a"]))
+!! Passe o método sem chamar: str.upper.
+
+# ---------------------------------------------------------------- b14 zip e enumerate em ação
+@b14 3
+nomes = ["Ana", "Bia"]
+notas = [9, 7]
+print(dict(zip(nomes)))
+>>> print(dict(zip(nomes, notas)))
+!! Para formar pares, zip precisa das duas listas.
+
+@b14 2
+nomes = ["Ana", "Bia"]
+for i, nome in nomes:
+    print(i, nome)
+>>> for i, nome in enumerate(nomes):
+!! Para ter posição e item, use enumerate.
+
+@b14 3
+podio = ["Bia", "Ana"]
+for pos, nome in enumerate(podio, start=1):
+    print(pos + "º", nome)
+>>> print(f"{pos}º", nome)
+!! pos é número. Use f-string.
+
+@b14 3
+nomes = ["Ana", "Bia", "Caio"]
+pontos = [5, 9, 7]
+ranking = sorted(zip(nomes, pontos), reverse=True)
+print(ranking[0][1])  # esperado: Bia
+>>> ranking = sorted(zip(pontos, nomes), reverse=True)
+!! Tuplas são ordenadas pelo primeiro item. Ponha os pontos primeiro.
+
+@b14 1
+print(list(zip([1, 2], [3, 4]))[2])
+>>> print(list(zip([1, 2], [3, 4]))[1])
+!! São só 2 pares: índices 0 e 1.
+
+@b14 3
+x = [1, 2]
+y = [3, 4]
+for i, a, b in enumerate(zip(x, y)):
+    print(i, a, b)
+>>> for i, (a, b) in enumerate(zip(x, y)):
+!! enumerate dá (posição, par). Desempacote o par entre parênteses.
+
+# ---------------------------------------------------------------- b15 Validando dados
+@b15 2
+x = 2.5
+if isinstance(x, int or float):
+    print("número")
+else:
+    print("outro")  # esperado: número
+>>> if isinstance(x, (int, float)):
+!! int or float vira só int. Passe uma tupla de tipos.
+
+@b15 2
+texto = "12a"
+if texto.isdigit:
+    print("número")
+else:
+    print("inválido")  # esperado: inválido
+>>> if texto.isdigit():
+!! Sem parênteses, o método sempre conta como verdadeiro.
+
+@b15 3
+try:
+    n = int("x")
+except TypeError:
+    n = 0
+print(n)
+>>> except ValueError:
+!! int("x") dá ValueError.
+
+@b15 2
+senha = "abc"
+tem_num = any(c.isdigit for c in senha)
+print(tem_num)  # esperado: False
+>>> tem_num = any(c.isdigit() for c in senha)
+!! Sem parênteses, cada item é um método, e métodos contam como verdadeiro.
+
+@b15 2
+v = [1, -1]
+ok = all([n > 0] for n in v)
+print(ok)  # esperado: False
+>>> ok = all(n > 0 for n in v)
+!! [n > 0] é uma lista com um item, e listas cheias são sempre verdadeiras.
+
+@b15 1
+idade = "20"
+if isinstance(idade, int):
+    print("ok")
+else:
+    print("texto")  # esperado: ok
+>>> idade = int("20")
+!! "20" entre aspas é texto. Converta com int.
+
+# ---------------------------------------------------------------- b16 Pegadinhas dos built-ins
+@b16 2
+v = [3, 1, 2]
+v = v.sort()
+print(v)  # esperado: [1, 2, 3]
+>>> v.sort()
+!! sort devolve None. Não guarde o resultado.
+
+@b16 1
+m = map(int, ["1", "2"])
+print(sum(m))
+print(list(m))  # esperado: [1, 2]
+>>> m = list(map(int, ["1", "2"]))
+!! O map se esgotou no sum. Guarde numa lista.
+
+@b16 1
+max = 10
+print(max([1, 5]))
+>>> limite = 10
+!! A variável max escondeu a função max.
+
+@b16 1
+print(round(2.5))  # esperado: 3
+>>> print(int(2.5 + 0.5))  # esperado: 3
+!! round arredonda o .5 para o par mais próximo (2).
+
+@b16 1
+print(sum(["a", "b"]))
+>>> print("".join(["a", "b"]))
+!! sum não soma textos. Use join.
+
+@b16 1
+r = reversed([1, 2, 3])
+print(r[0])
+>>> r = list(reversed([1, 2, 3]))
+!! reversed devolve um iterador, sem índice.
+
+# ---------------------------------------------------------------- b17 Desafios de built-ins
+@b17 2
+def campeao(pontos):
+    return max(pontos)
+
+print(campeao({"Ana": 9, "Bia": 3}))  # esperado: Ana
+>>> return max(pontos, key=pontos.get)
+!! Sem key, max compara os nomes. Use key=pontos.get.
+
+@b17 2
+def conta_vogais(texto):
+    return sum(1 for c in texto if c in "aeiou")
+
+print(conta_vogais("Ola"))  # esperado: 2
+>>> return sum(1 for c in texto.lower() if c in "aeiou")
+!! O O maiúsculo ficou de fora. Use texto.lower().
+
+@b17 2
+def maior_palavra(frase):
+    return max(frase, key=len)
+
+print(maior_palavra("eu amo python"))  # esperado: python
+>>> return max(frase.split(), key=len)
+!! Sem split, max percorre as letras.
+
+@b17 2
+def iniciais(nome):
+    return "".join(p[0] for p in nome)
+
+print(iniciais("ana maria"))  # esperado: AM
+>>> return "".join(p[0].upper() for p in nome.split())
+!! Separe as palavras com split e ponha em maiúscula.
+
+@b17 2
+def binario(n):
+    return bin(n)[:2]
+
+print(binario(5))  # esperado: 101
+>>> return bin(n)[2:]
+!! [:2] pega o 0b. Para cortar o 0b, use [2:].
+
+@b17 2
+def estatisticas(v):
+    return min(v), max(v), sum(v) / len(v)
+
+print(estatisticas([1, 2, 4]))  # esperado: (1, 4, 2.3)
+>>> return min(v), max(v), round(sum(v) / len(v), 1)
+!! Faltou arredondar a média com round(..., 1).
