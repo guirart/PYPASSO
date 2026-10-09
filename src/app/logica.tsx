@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Cross } from '@/components/Icons';
-import { classificar, lerFormula, mostrar, tabela, validade, type Formula, type Tabela, type Veredito } from '@/lib/logica/proposicional';
+import { classificar, lerFormula, mostrar, tabela, validade, type Formula, type Tabela, type Veredito } from '@/lib/proposicional';
 import { mono, useTheme } from '@/lib/theme';
 
 const SIMBOLOS = ['¬', '∧', '∨', '→', '↔', '(', ')'];

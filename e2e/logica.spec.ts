@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { classificar, equivalentes, lerFormula, mostrar, validade } from '../src/lib/logica/proposicional';
-import { Prolog } from '../src/lib/logica/prolog';
+import { classificar, equivalentes, lerFormula, mostrar, validade } from '../src/lib/proposicional';
+import { Prolog } from '../src/lib/prolog';
 
 const v = (p: string[], c: string) => validade(p.map(lerFormula), lerFormula(c));
 
@@ -84,7 +84,7 @@ test.describe('mini-Prolog', () => {
 });
 
 test('exemplos do laboratório Prolog dão o resultado anunciado', async () => {
-  const { EXEMPLOS_PROLOG } = await import('../src/lib/logica/exemplos');
+  const { EXEMPLOS_PROLOG } = await import('../src/lib/exemplos-prolog');
   for (const ex of EXEMPLOS_PROLOG) {
     const p = new Prolog();
     expect(p.carregar(ex.programa), ex.nome).toEqual([]);

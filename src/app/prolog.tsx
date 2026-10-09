@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Cross } from '@/components/Icons';
-import { EXEMPLOS_PROLOG } from '@/lib/logica/exemplos';
-import { Prolog } from '@/lib/logica/prolog';
+import { EXEMPLOS_PROLOG } from '@/lib/exemplos-prolog';
+import { Prolog } from '@/lib/prolog';
 import { mono, useTheme } from '@/lib/theme';
 
 type Resposta = { erros: string[]; solucoes: Record<string, string>[]; saida: string; mais: boolean; erro?: string; consulta: string };
