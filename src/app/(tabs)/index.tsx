@@ -94,6 +94,9 @@ export default function AprenderScreen() {
     const ev = nivelDe(g.xp).nivel >= EVENTO_NIVEL && g.evento?.semana === weekId() && g.evento.pontos >= META_EVENTO && !g.evento.resgatado ? 1 : 0; // evento liberado e pronto
     return missoesDoDia(h.dia).filter((x) => !h.resgatadas.includes(x.id) && (h.c[x.evento] ?? 0) >= x.meta).length + (h.resgatadas.length >= 3 && !h.bau ? 1 : 0) + ev;
   })();
+  const [ultimaPython, setUltimaPython] = useState<'main' | 'builtins' | 'libs'>('main'); // última trilha de Python aberta
+  useEffect(() => { if (track !== 'logica') setUltimaPython(track); }, [track]);
+  const topico = track === 'logica' ? 'logica' : 'python';
   const [mais, setMais] = useState(false); // seção "Mais atividades" recolhida para a tela ficar limpa
   const livres = disponiveis(mapa, rota);
   const feitasZona = licoes.filter((l) => l in done).length;
@@ -108,18 +111,33 @@ export default function AprenderScreen() {
       <ScrollView contentContainerStyle={styles.scroll}>
         <HudTopo />
         <View style={[styles.tracks, { backgroundColor: t.surface, borderColor: t.line }]} accessibilityRole="tablist">
-          {TRACKS.map((tr) => {
-            const on = tr.id === track;
-            const n = LESSONS_BY_TRACK[tr.id].filter((l) => l.id in done).length;
+          {([['python', 'Python', ultimaPython], ['logica', 'Lógica', 'logica']] as const).map(([k, nome, destino]) => {
+            const on = topico === k;
+            const lic = (k === 'python' ? ['main', 'builtins', 'libs'] as const : ['logica'] as const).flatMap((id) => LESSONS_BY_TRACK[id]);
             return (
-              <Pressable key={tr.id} onPress={() => setTrack(tr.id)} accessibilityRole="tab" accessibilityState={{ selected: on }}
+              <Pressable key={k} onPress={() => setTrack(destino)} accessibilityRole="tab" accessibilityLabel={`Tópico: ${nome}`} accessibilityState={{ selected: on }}
                 style={[styles.trackBtn, on && { backgroundColor: t.brand }]}>
-                <Text style={{ color: on ? '#fff' : t.ink, fontWeight: '900', fontSize: 14 }}>{tr.short}</Text>
-                <Text style={{ color: on ? 'rgba(255,255,255,0.85)' : t.muted, fontWeight: '700', fontSize: 11 }}>{n}/{LESSONS_BY_TRACK[tr.id].length} lições</Text>
+                <Text style={{ color: on ? '#fff' : t.ink, fontWeight: '900', fontSize: 16 }}>{nome}</Text>
+                <Text style={{ color: on ? 'rgba(255,255,255,0.85)' : t.muted, fontWeight: '700', fontSize: 11 }}>{lic.filter((l) => l.id in done).length}/{lic.length} lições</Text>
               </Pressable>
             );
           })}
         </View>
+        {topico === 'python' && (
+          <View style={[styles.tracks, { backgroundColor: t.surface, borderColor: t.line }]} accessibilityRole="tablist">
+            {TRACKS.filter((tr) => tr.id !== 'logica').map((tr) => {
+              const on = tr.id === track;
+              const n = LESSONS_BY_TRACK[tr.id].filter((l) => l.id in done).length;
+              return (
+                <Pressable key={tr.id} onPress={() => setTrack(tr.id)} accessibilityRole="tab" accessibilityState={{ selected: on }}
+                  style={[styles.trackBtn, on && { backgroundColor: t.brand }]}>
+                  <Text style={{ color: on ? '#fff' : t.ink, fontWeight: '900', fontSize: 14 }}>{tr.short}</Text>
+                  <Text style={{ color: on ? 'rgba(255,255,255,0.85)' : t.muted, fontWeight: '700', fontSize: 11 }}>{n}/{LESSONS_BY_TRACK[tr.id].length} lições</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        )}
 
         <View style={styles.meta} accessibilityLabel={`Meta diária: ${Math.min(dayXP, DAILY_GOAL)} de ${DAILY_GOAL} XP`}>
           <Icone nome="alvo" size={18} color={t.sunDeep} />

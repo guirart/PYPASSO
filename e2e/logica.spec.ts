@@ -134,7 +134,7 @@ test.describe('Módulo de Lógica (telas)', () => {
   test('aba Lógica é uma lista simples, sem mapa', async ({ page }) => {
     await comProgresso(page);
     await page.goto('/');
-    await page.getByRole('tab', { name: /Lógica/ }).click();
+    await page.getByRole('tab', { name: 'Tópico: Lógica' }).click();
     await expect(page.getByText('Legenda do mapa')).toHaveCount(0);
     await page.getByRole('button', { name: 'Lição: O que é um argumento' }).click();
     await expect(page.getByText('Enunciado: frase que pode ser verdadeira ou falsa')).toBeVisible();
