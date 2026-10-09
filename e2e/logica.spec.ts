@@ -101,7 +101,7 @@ test.describe('Módulo de Lógica (telas)', () => {
   test('trilha Lógica abre uma lição com cartão de conceito', async ({ page }) => {
     await comProgresso(page);
     await page.goto('/lesson/lg0l0');
-    await expect(page.getByText('Argumento = premissas + conclusão')).toBeVisible();
+    await expect(page.getByText('Enunciado: frase que pode ser verdadeira ou falsa')).toBeVisible();
     await expect(page.getByText('EXEMPLO', { exact: true })).toBeVisible();
     await page.getByRole('button', { name: /CONTINUAR|VERIFICAR/ }).first().click();
     await expect(page.getByText('Qual destas frases é um enunciado')).toBeVisible();
@@ -137,6 +137,6 @@ test.describe('Módulo de Lógica (telas)', () => {
     await page.getByRole('tab', { name: /Lógica/ }).click();
     await expect(page.getByText('Legenda do mapa')).toHaveCount(0);
     await page.getByRole('button', { name: 'Lição: O que é um argumento' }).click();
-    await expect(page.getByText('Argumento = premissas + conclusão')).toBeVisible();
+    await expect(page.getByText('Enunciado: frase que pode ser verdadeira ou falsa')).toBeVisible();
   });
 });
